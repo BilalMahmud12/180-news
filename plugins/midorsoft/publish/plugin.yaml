@@ -1,0 +1,30 @@
+plugin:
+    name: 'midorsoft.publish::lang.plugin.name'
+    description: 'midorsoft.publish::lang.plugin.description'
+    author: Midorsoft
+    icon: oc-icon-pencil
+    homepage: ''
+navigation:
+    articles-menu:
+        label: Articles
+        url: midorsoft/publish/articles
+        icon: icon-pencil
+        order: '20'
+        sideMenu:
+            articles-list:
+                label: Articles
+                url: midorsoft/publish/articles
+                icon: icon-file-word-o
+            categories:
+                label: Categories
+                url: midorsoft/publish/categories
+                icon: icon-sitemap
+            tags:
+                label: Tags
+                url: midorsoft/publish/tags
+                icon: icon-tags
+    authors:
+        label: Authors
+        url: midorsoft/publish/authors
+        icon: icon-user
+        order: '30'

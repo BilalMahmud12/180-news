@@ -1,0 +1,10 @@
+name: Categories
+form: $/midorsoft/publish/models/category/fields.yaml
+modelClass: Midorsoft\Publish\Models\Category
+defaultRedirect: midorsoft/publish/categories
+create:
+    redirect: 'midorsoft/publish/categories/update/:id'
+    redirectClose: midorsoft/publish/categories
+update:
+    redirect: midorsoft/publish/categories
+    redirectClose: midorsoft/publish/categories

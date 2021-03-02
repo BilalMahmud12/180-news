@@ -1,0 +1,5 @@
+<?php if($record->photo): ?>
+<img src="<?= url(Config::get('cms.storage.media.path')).$record->profile_photo; ?>" width="50" height="50" style="border-radius: 4px; object-fit: cover">
+<?php else: ?>
+<small class="text-center">No Image</small>
+<?php endif; ?>

@@ -1,0 +1,10 @@
+name: Authors
+form: $/midorsoft/publish/models/author/fields.yaml
+modelClass: Midorsoft\Publish\Models\Author
+defaultRedirect: midorsoft/publish/authors
+create:
+    redirect: 'midorsoft/publish/authors/update/:id'
+    redirectClose: midorsoft/publish/authors
+update:
+    redirect: midorsoft/publish/authors
+    redirectClose: midorsoft/publish/authors

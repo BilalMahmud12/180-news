@@ -1,0 +1,17 @@
+fields:
+    is_active:
+        label: 'midorsoft.publish::lang.plugin.active'
+        span: auto
+        type: checkbox
+tabs:
+    fields:
+        name:
+            label: 'Tag Name'
+            span: auto
+            type: text
+            tab: 'midorsoft.publish::lang.plugin.tab_general'
+        slug:
+            label: 'Slug (URL)'
+            span: auto
+            type: text
+            tab: 'midorsoft.publish::lang.plugin.tab_general'

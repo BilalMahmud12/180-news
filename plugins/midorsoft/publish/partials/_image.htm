@@ -1,0 +1,7 @@
+<?php if($record->image): ?>
+    <img src="<?= url(Config::get('cms.storage.media.path')).$record->image; ?>" width="80" style="border-radius: 4px;">
+<?php else: ?>
+    <small class="text-center">No Image</small>
+<?php endif; ?>
+
+

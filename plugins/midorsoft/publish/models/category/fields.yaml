@@ -1,0 +1,59 @@
+fields:
+    is_active:
+        label: 'midorsoft.publish::lang.plugin.active'
+        span: auto
+        default: 1
+        type: checkbox
+    in_menu:
+        label: 'midorsoft.publish::lang.plugin.show_in_menu'
+        span: auto
+        type: checkbox
+        comment: 'midorsoft.publish::lang.plugin.article_comment_show_in_menu'
+        tab: General
+    sort_order:
+        label: 'midorsoft.publish::lang.plugin.category_menu_index'
+        span: auto
+        type: number
+        tab: General
+tabs:
+    fields:
+        name:
+            label: 'midorsoft.publish::lang.plugin.category_name'
+            span: left
+            required: 1
+            type: text
+            tab: General
+        slug:
+            label: 'midorsoft.publish::lang.plugin.category_slug'
+            span: auto
+            required: 1
+            preset:
+                field: name
+                type: slug
+            type: text
+            tab: General
+        content:
+            label: 'midorsoft.publish::lang.plugin.category_description'
+            size: small
+            span: full
+            type: textarea
+            tab: General
+        image:
+            label: 'midorsoft.publish::lang.plugin.category_image'
+            mode: image
+            imageWidth: '360'
+            span: auto
+            type: mediafinder
+            tab: Media
+        meta_desc:
+            label: 'midorsoft.publish::lang.plugin.category_meta_description'
+            size: tiny
+            span: auto
+            type: textarea
+            tab: SEO
+        meta_keys:
+            label: 'midorsoft.publish::lang.plugin.category_search_keywords'
+            size: tiny
+            span: auto
+            type: textarea
+            tab: SEO

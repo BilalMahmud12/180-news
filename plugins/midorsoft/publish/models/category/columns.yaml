@@ -1,0 +1,27 @@
+columns:
+    is_active:
+        label: Active
+        type: partial
+        searchable: true
+        sortable: true
+        width: 3%
+        path: ~/plugins/midorsoft/publish/partials/_active.htm
+    name:
+        label: 'midorsoft.publish::lang.plugin.category_name'
+        type: text
+        searchable: true
+        sortable: true
+    articles:
+        label: 'Articles count'
+        type: number
+        relation: articles
+        useRelationCount: 'true'
+        width: 3%
+    updated_at:
+        label: 'last update'
+        type: datetime
+        width: 15%
+    created_at:
+        label: 'Created'
+        type: datetime
+        width: 15%

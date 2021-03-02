@@ -1,0 +1,31 @@
+fields:
+    is_active:
+        label: 'midorsoft.publish::lang.plugin.author_active'
+        span: auto
+        type: checkbox
+tabs:
+    fields:
+        name:
+            label: 'midorsoft.publish::lang.plugin.author_name'
+            span: auto
+            required: 1
+            type: text
+            tab: General
+        title:
+            label: Title
+            span: auto
+            type: text
+            tab: General
+        photo:
+            label: 'midorsoft.publish::lang.plugin.author_profile_photo'
+            mode: image
+            imageWidth: '150'
+            span: auto
+            type: mediafinder
+            tab: General
+        bio:
+            label: 'midorsoft.publish::lang.plugin.author_bio'
+            size: huge
+            span: full
+            type: richeditor
+            tab: General

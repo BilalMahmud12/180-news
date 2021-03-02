@@ -1,0 +1,111 @@
+fields:
+    is_active:
+        label: 'midorsoft.publish::lang.plugin.article_published'
+        span: auto
+        trigger:
+            action: empty
+            field: is_draft
+            condition: checked
+        type: checkbox
+    is_video_post:
+        label: 'Video Post'
+        span: auto
+        type: checkbox
+    is_vip_post:
+        label: 'Is Special Report Post'
+        span: auto
+        type: checkbox
+tabs:
+    fields:
+        intro:
+            label: Intro
+            span: full
+            type: text
+            tab: 'midorsoft.publish::lang.plugin.tab_general'
+        title:
+            label: 'midorsoft.publish::lang.plugin.article_title'
+            span: left
+            required: 1
+            type: text
+            tab: 'midorsoft.publish::lang.plugin.tab_general'
+        slug:
+            label: 'midorsoft.publish::lang.plugin.article_slug'
+            span: right
+            required: 1
+            type: text
+            tab: 'midorsoft.publish::lang.plugin.tab_general'
+        content:
+            label: 'midorsoft.publish::lang.plugin.article_content'
+            size: giant
+            span: full
+            required: 1
+            type: richeditor
+            tab: 'midorsoft.publish::lang.plugin.tab_general'
+        video_source:
+            label: 'Video Source'
+            options:
+                youtube: YouTube
+                vimeo: Vimeo
+            showSearch: true
+            span: auto
+            type: dropdown
+            tab: 'midorsoft.publish::lang.plugin.tab_media'
+        image:
+            label: 'midorsoft.publish::lang.plugin.article_image'
+            mode: image
+            imageWidth: '360'
+            span: auto
+            type: mediafinder
+            tab: 'midorsoft.publish::lang.plugin.tab_media'
+        video_url:
+            label: 'Video URL'
+            size: small
+            language: php
+            span: auto
+            type: codeeditor
+            tab: 'midorsoft.publish::lang.plugin.tab_media'
+        category:
+            label: 'midorsoft.publish::lang.plugin.article_category'
+            nameFrom: name
+            descriptionFrom: description
+            emptyOption: '-- Select Article Category --'
+            span: auto
+            required: 1
+            type: relation
+            tab: 'midorsoft.publish::lang.plugin.tab_category_author'
+        author:
+            label: 'midorsoft.publish::lang.plugin.article_author'
+            nameFrom: name
+            descriptionFrom: description
+            span: left
+            required: 1
+            type: relation
+            tab: 'midorsoft.publish::lang.plugin.tab_category_author'
+        meta_description:
+            label: 'midorsoft.publish::lang.plugin.article_meta_description'
+            size: tiny
+            span: auto
+            type: textarea
+            tab: 'midorsoft.publish::lang.plugin.tab_seo'
+        search_keywords:
+            label: 'midorsoft.publish::lang.plugin.article_search_keywords'
+            size: ''
+            span: auto
+            type: textarea
+            tab: 'midorsoft.publish::lang.plugin.tab_seo'
+        references:
+            label: References
+            prompt: 'Add Reference'
+            span: auto
+            type: repeater
+            tab: 'midorsoft.publish::lang.plugin.tab_references'
+            form:
+                fields:
+                    ref_title:
+                        label: Title
+                        span: full
+                        type: text
+                    ref_link:
+                        label: Link
+                        span: full
+                        type: text

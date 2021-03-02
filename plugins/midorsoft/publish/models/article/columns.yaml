@@ -1,0 +1,42 @@
+columns:
+    is_active:
+        label: Published
+        type: partial
+        searchable: true
+        sortable: true
+        width: 3%
+        path: ~/plugins/midorsoft/publish/partials/_active.htm
+    is_draft:
+        label: Draft
+        type: partial
+        searchable: true
+        sortable: true
+        width: 3%
+        path: ~/plugins/midorsoft/publish/partials/_active.htm
+    is_featured:
+        label: Featured
+        type: partial
+        searchable: true
+        sortable: true
+        width: 3%
+        path: ~/plugins/midorsoft/publish/partials/_active.htm
+    title:
+        label: 'midorsoft.publish::lang.plugin.article_title'
+        type: text
+        searchable: true
+        sortable: true
+    category:
+        label: Category
+        type: text
+        select: name
+        relation: category
+        width: 10%
+    author:
+        label: 'midorsoft.publish::lang.plugin.authors'
+        type: text
+        searchable: true
+        select: name
+        relation: author
+    updated_at:
+        label: 'Last Updated'
+        type: datetime

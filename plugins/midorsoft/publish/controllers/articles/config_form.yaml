@@ -1,0 +1,10 @@
+name: Articles
+form: $/midorsoft/publish/models/article/fields.yaml
+modelClass: Midorsoft\Publish\Models\Article
+defaultRedirect: midorsoft/publish/articles
+create:
+    redirect: 'midorsoft/publish/articles/update/:id'
+    redirectClose: midorsoft/publish/articles
+update:
+    redirect: midorsoft/publish/articles
+    redirectClose: midorsoft/publish/articles

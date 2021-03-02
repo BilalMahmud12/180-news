@@ -1,0 +1,10 @@
+name: Tags
+form: $/midorsoft/publish/models/tag/fields.yaml
+modelClass: Midorsoft\Publish\Models\Tag
+defaultRedirect: midorsoft/publish/tags
+create:
+    redirect: 'midorsoft/publish/tags/update/:id'
+    redirectClose: midorsoft/publish/tags
+update:
+    redirect: midorsoft/publish/tags
+    redirectClose: midorsoft/publish/tags
