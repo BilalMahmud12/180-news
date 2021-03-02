@@ -38,26 +38,20 @@
         <div class="container">
             <nav class="main-menu">
                 <ul>
-                    <li><a href="/">في العمق</a></li>
-                    <li><a href="/">مقالات و تحليلات</a></li>
-                    <li><a href="/">شاشات التحقيقات</a></li>
-                    <li><a href="/">لقطة قريبة</a></li>
-                    <li><a href="/">الجانب الأخر</a></li>
-                    <li><a href="/">وثائق و حكايات</a></li>
-                    <li><a href="/">ربع دكة</a></li>
+                    {% for item in main_menu %}
+                    <li><a href="/">{{ item.name }}</a></li>
+                    {% endfor %}
+                    {% if other_menu|length %}
                     <li class="dropdown"><a class="dropdown-link" href="/"><span>المزيد</span><span class="dropdown-icon"><svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M5 6L10 11L15 6L17 7L10 14L3 7L5 6Z" fill="black"/>
 </svg></span></a>
                         <ul class="dropdown-list">
-                            <li><a href="">في العمق</a></li>
-                            <li><a href="">مقالات و تحليلات</a></li>
-                            <li><a href="">شاشات التحقيقات</a></li>
-                            <li><a href="">لقطة قريبة</a></li>
-                            <li><a href="">الجانب الأخر</a></li>
-                            <li><a href="">وثائق و حكايات</a></li>
-                            <li><a href="">ربع دكة</a></li>
+                            {% for item in other_menu %}
+                            <li><a href="">{{ item.name }}</a></li>
+                            {% endfor %}
                         </ul>
                     </li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>
@@ -66,23 +60,20 @@
 <div class="mobile-menu-area" id="mobile_menu">
     <nav class="mobile-menu">
         <ul>
-            <li><a href="/">في العمق</a></li>
-            <li><a href="/">مقالات و تحليلات</a></li>
-            <li><a href="/">شاشات التحقيقات</a></li>
-            <li><a href="/">لقطة قريبة</a></li>
-            <li><a href="/">الجانب الأخر</a></li>
-            <li><a href="/">وثائق و حكايات</a></li>
-            <li><a href="/">ربع دكة</a></li>
+            {% for item in main_menu %}
+            <li><a href="/">{{ item.name }}</a></li>
+            {% endfor %}
+            {% if other_menu|length %}
             <li class="dropdown" id="mobile-dropdown"><a class="dropdown-link" href="#"><span>المزيد</span><span class="dropdown-icon"><svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M5 6L10 11L15 6L17 7L10 14L3 7L5 6Z" fill="black"/>
 </svg></span></a>
                 <ul class="dropdown-list" id="dropdown-list">
-                    <li><a href="">في العمق</a></li>
-                    <li><a href="">مقالات و تحليلات</a></li>
-                    <li><a href="">شاشات التحقيقات</a></li>
-                    <li><a href="">لقطة قريبة</a></li>
+                    {% for item in other_menu %}
+                    <li><a href="">{{ item.name }}</a></li>
+                    {% endfor %}
                 </ul>
             </li>
+            {% endif %}
         </ul>
     </nav>
     <div class="social-mobile">

@@ -8,8 +8,8 @@ use Midorsoft\Publish\Models\Tag;
 use Midorsoft\Publish\Models\Article;
 function onStart(){
     $this['settings'] = Setting::instance();
-    $this['mainmenu'] = Category::where('in_menu', 1)->where('is_active', 1)->orderBy('sort_order', 'asc')->get();
-    $this['othermenu'] = Category::where('in_menu', 0)->where('is_active', 1)->orderBy('sort_order', 'asc')->get();
+    $this['main_menu'] = Category::where('in_menu', 1)->where('is_active', 1)->orderBy('sort_order', 'asc')->get();
+    $this['other_menu'] = Category::where('in_menu', 0)->where('is_active', 1)->orderBy('sort_order', 'asc')->get();
 
 }
 ?>
