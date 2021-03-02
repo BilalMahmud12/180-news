@@ -39,3 +39,9 @@
 1.0.14:
     - 'Created table midorsoft_publish_settings'
     - builder_table_create_midorsoft_publish_settings.php
+1.0.15:
+    - 'Updated table midorsoft_publish_article_tags'
+    - builder_table_update_midorsoft_publish_article_tags_2.php
+1.0.16:
+    - 'Updated table midorsoft_publish_articles'
+    - builder_table_update_midorsoft_publish_articles_3.php

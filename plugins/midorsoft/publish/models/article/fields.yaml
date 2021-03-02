@@ -81,13 +81,22 @@ tabs:
             required: 1
             type: relation
             tab: 'midorsoft.publish::lang.plugin.tab_category_author'
-        meta_description:
+        tags:
+            label: Tags
+            mode: relation
+            separator: space
+            customTags: 0
+            useKey: false
+            span: auto
+            type: taglist
+            tab: 'midorsoft.publish::lang.plugin.tab_category_author'
+        meta_desc:
             label: 'midorsoft.publish::lang.plugin.article_meta_description'
             size: tiny
             span: auto
             type: textarea
             tab: 'midorsoft.publish::lang.plugin.tab_seo'
-        search_keywords:
+        meta_keys:
             label: 'midorsoft.publish::lang.plugin.article_search_keywords'
             size: ''
             span: auto

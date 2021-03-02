@@ -13,5 +13,8 @@ tabs:
         slug:
             label: 'Slug (URL)'
             span: auto
+            preset:
+                field: name
+                type: slug
             type: text
             tab: 'midorsoft.publish::lang.plugin.tab_general'

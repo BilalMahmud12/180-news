@@ -14,6 +14,7 @@ class Article extends Model
      * @var string The database table used by the model.
      */
     public $table = 'midorsoft_publish_articles';
+    public $jsonable = ['image', 'references'];
 
     /**
      * @var array Validation rules
@@ -22,7 +23,7 @@ class Article extends Model
         'title' => 'required',
         'slug'  => 'required',
         'category' => 'required',
-        'authors' => 'required',
+        'author' => 'required',
         'image' => 'required'
     ];
 
