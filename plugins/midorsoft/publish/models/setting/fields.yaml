@@ -1,0 +1,64 @@
+tabs:
+    fields:
+        site_name:
+            label: 'Website Name'
+            span: auto
+            type: text
+            tab: General
+        site_logo_light:
+            label: 'Logo Light'
+            mode: image
+            imageWidth: '150'
+            span: auto
+            type: mediafinder
+            tab: 'Website Image'
+        site_logo_dark:
+            label: 'Logo Dark'
+            mode: image
+            imageWidth: '150'
+            span: auto
+            type: mediafinder
+            tab: 'Website Image'
+        site_image:
+            label: 'Site Image'
+            mode: image
+            imageWidth: '260'
+            span: auto
+            type: mediafinder
+            tab: 'Website Image'
+        site_meta_description:
+            label: 'midorsoft.publish::lang.plugin.category_meta_description'
+            size: tiny
+            span: auto
+            type: textarea
+            tab: 'midorsoft.publish::lang.plugin.tab_seo'
+        site_search_keywords:
+            label: 'midorsoft.publish::lang.plugin.category_search_keywords'
+            size: tiny
+            span: auto
+            type: textarea
+            tab: 'midorsoft.publish::lang.plugin.tab_seo'
+        about:
+            label: 'About Us'
+            size: large
+            span: full
+            type: richeditor
+            tab: About
+        services:
+            label: Services
+            size: large
+            span: full
+            type: richeditor
+            tab: Services
+        advertising:
+            label: 'For Advertising'
+            size: large
+            span: full
+            type: richeditor
+            tab: Advertising
+        privacy_policy:
+            label: 'Privacy Policy'
+            size: giant
+            span: full
+            type: richeditor
+            tab: Policy
