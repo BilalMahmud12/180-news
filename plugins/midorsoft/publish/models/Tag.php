@@ -13,7 +13,7 @@ class Tag extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'midorsoft_publish_article_tags';
+    public $table = 'midorsoft_publish_tags';
 
     /**
      * @var array Validation rules

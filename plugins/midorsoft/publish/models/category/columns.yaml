@@ -11,17 +11,19 @@ columns:
         type: text
         searchable: true
         sortable: true
+        cssClass: titles
     articles:
         label: 'Articles count'
         type: number
         relation: articles
+        cssClass: articles-count
         useRelationCount: 'true'
         width: 3%
     updated_at:
         label: 'last update'
-        type: datetime
-        width: 15%
+        type: date
+        width: 10%
     created_at:
         label: 'Created'
-        type: datetime
-        width: 15%
+        type: date
+        width: 10%

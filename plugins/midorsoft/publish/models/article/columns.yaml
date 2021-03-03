@@ -1,4 +1,25 @@
 columns:
+    title:
+        label: 'midorsoft.publish::lang.plugin.article_title'
+        type: text
+        searchable: true
+        sortable: true
+        cssClass: titles
+    category:
+        label: Category
+        type: text
+        select: name
+        relation: categories
+        width: 15%
+        cssClass: other-titles
+    author:
+        label: 'midorsoft.publish::lang.plugin.authors'
+        type: text
+        searchable: true
+        select: name
+        relation: author
+        width: 10%
+        cssClass: other-titles
     is_active:
         label: Published
         type: partial
@@ -6,37 +27,22 @@ columns:
         sortable: true
         width: 3%
         path: ~/plugins/midorsoft/publish/partials/_active.htm
-    is_draft:
-        label: Draft
+
+    in_slider:
+        label: Slider
         type: partial
         searchable: true
         sortable: true
         width: 3%
         path: ~/plugins/midorsoft/publish/partials/_active.htm
-    is_featured:
-        label: Featured
-        type: partial
-        searchable: true
-        sortable: true
-        width: 3%
-        path: ~/plugins/midorsoft/publish/partials/_active.htm
-    title:
-        label: 'midorsoft.publish::lang.plugin.article_title'
-        type: text
-        searchable: true
-        sortable: true
-    category:
-        label: Category
-        type: text
-        select: name
-        relation: category
-        width: 10%
-    author:
-        label: 'midorsoft.publish::lang.plugin.authors'
-        type: text
-        searchable: true
-        select: name
-        relation: author
     updated_at:
         label: 'Last Updated'
         type: datetime
+        invisible: true
+        width: 10%
+
+    created_at:
+        label: 'Create Date'
+        type: date
+        invisible: false
+        width: 10%

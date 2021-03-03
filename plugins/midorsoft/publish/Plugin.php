@@ -1,9 +1,23 @@
 <?php namespace Midorsoft\Publish;
 
 use System\Classes\PluginBase;
+use Carbon\Carbon;
+
 
 class Plugin extends PluginBase
 {
+    public function registerMarkupTags()
+    {
+        return [
+            'filters' => [
+                'arabicDate' => function ($date_time, $format) {
+                    $carbon = new Carbon($date_time);
+                    setlocale(LC_ALL, 'arabic');
+                    return utf8_encode($carbon->formatLocalized($format));
+                },
+            ],
+        ];
+    }
     public function registerComponents()
     {
     }

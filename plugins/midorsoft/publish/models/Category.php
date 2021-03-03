@@ -13,7 +13,7 @@ class Category extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'midorsoft_publish_article_categories';
+    public $table = 'midorsoft_publish_categories';
 
     /**
      * @var array Validation rules

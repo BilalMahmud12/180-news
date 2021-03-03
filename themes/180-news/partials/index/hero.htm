@@ -4,40 +4,44 @@
             <div class="glide" id="hero-slider">
                 <div class="glide__track" data-glide-el="track">
                     <ul class="glide__slides">
+                        {% for slide in slider_items %}
                         <li class="hero-slide glide__slide">
                             <div class="overlay"></div>
-                            <div class="hero-image"><img src="assets/images/turkey.jpg" alt=""></div>
-                            <div class="slide-content"><a class="category" href="">
-                                <p>  تحقيقات</p></a><a class="title" href="">
-                                <h1>ماذا يقول أنصار عزل ترامب الآن؟</h1></a></div>
+                            <div class="hero-image"><img src="{{ slide.image|media }}" alt=""></div>
+                            <div class="slide-content">
+                                {% for category in slide.categories %}
+                                <a class="category" href="">
+                                <p>{{ category.name }}</p>
+                                </a>
+                                {% endfor %}
+                                <a class="title" href=""><h1>{{ slide.title }}</h1></a>
+                            </div>
                         </li>
-                        <li class="hero-slide glide__slide">
-                            <div class="overlay"></div>
-                            <div class="hero-image"><img src="assets/images/usa.jpg" alt=""></div>
-                            <div class="slide-content"><a class="category" href="">
-                                <p>  تحقيقات</p></a><a class="title" href="">
-                                <h1>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل على الرئيس أثناء محاولته تبرئة أنصاره من اقتحام الكونغرس؟</h1></a></div>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
+
                 <div class="gallery-controls">
                     <div class="glide__arrows" data-glide-el="controls">
-                        <button class="glide__arrow glide__arrow--right" data-glide-dir="&gt;"><span><svg width="25" height="25" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M6 15L11 10L6 5L7 3L14 10L7 17L6 15Z" fill="#64748b"/>
-</svg></span></button>
-                        <button class="glide__arrow glide__arrow--left" data-glide-dir="&lt;"><span><svg width="25" height="25" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14 5L9 10L14 15L13 17L6 10L13 3L14 5Z" fill="#64748b"/>
-</svg></span></button>
+                        <button class="glide__arrow glide__arrow--right" data-glide-dir="&gt;">
+                            <span><svg width="25" height="25" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 15L11 10L6 5L7 3L14 10L7 17L6 15Z" fill="#64748b"/></svg></span>
+                        </button>
+                        <button class="glide__arrow glide__arrow--left" data-glide-dir="&lt;">
+                            <span><svg width="25" height="25" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 5L9 10L14 15L13 17L6 10L13 3L14 5Z" fill="#64748b"/></svg></span>
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="special-reports">
-                <div class="reports-list"><a class="report-item" href="">
-                    <div class="overlay"></div>
-                    <div class="media"><img src="assets/images/report-01.jpg" alt=""></div>
-                    <div class="content">
-                        <h1>ماذا يقول أنصار عزل ترامب الآن؟</h1><span>   تقرير خاص</span>
-                    </div></a>
+                <div class="reports-list">
+                    <a class="report-item" href="">
+                        <div class="overlay"></div>
+                        <div class="media"><img src="{{ top_report.image|media }}" alt=""></div>
+                        <div class="content">
+                            <h1>{{ top_report.title }}</h1>
+                            <span>   تقرير خاص</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

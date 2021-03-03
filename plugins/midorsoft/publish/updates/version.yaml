@@ -45,3 +45,24 @@
 1.0.16:
     - 'Updated table midorsoft_publish_articles'
     - builder_table_update_midorsoft_publish_articles_3.php
+1.0.17:
+    - 'Updated table midorsoft_publish_articles'
+    - builder_table_update_midorsoft_publish_articles_4.php
+1.0.18:
+    - 'Created table midorsoft_publish_article_category'
+    - builder_table_create_midorsoft_publish_article_category.php
+1.0.19:
+    - 'Updated table midorsoft_publish_article_authors'
+    - builder_table_update_midorsoft_publish_authors.php
+1.0.20:
+    - 'Updated table midorsoft_publish_article_tags'
+    - builder_table_update_midorsoft_publish_tags.php
+1.0.21:
+    - 'Updated table midorsoft_publish_article_category'
+    - builder_table_update_midorsoft_publish_category.php
+1.0.22:
+    - 'Updated table midorsoft_publish_category'
+    - builder_table_update_midorsoft_publish_article_category.php
+1.0.23:
+    - 'Updated table midorsoft_publish_article_categories'
+    - builder_table_update_midorsoft_publish_categories.php

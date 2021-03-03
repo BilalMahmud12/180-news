@@ -13,7 +13,7 @@ class Author extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'midorsoft_publish_article_authors';
+    public $table = 'midorsoft_publish_authors';
 
     /**
      * @var array Validation rules

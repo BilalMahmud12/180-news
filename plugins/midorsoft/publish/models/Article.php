@@ -22,25 +22,25 @@ class Article extends Model
     public $rules = [
         'title' => 'required',
         'slug'  => 'required',
-        'category' => 'required',
+        'categories' => 'required',
         'author' => 'required',
         'image' => 'required'
     ];
 
     public $belongsTo = [
-        'category' => [
-            Category::class,
-            'key' => 'category_id'
-        ],
         'author' => [
             Author::class,
             'key' => 'author_id'
         ]
     ];
 
-
-
     public $belongsToMany = [
+        'categories' => [
+            Category::class,
+            'table' => 'midorsoft_publish_article_category',
+            'key' => 'article_id',
+            'otherKey' => 'category_id'
+        ],
         'tags' => [
             Tag::class,
             'table' => 'midorsoft_publish_article_tag',

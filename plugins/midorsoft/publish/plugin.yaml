@@ -1,5 +1,5 @@
 plugin:
-    name: 'midorsoft.publish::lang.plugin.name'
+    name: 'Publisher'
     description: 'midorsoft.publish::lang.plugin.description'
     author: Midorsoft
     icon: oc-icon-pencil

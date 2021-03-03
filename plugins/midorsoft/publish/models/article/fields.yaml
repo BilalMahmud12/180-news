@@ -15,6 +15,10 @@ fields:
         label: 'Is Special Report Post'
         span: auto
         type: checkbox
+    in_slider:
+        label: 'Show in Slider'
+        span: auto
+        type: checkbox
 tabs:
     fields:
         intro:
@@ -64,7 +68,7 @@ tabs:
             span: auto
             type: codeeditor
             tab: 'midorsoft.publish::lang.plugin.tab_media'
-        category:
+        categories:
             label: 'midorsoft.publish::lang.plugin.article_category'
             nameFrom: name
             descriptionFrom: description

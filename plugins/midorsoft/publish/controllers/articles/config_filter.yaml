@@ -1,0 +1,41 @@
+scopes:
+  published:
+    label: Published
+    type: checkbox
+    conditions: is_active = true
+
+  draft:
+    label: Draft
+    type: checkbox
+    conditions: is_active = false
+
+  slider:
+    label: In Slider
+    type: checkbox
+    conditions: in_slider = true
+
+  video:
+    label: Video Posts
+    type: checkbox
+    conditions: is_video_post = true
+
+  category:
+    label: Category
+    modelClass: Midorsoft\Publish\Models\Category
+    conditions: id in (select article_id from midorsoft_publish_article_category where category_id in (:filtered))
+    nameFrom: name
+
+  tag:
+    label: Tags
+    modelClass: Midorsoft\Publish\Models\Tag
+    conditions: id in (select article_id from midorsoft_publish_article_tag where tag_id in (:filtered))
+    nameFrom: name
+
+  author:
+    label: Author
+    modelClass: Midorsoft\Publish\Models\Author
+    conditions: id in (select id from midorsoft_publish_articles where author_id in (:filtered))
+    nameFrom: name
+
+
+
