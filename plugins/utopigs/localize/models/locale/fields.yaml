@@ -1,7 +1,0 @@
-# ===================================
-#  Field Definitions
-# ===================================
-
-setlocale_localename:
-    label: utopigs.localize::lang.locale.setlocale_localename
-    span: auto

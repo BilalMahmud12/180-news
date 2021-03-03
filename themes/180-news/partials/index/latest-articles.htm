@@ -17,9 +17,8 @@
                             <a class="post-title" href="">
                                 <h2>{{ post.title }}</h2>
                             </a>
+                            <div class="post-time"><span>{{ post.created_at| arabicDate('%A %e %B %Y') }}</span></div>
 
-                            <div class="post-time"><span>{{ post.updated_at| arabicDate('%A %e %B %Y') }}</span></div>
-                            {{ app.locale }}
                         </div>
                     </div>
                     {% endfor %}
