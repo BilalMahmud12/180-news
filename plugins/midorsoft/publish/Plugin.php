@@ -12,7 +12,7 @@ class Plugin extends PluginBase
             'filters' => [
                 'arabicDate' => function ($date_time, $format) {
                     $carbon = new Carbon($date_time);
-                    setlocale(LC_ALL, 'Arabic.UTF-8');
+                    setlocale(LC_ALL, 'Turkish.UTF-8');
                     return $carbon->formatLocalized($format);
                 },
             ],
