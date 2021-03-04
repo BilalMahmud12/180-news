@@ -9,16 +9,18 @@
                     {% for post in latest_articles %}
                     <div class="recent-post-item"><a class="media" href=""><img src="{{ post.image|media }}" alt=""></a>
                         <div class="content">
-                            {% for category in post.categories %}
-                            <a class="post-category" href="">
-                                <p>{{ category.name }}</p>
-                            </a>
-                            {% endfor %}
+
+                            <div class="post-category">
+                                {% for category in post.categories %}
+                                <a href="">{{ category.name }}</a>
+                                {% endfor %}
+                            </div>
+
                             <a class="post-title" href="">
+                                <span class="pre-title">{{ post.intro }}</span>
                                 <h2>{{ post.title }}</h2>
                             </a>
-                            <div class="post-time"><span>{{ post.created_at| arabicDate('%A %e %B / %Y') }}</span></div>
-
+                            <div class="post-time"><span>   تم النشر بتاريخ :</span><span>{{ post.created_at| arabicDate('%A %e %B / %Y') }}</span></div>
                         </div>
                     </div>
                     {% endfor %}

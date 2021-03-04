@@ -9,11 +9,11 @@
                             <div class="overlay"></div>
                             <div class="hero-image"><img src="{{ slide.image|media }}" alt=""></div>
                             <div class="slide-content">
-                                {% for category in slide.categories %}
-                                <a class="category" href="">
-                                <p>{{ category.name }}</p>
-                                </a>
-                                {% endfor %}
+                                <div class="category">
+                                    {% for category in slide.categories %}
+                                    <a href="">{{ category.name }}</a>
+                                    {% endfor %}
+                                </div>
                                 <a class="title" href=""><h1>{{ slide.title }}</h1></a>
                             </div>
                         </li>

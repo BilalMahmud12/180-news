@@ -66,3 +66,6 @@
 1.0.23:
     - 'Updated table midorsoft_publish_article_categories'
     - builder_table_update_midorsoft_publish_categories.php
+1.0.24:
+    - 'Updated table midorsoft_publish_articles'
+    - builder_table_update_midorsoft_publish_articles_5.php

@@ -21,10 +21,12 @@ class Category extends Model
     public $rules = [
     ];
 
-    public $hasMany = [
+    public $belongsToMany = [
         'articles' => [
             Article::class,
-            'key' => 'category_id'
+            'table' => 'midorsoft_publish_article_category',
+            'key' => 'category_id',
+            'otherKey' => 'article_id'
         ],
     ];
 }
