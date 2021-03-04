@@ -31,36 +31,15 @@
                     <h1> الأكثر قراءة</h1>
                 </div>
                 <div class="popular-posts">
-                    <div class="popular-post-item"><a class="media" href=""><img src="assets/images/usa.jpg" alt=""></a>
+                    {% for post in topPosts %}
+                    <div class="popular-post-item"><a class="media" href=""><img src="{{ post.image|media }}" alt=""></a>
                         <div class="content">
-                            <div class="rate"><span>1</span></div><a class="post-title" href="">
-                            <h2>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل على الرئيس أثناء محاولته تبرئة أنصاره من اقتحام الكونغرس؟</h2></a>
+                            <div class="rate"><span>{{ loop.index }}</span></div><a class="post-title" href="">
+                            <h2>{{ post.title }}</h2></a>
                         </div>
                     </div>
-                    <div class="popular-post-item"><a class="media" href=""><img src="assets/images/usa.jpg" alt=""></a>
-                        <div class="content">
-                            <div class="rate"><span>2</span></div><a class="post-title" href="">
-                            <h2>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل على الرئيس أثناء محاولته تبرئة أنصاره من اقتحام الكونغرس؟</h2></a>
-                        </div>
-                    </div>
-                    <div class="popular-post-item"><a class="media" href=""><img src="assets/images/usa.jpg" alt=""></a>
-                        <div class="content">
-                            <div class="rate"><span>3</span></div><a class="post-title" href="">
-                            <h2>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل على الرئيس أثناء محاولته تبرئة أنصاره من اقتحام الكونغرس؟</h2></a>
-                        </div>
-                    </div>
-                    <div class="popular-post-item"><a class="media" href=""><img src="assets/images/usa.jpg" alt=""></a>
-                        <div class="content">
-                            <div class="rate"><span>4</span></div><a class="post-title" href="">
-                            <h2>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل على الرئيس أثناء محاولته تبرئة أنصاره من اقتحام الكونغرس؟</h2></a>
-                        </div>
-                    </div>
-                    <div class="popular-post-item"><a class="media" href=""><img src="assets/images/usa.jpg" alt=""></a>
-                        <div class="content">
-                            <div class="rate"><span>5</span></div><a class="post-title" href="">
-                            <h2>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل على الرئيس أثناء محاولته تبرئة أنصاره من اقتحام الكونغرس؟</h2></a>
-                        </div>
-                    </div>
+                    {% endfor %}
+
                 </div>
             </div>
         </div>

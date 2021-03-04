@@ -2,6 +2,7 @@
     <div class="container">
         <div class="inner-wrapper grid">
             {% for category in mainCategories %}
+            {% if category.articles|length %}
             <div class="section-col">
                 <div class="category-title"><a href="/">
                     <h1>{{ category.name }}</h1></a></div>
@@ -14,6 +15,7 @@
                     {% endfor %}
                 </ul>
             </div>
+            {% endif %}
             {% endfor %}
         </div>
     </div>
