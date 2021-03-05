@@ -2,3 +2,4 @@
 /modules
 /storage
 /vendor
+/config/database.php
