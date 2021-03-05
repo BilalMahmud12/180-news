@@ -1,13 +1,12 @@
 <section class="articles">
     <div class="container">
         <div class="inner-wrapper grid">
-            {% for category in mainCategories %}
-            {% if category.articles|length %}
+
             <div class="section-col">
                 <div class="category-title"><a href="/">
-                    <h1>{{ category.name }}</h1></a></div>
+                    <h1>{{ Cat01Posts.name }}</h1></a></div>
                 <ul class="category-articles">
-                    {% for post in category.articles %}
+                    {% for post in Cat01Posts.articles %}
                     <li class="category-article-item"><a class="media" href=""><img src="{{ post.image|media }}" alt=""></a><a class="title" href=""><span class="pre-title">{{ post.intro }}</span>
                         <h2>{{ post.title }}</h2></a>
                         <div class="date"><span>   تم النشر بتاريخ :</span><span>{{ post.created_at| arabicDate('%A %e %B / %Y') }}</span></div>
@@ -15,8 +14,60 @@
                     {% endfor %}
                 </ul>
             </div>
-            {% endif %}
-            {% endfor %}
+
+            <div class="section-col">
+                <div class="category-title"><a href="/">
+                    <h1>{{ Cat02Posts.name }}</h1></a></div>
+                <ul class="category-articles">
+                    {% for post in Cat02Posts.articles %}
+                    <li class="category-article-item"><a class="media" href=""><img src="{{ post.image|media }}" alt=""></a><a class="title" href=""><span class="pre-title">{{ post.intro }}</span>
+                        <h2>{{ post.title }}</h2></a>
+                        <div class="date"><span>   تم النشر بتاريخ :</span><span>{{ post.created_at| arabicDate('%A %e %B / %Y') }}</span></div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="section-col">
+                <div class="category-title"><a href="/">
+                    <h1>{{ Cat03Posts.name }}</h1></a></div>
+                <ul class="category-articles">
+                    {% for post in Cat03Posts.articles %}
+                    <li class="category-article-item"><a class="media" href=""><img src="{{ post.image|media }}" alt=""></a><a class="title" href=""><span class="pre-title">{{ post.intro }}</span>
+                        <h2>{{ post.title }}</h2></a>
+                        <div class="date"><span>   تم النشر بتاريخ :</span><span>{{ post.created_at| arabicDate('%A %e %B / %Y') }}</span></div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="section-col">
+                <div class="category-title"><a href="/">
+                    <h1>{{ Cat04Posts.name }}</h1></a></div>
+                <ul class="category-articles">
+                    {% for post in Cat04Posts.articles %}
+                    <li class="category-article-item"><a class="media" href=""><img src="{{ post.image|media }}" alt=""></a><a class="title" href=""><span class="pre-title">{{ post.intro }}</span>
+                        <h2>{{ post.title }}</h2></a>
+                        <div class="date"><span>   تم النشر بتاريخ :</span><span>{{ post.created_at| arabicDate('%A %e %B / %Y') }}</span></div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="section-col">
+                <div class="category-title"><a href="/">
+                    <h1>{{ Cat05Posts.name }}</h1></a></div>
+                <ul class="category-articles">
+                    {% for post in Cat05Posts.articles %}
+                    <li class="category-article-item"><a class="media" href=""><img src="{{ post.image|media }}" alt=""></a><a class="title" href=""><span class="pre-title">{{ post.intro }}</span>
+                        <h2>{{ post.title }}</h2></a>
+                        <div class="date"><span>   تم النشر بتاريخ :</span><span>{{ post.created_at| arabicDate('%A %e %B / %Y') }}</span></div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+
         </div>
     </div>
 </section>

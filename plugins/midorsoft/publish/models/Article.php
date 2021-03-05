@@ -1,5 +1,6 @@
 <?php namespace Midorsoft\Publish\Models;
 
+use Midorsoft\Publish\Controllers\Articles;
 use Model;
 
 /**
@@ -48,4 +49,15 @@ class Article extends Model
             'otherKey' => 'tag_id'
         ]
     ];
+
+    public static function filteredArticles()
+    {
+        $categories = Category::select('id', 'name')->get();
+        foreach ($categories as $category) {
+            $categories->map(function ($article){
+                return $article;
+            });
+        }
+
+    }
 }
