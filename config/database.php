@@ -57,7 +57,7 @@ return [
             'engine'     => 'InnoDB',
             'host'       => 'localhost',
             'port'       => 3306,
-            'database'   => '180_news',
+            'database'   => '180_news_site',
             'username'   => 'root',
             'password'   => 'T*tan1um',
             'charset'    => 'utf8mb4',

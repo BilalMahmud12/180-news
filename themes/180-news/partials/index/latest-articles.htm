@@ -1,5 +1,5 @@
 <section id="latest-articles">
-    <div class="container">
+    <div class="section-wrapper">
         <div class="section-grid">
             <div class="grid-2">
                 <div class="title">
@@ -9,17 +9,15 @@
                     {% for post in latest_articles %}
                     <div class="recent-post-item"><a class="media" href=""><img src="{{ post.image|media }}" alt=""></a>
                         <div class="content">
-
+                            <a class="post-title" href="">
+                                <span class="pre-title">{{ post.intro }}</span>
+                                <h2>{{ post.title }}</h2>
+                            </a>
                             <div class="post-category">
                                 {% for category in post.categories %}
                                 <a href="">{{ category.name }}</a>
                                 {% endfor %}
                             </div>
-
-                            <a class="post-title" href="">
-                                <span class="pre-title">{{ post.intro }}</span>
-                                <h2>{{ post.title }}</h2>
-                            </a>
                             <div class="post-time"><span>   تم النشر بتاريخ :</span><span>{{ post.created_at| arabicDate('%A %e %B / %Y') }}</span></div>
                         </div>
                     </div>
