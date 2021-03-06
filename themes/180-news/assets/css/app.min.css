@@ -424,12 +424,11 @@ header .menu-area .container .search form input:focus {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   position: fixed;
   overflow-y: scroll !important;
-  min-height: 100%;
-  height: 100%;
-  top: 48px;
+  top: 0;
   left: 0;
   width: 100%;
   z-index: 99;
+  padding-top: 55px;
   -webkit-transform: translate3d(0, 0, 0);
 }
 
