@@ -612,8 +612,8 @@ article#index-page section#hero .section-wrapper .hero-grid #hero-slider .glide_
 
 @media (max-width: 640px) {
   article#index-page section#hero .section-wrapper .hero-grid #hero-slider .glide__track ul.glide__slides li.hero-slide .hero-image {
-    max-height: 58.6vh;
-    height: 58.6vh;
+    max-height: 315px;
+    height: 315px;
   }
 }
 
