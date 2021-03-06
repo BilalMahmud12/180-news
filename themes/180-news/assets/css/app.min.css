@@ -152,7 +152,17 @@ header .top-area .container .header-left .search-top input#search {
   border-radius: 0px;
   border-bottom-width: 1px;
   --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity));
+  color: rgba(71, 85, 105, var(--tw-text-opacity));
+}
+
+@media (min-width: 768px) {
+  header .top-area .container .header-left .search-top input#search {
+    --tw-text-opacity: 1;
+    color: rgba(255, 255, 255, var(--tw-text-opacity));
+  }
+}
+
+header .top-area .container .header-left .search-top input#search {
   width: 105px;
   transition: 0.5s ease-in-out;
   font-family: 'Markazi Text', serif;
@@ -602,8 +612,8 @@ article#index-page section#hero .section-wrapper .hero-grid #hero-slider .glide_
 
 @media (max-width: 640px) {
   article#index-page section#hero .section-wrapper .hero-grid #hero-slider .glide__track ul.glide__slides li.hero-slide .hero-image {
-    max-height: 200px;
-    height: 200px;
+    max-height: 58.6vh;
+    height: 58.6vh;
   }
 }
 
@@ -2578,10 +2588,7 @@ header .top-area article#article-single .article-heading .header-left .search-to
   border-radius: 0px;
   border-bottom-width: 1px;
   --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity));
-  width: 105px;
-  transition: 0.5s ease-in-out;
-  font-family: 'Markazi Text', serif;
+  color: rgba(71, 85, 105, var(--tw-text-opacity));
 }
 
 header .top-area article#article-single .article-heading .header-left .search-top input#search:focus {
@@ -3358,10 +3365,7 @@ header .top-area article#article-single .article-body .header-left .search-top i
   border-radius: 0px;
   border-bottom-width: 1px;
   --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity));
-  width: 105px;
-  transition: 0.5s ease-in-out;
-  font-family: 'Markazi Text', serif;
+  color: rgba(71, 85, 105, var(--tw-text-opacity));
 }
 
 header .top-area article#article-single .article-body .header-left .search-top input#search:focus {
