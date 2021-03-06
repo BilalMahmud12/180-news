@@ -428,7 +428,7 @@ header .menu-area .container .search form input:focus {
   left: 0;
   width: 100%;
   z-index: 99;
-  padding-top: 55px;
+  padding-top: 65px;
   -webkit-transform: translate3d(0, 0, 0);
 }
 
