@@ -1,5 +1,204 @@
 title = "Posts Index"
-url = "/posts-index"
+url = "/:category/:page"
 layout = "posts-index"
 is_hidden = 0
+
 ==
+<?php
+use Midorsoft\Publish\Models\Setting;
+    use Midorsoft\Publish\Models\Category;
+    use Midorsoft\Publish\Models\Author;
+    use Midorsoft\Publish\Models\Tag;
+    use Midorsoft\Publish\Models\Article;
+    use Carbon\Carbon;
+
+function onStart()
+{
+        $segments = \Request::segments();
+        $slug_un  = $segments[0];
+        $slug     = urldecode($slug_un);
+
+        $this['category'] = Category::where('slug', $slug)->where('is_active', 1)->first();
+
+
+        $this['articles'] = Article::where('is_video_post', 0)->whereHas('categories', function($q) {
+            $q->where('id', $this['category']->id);
+        })->OrderBy('updated_at', 'desc')->paginate(7);
+
+        //dd($this['articles']);
+        $this->page->title = $this['category']->name;
+
+
+}
+?>
+==
+<article id="articles-index">
+    <div class="sub-header">
+        <div class="wrapper">
+            <div class="overlay"></div>
+            <div class="subheader-bg"><img src="{{ category.image|media }}" alt=""></div>
+            <div class="category-title">
+                <h1>{{ category.name }}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <div class="articles-container">
+                <div class="section-title">
+                    <h2> أخر الموضوعات</h2>
+                </div>
+
+                <ul class="articles-list">
+
+                    {% for article in articles %}
+
+                    <li class="category-article-item"><a class="media" href=""><img src="{{ article.image|media }}" alt=""/></a><a class="title" href=""><span class="pre-title"> ماذا يقول أنصار عزل ترامب الآن؟</span>
+                        <h2>{{ article.title }}</h2></a>
+                        <div class="date"><span>   تم النشر بتاريخ :</span><span>   16 february, 2021 12:35 AM</span></div>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+                <div class="articles-pagination">
+                    {% if articles.currentPage > 1 %}
+                    <button class="first-page" onclick="window.location.href='{{ articles.previousPageUrl }}'">السابق</button>
+                    {% endif %}
+                    {% for page in range(1, articles.lastPage) %}
+                    <a class="page-number" href="{{ articles.url(page) }}"><span>{{ page }}</span></a>
+
+                    {% endfor %}
+                    {% if articles.hasMorePages %}
+                    <button class="last-page" onclick="window.location.href='{{ articles.nextPageUrl }}'">   التالي</button>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="top-articles">
+                <div class="section-title">
+                    <h2> الأكثر قراءة</h2>
+                </div>
+                <div class="top-articles-list">
+                    <div class="popular-post-item"><a class="media" href=""><img src="assets/images/usa.jpg" alt=""/></a>
+                        <div class="content">
+                            <div class="rate"><span>1</span></div><a class="post-title" href="">
+                            <h2>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل على الرئيس أثناء محاولته تبرئة أنصاره من اقتحام الكونغرس؟</h2></a>
+                        </div>
+                    </div>
+                    <div class="popular-post-item"><a class="media" href=""><img src="assets/images/usa.jpg" alt=""/></a>
+                        <div class="content">
+                            <div class="rate"><span>2</span></div><a class="post-title" href="">
+                            <h2>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل على الرئيس أثناء محاولته تبرئة أنصاره من اقتحام الكونغرس؟</h2></a>
+                        </div>
+                    </div>
+                    <div class="popular-post-item"><a class="media" href=""><img src="assets/images/usa.jpg" alt=""/></a>
+                        <div class="content">
+                            <div class="rate"><span>3</span></div><a class="post-title" href="">
+                            <h2>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل على الرئيس أثناء محاولته تبرئة أنصاره من اقتحام الكونغرس؟</h2></a>
+                        </div>
+                    </div>
+                    <div class="popular-post-item"><a class="media" href=""><img src="assets/images/usa.jpg" alt=""/></a>
+                        <div class="content">
+                            <div class="rate"><span>4</span></div><a class="post-title" href="">
+                            <h2>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل على الرئيس أثناء محاولته تبرئة أنصاره من اقتحام الكونغرس؟</h2></a>
+                        </div>
+                    </div>
+                    <div class="popular-post-item"><a class="media" href=""><img src="assets/images/usa.jpg" alt=""/></a>
+                        <div class="content">
+                            <div class="rate"><span>5</span></div><a class="post-title" href="">
+                            <h2>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل على الرئيس أثناء محاولته تبرئة أنصاره من اقتحام الكونغرس؟</h2></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="category-videos">
+        <div class="section-bg"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2>فيديوهات</h2>
+            </div>
+            <div class="section-content"><a class="main-video" href="">
+                <div class="media">
+                    <div class="play-icon"><svg width="60" height="60" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 4L15 10L5 16V4Z" fill="white"/>
+                    </svg>
+                    </div><img src="assets/images/turkey.jpg" alt="">
+                </div>
+                <div class="title">
+                    <h2>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل على الرئيس أثناء محاولته تبرئة أنصاره من اقتحام الكونغرس؟</h2>
+                </div></a>
+                <div class="videos-container">
+                    <div class="glide" id="video-slider">
+                        <div class="glide__track" data-glide-el="track">
+                            <ul class="glide__slides">
+                                <li class="video-slide-item glide__slide"><a href="">
+                                    <div class="media">
+                                        <div class="play-icon"><svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 4L15 10L5 16V4Z" fill="white"/>
+                                        </svg>
+                                        </div><img src="assets/images/turkey.jpg" alt=""/>
+                                    </div>
+                                    <div class="title">
+                                        <h2>ماذا يقول أنصار عزل ترامب الآن؟</h2>
+                                    </div></a></li>
+                                <li class="video-slide-item glide__slide"><a href="">
+                                    <div class="media">
+                                        <div class="play-icon"><svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 4L15 10L5 16V4Z" fill="white"/>
+                                        </svg>
+                                        </div><img src="assets/images/turkey.jpg" alt=""/>
+                                    </div>
+                                    <div class="title">
+                                        <h2>ماذا يقول أنصار عزل ترامب الآن؟</h2>
+                                    </div></a></li>
+                                <li class="video-slide-item glide__slide"><a href="">
+                                    <div class="media">
+                                        <div class="play-icon"><svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 4L15 10L5 16V4Z" fill="white"/>
+                                        </svg>
+                                        </div><img src="assets/images/turkey.jpg" alt=""/>
+                                    </div>
+                                    <div class="title">
+                                        <h2>ماذا يقول أنصار عزل ترامب الآن؟</h2>
+                                    </div></a></li>
+                                <li class="video-slide-item glide__slide"><a href="">
+                                    <div class="media">
+                                        <div class="play-icon"><svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 4L15 10L5 16V4Z" fill="white"/>
+                                        </svg>
+                                        </div><img src="assets/images/turkey.jpg" alt=""/>
+                                    </div>
+                                    <div class="title">
+                                        <h2>ماذا يقول أنصار عزل ترامب الآن؟</h2>
+                                    </div></a></li>
+                                <li class="video-slide-item glide__slide"><a href="">
+                                    <div class="media">
+                                        <div class="play-icon"><svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 4L15 10L5 16V4Z" fill="white"/>
+                                        </svg>
+                                        </div><img src="assets/images/turkey.jpg" alt=""/>
+                                    </div>
+                                    <div class="title">
+                                        <h2>ماذا يقول أنصار عزل ترامب الآن؟</h2>
+                                    </div></a></li>
+                            </ul>
+                        </div>
+                        <div class="gallery-controls">
+                            <div class="glide__arrows" data-glide-el="controls">
+                                <button class="glide__arrow glide__arrow--right" data-glide-dir="&gt;"><span><svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 15L11 10L6 5L7 3L14 10L7 17L6 15Z" fill="white"/>
+</svg></span></button>
+                                <button class="glide__arrow glide__arrow--left" data-glide-dir="&lt;"><span><svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 5L9 10L14 15L13 17L6 10L13 3L14 5Z" fill="white"/>
+</svg></span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+
