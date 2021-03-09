@@ -1,35 +1,28 @@
 title = "Posts Index"
-url = "/:category/:page"
+url = "/:slug"
 layout = "posts-index"
 is_hidden = 0
 ==
 <?php
-use Midorsoft\Publish\Models\Setting;
+    use Midorsoft\Publish\Models\Setting;
     use Midorsoft\Publish\Models\Category;
-    use Midorsoft\Publish\Models\Author;
-    use Midorsoft\Publish\Models\Tag;
     use Midorsoft\Publish\Models\Article;
-    use Carbon\Carbon;
-
 function onStart()
 {
-        $segments = \Request::segments();
-        $slug_un  = $segments[0];
-        $slug     = urldecode($slug_un);
+    $segments = \Request::segments();
+    $slug_un  = $segments[0];
+    $slug     = urldecode($slug_un);
 
-        $this['category'] = Category::where('slug', $slug)->where('is_active', 1)->first();
+    $this['category'] = Category::where('slug', $slug)->where('is_active', 1)->first();
 
+    $this['articles'] = Article::where('is_video_post', 0)->whereHas('categories', function($q) {
+        $q->where('id', $this['category']->id);
+    })->OrderBy('updated_at', 'desc')->paginate(7);
 
-        $this['articles'] = Article::where('is_video_post', 0)->whereHas('categories', function($q) {
-            $q->where('id', $this['category']->id);
-        })->OrderBy('updated_at', 'desc')->paginate(7);
+    //dd($this['articles']);
 
-        $this['articles']->setPath('page');
-
-        //dd($this['articles']);
-        $this->page->title = $this['category']->name;
-
-
+    $this['articles']->setPath('page');
+    $this->page->title = $this['category']->name;
 }
 ?>
 ==
@@ -53,12 +46,13 @@ function onStart()
                 <ul class="articles-list">
 
                     {% for article in articles %}
-
                     <li class="category-article-item">
-                        <a class="media" href=""><img src="{{ article.image|media }}" alt="{{ article.slug }}"/></a>
-                        <a class="title" href="">
+                        <a class="media" href="{{ 'post-detail'|page ({ date: article.created_at|strftime('%d-%m-%Y')  ,slug: article.slug }) }}">
+                            <img src="{{ article.image|media }}" alt="{{ article.slug }}"/>
+                        </a>
+                        <a class="title" href="{{ 'post-detail'|page ({ date: article.created_at|strftime('%d-%m-%Y')  ,slug: article.slug }) }}">
                             <span class="pre-title">{{ article.intro }}</span>
-                        <h2>{{ article.title }}</h2>
+                            <h2>{{ article.title }}</h2>
                         </a>
                         <div class="date"><span>   تم النشر بتاريخ :</span><span>{{ article.created_at| arabicDate('%A %e %B / %Y') }}</span></div>
                     </li>
@@ -211,4 +205,3 @@ function onStart()
         </div>
     </div>
 </article>
-

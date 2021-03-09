@@ -7,15 +7,15 @@
                 </div>
                 <div class="recent-posts">
                     {% for post in latest_articles %}
-                    <div class="recent-post-item"><a class="media" href="{{ 'single-post'|page (({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug })) }}"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
+                    <div class="recent-post-item"><a class="media" href="{{ 'post-detail'|page (({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug })) }}"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
                         <div class="content">
-                            <a class="post-title" href="{{ 'single-post'|page (({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug })) }}">
+                            <a class="post-title" href="{{ 'post-detail'|page (({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug })) }}">
                                 <span class="pre-title">{{ post.intro }}</span>
                                 <h2>{{ post.title }}</h2>
                             </a>
                             <div class="post-category">
                                 {% for category in post.categories %}
-                                <a href="{{ 'posts-index'|page ({ category: category.slug, page: articles.url(1) }) }}">{{ category.name }}</a>
+                                <a href="{{ 'articles-index'|page ({ category: category.slug, page: articles.url(1) }) }}">{{ category.name }}</a>
                                 {% endfor %}
                             </div>
                             <div class="post-time"><span>   تم النشر بتاريخ :</span><span>{{ post.created_at| arabicDate('%A %e %B / %Y') }}</span></div>
@@ -30,9 +30,9 @@
                 </div>
                 <div class="popular-posts">
                     {% for post in topPosts %}
-                    <div class="popular-post-item"><a class="media" href="{{ 'single-post'|page (({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug })) }}"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
+                    <div class="popular-post-item"><a class="media" href="{{ 'post-detail'|page (({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug })) }}"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
                         <div class="content">
-                            <div class="rate"><span>{{ loop.index }}</span></div><a class="post-title" href="{{ 'single-post'|page (({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug })) }}">
+                            <div class="rate"><span>{{ loop.index }}</span></div><a class="post-title" href="{{ 'post-detail'|page (({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug })) }}">
                             <h2>{{ post.title }}</h2></a>
                         </div>
                     </div>
