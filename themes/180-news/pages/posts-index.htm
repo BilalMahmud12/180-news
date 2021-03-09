@@ -25,6 +25,8 @@ function onStart()
             $q->where('id', $this['category']->id);
         })->OrderBy('updated_at', 'desc')->paginate(7);
 
+        $this['articles']->setPath('page');
+
         //dd($this['articles']);
         $this->page->title = $this['category']->name;
 

@@ -15,7 +15,7 @@
                             </a>
                             <div class="post-category">
                                 {% for category in post.categories %}
-                                <a href="">{{ category.name }}</a>
+                                <a href="{{ 'posts-index'|page ({ category: category.slug, page: articles.url(1) }) }}">{{ category.name }}</a>
                                 {% endfor %}
                             </div>
                             <div class="post-time"><span>   تم النشر بتاريخ :</span><span>{{ post.created_at| arabicDate('%A %e %B / %Y') }}</span></div>
