@@ -1,0 +1,39 @@
+description = "A layout for post single page"
+==
+<?php
+use Midorsoft\Publish\Models\Setting;
+use Midorsoft\Publish\Models\Category;
+use Midorsoft\Publish\Models\Author;
+use Midorsoft\Publish\Models\Tag;
+use Midorsoft\Publish\Models\Article;
+use Carbon\Carbon;
+
+function onStart(){
+
+    $this['settings'] = Setting::instance();
+    $this['main_menu'] = Category::where('in_menu', 1)->where('is_active', 1)->orderBy('sort_order', 'asc')->get();
+    $this['other_menu'] = Category::where('in_menu', 0)->where('is_active', 1)->orderBy('sort_order', 'asc')->get();
+
+}
+?>
+==
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+    <head>
+        {% partial 'site/blocks/head-links' %}
+        {% styles %}
+        <title> {{ this.page.title }} | {{ settings.site_name }}</title>
+    </head>
+    <body>
+
+    {% partial 'site/header' %}
+
+    <main>
+        {% page %}
+    </main>
+
+    {% partial 'site/footer' %}
+    {% partial 'site/blocks/footer-scripts' %}
+
+    </body>
+</html>

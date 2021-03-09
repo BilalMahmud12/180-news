@@ -14,7 +14,13 @@ nav {
 body {
   position: relative;
   font-family: 'Markazi Text', serif;
-  top: 49px;
+  top: 120px;
+}
+
+@media (max-width: 640px) {
+  body {
+    top: 49px !important;
+  }
 }
 
 main {
@@ -3199,10 +3205,21 @@ article#article-single .article-heading .category a.category-item:after {
   margin-right: 12px;
 }
 
-article#article-single .article-heading .category a.author {
+article#article-single .article-heading .category a.category-item:last-child:after {
+  content: "";
+  margin-right: 0;
+}
+
+article#article-single .article-heading .author {
   display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+article#article-single .article-heading .author span {
   font-size: 1.125rem;
   line-height: 1.75rem;
+  margin-left: 0.75rem;
   --tw-text-opacity: 1;
   color: rgba(0, 26, 78, var(--tw-text-opacity));
 }
@@ -3212,7 +3229,7 @@ article#article-single .article-heading .date-share {
   flex-direction: column;
   flex-direction: column-reverse;
   justify-content: space-between;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
 }
 
 @media (min-width: 1024px) {
@@ -3224,13 +3241,36 @@ article#article-single .article-heading .date-share {
 article#article-single .article-heading .date-share .create-date, article#article-single .article-heading .date-share .update-date {
   font-size: 1.125rem;
   line-height: 1.75rem;
-  margin-top: 1rem;
   --tw-text-opacity: 1;
   color: rgba(148, 163, 184, var(--tw-text-opacity));
 }
 
 @media (min-width: 1024px) {
   article#article-single .article-heading .date-share .create-date, article#article-single .article-heading .date-share .update-date {
+    margin-top: 0px;
+  }
+}
+
+article#article-single .article-heading .date-share .create-date span, article#article-single .article-heading .date-share .update-date span {
+  margin-left: 0.25rem;
+}
+
+article#article-single .article-heading .date-share .update-date {
+  margin-top: 1rem;
+}
+
+@media (min-width: 1024px) {
+  article#article-single .article-heading .date-share .update-date {
+    margin-top: 0px;
+  }
+}
+
+article#article-single .article-heading .date-share .create-date {
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  article#article-single .article-heading .date-share .create-date {
     margin-top: 0px;
   }
 }
