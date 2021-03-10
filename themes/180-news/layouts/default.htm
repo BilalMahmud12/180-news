@@ -16,7 +16,7 @@ function onStart(){
 
     $this['slider_items'] = Article::where('is_active', 1)->where('in_slider', 1)->orderBy('updated_at', 'desc')->take(5)->get();
     $this['top_report'] = Article::where('is_active', 1)->where('is_vip_post', 1)->orderBy('updated_at', 'desc')->first();
-    $this['latest_articles'] = Article::where('is_active', 1)->orderBy('updated_at', 'desc')->take(6)->get();
+    $this['latest_articles'] = Article::where('is_active', 1)->where('is_vip_post', 0)->orderBy('updated_at', 'desc')->take(6)->get();
     $this['topPosts'] = Article::where('is_active', 1)->orderBy('visits', 'desc')->take(5)->get();
     $this['mainVideo'] = Article::where('is_video_post', 1)->orderBy('updated_at', 'desc')->first();
     $this['videos'] = Article::where('is_video_post', 1)->orderBy('updated_at', 'desc')->take(9)->get();
