@@ -14,7 +14,7 @@
                                     <a href="{{ 'posts-index'|page ({ category: category.slug, page: articles.url(1) }) }}">{{ category.name }}</a>
                                     {% endfor %}
                                 </div>
-                                <a class="title" href="{{ 'post-detail'|page (({ date: slide.created_at|strftime('%d-%m-%Y')  ,slug: slide.slug })) }}"><h1>{{ slide.title }}</h1></a>
+                                <a class="title" href="{{ 'post-single'|page (({ date: slide.created_at|strftime('%d-%m-%Y')  ,slug: slide.slug })) }}"><h1>{{ slide.title }}</h1></a>
                             </div>
                         </li>
                         {% endfor %}

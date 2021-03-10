@@ -15,15 +15,19 @@ function onStart()
 
     $this['category'] = Category::where('slug', $slug)->where('is_active', 1)->first();
 
-    $this['articles'] = Article::where('is_video_post', 0)->whereHas('categories', function($q) {
+    $this['articles'] = Article::where('is_active', 1)->where('is_video_post', 0)->whereHas('categories', function($q) {
         $q->where('id', $this['category']->id);
     })->OrderBy('updated_at', 'desc')->paginate(7);
 
     $this['mainVideo'] = Article::where('is_video_post', 1)->OrderBy('updated_at', 'desc')->first();
 
-    $this['videoArticles'] = Article::where('is_video_post', 1)->whereHas('categories', function($q) {
+    $this['videoArticles'] = Article::where('is_active', 1)->where('is_video_post', 1)->whereHas('categories', function($q) {
         $q->where('id', $this['category']->id);
     })->get();
+
+    $this['popularArticles'] = Article::where('is_active', 1)->whereHas('categories', function($q){
+        $q->where('id', $this['category']->id);
+    })->orderBy('visits', 'Desc')->take(5)->get();
 
     $this->page->title = $this['category']->name;
 
@@ -34,7 +38,7 @@ function onStart()
     <div class="sub-header">
         <div class="wrapper">
             <div class="overlay"></div>
-            <div class="subheader-bg"><img src="{{ category.image|media }}" alt=""></div>
+            <div class="subheader-bg"><img src="{{ category.image|media }}" alt="{{ category.slug }}"></div>
             <div class="category-title">
                 <h1>{{ category.name }}</h1>
             </div>
@@ -51,10 +55,10 @@ function onStart()
 
                     {% for article in articles %}
                     <li class="category-article-item">
-                        <a class="media" href="{{ 'post-detail'|page ({ date: article.created_at|strftime('%d-%m-%Y')  ,slug: article.slug }) }}">
+                        <a class="media" href="{{ 'post-single'|page ({ date: article.created_at|strftime('%d-%m-%Y')  ,slug: article.slug }) }}">
                             <img src="{{ article.image|media }}" alt="{{ article.slug }}"/>
                         </a>
-                        <a class="title" href="{{ 'post-detail'|page ({ date: article.created_at|strftime('%d-%m-%Y')  ,slug: article.slug }) }}">
+                        <a class="title" href="{{ 'post-single'|page ({ date: article.created_at|strftime('%d-%m-%Y')  ,slug: article.slug }) }}">
                             <span class="pre-title">{{ article.intro }}</span>
                             <h2>{{ article.title }}</h2>
                         </a>
@@ -87,36 +91,17 @@ function onStart()
                     <h2> الأكثر قراءة</h2>
                 </div>
                 <div class="top-articles-list">
-                    <div class="popular-post-item"><a class="media" href=""><img src="assets/images/usa.jpg" alt=""/></a>
+                    {% for post in popularArticles %}
+                    <div class="popular-post-item">
+                        <a class="media" href="{{ 'post-single'|page ({ date: article.created_at|strftime('%d-%m-%Y')  ,slug: article.slug }) }}">
+                            <img src="{{ post.image|media }}" alt="{{ post.slug }}"/>
+                        </a>
                         <div class="content">
-                            <div class="rate"><span>1</span></div><a class="post-title" href="">
-                            <h2>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل على الرئيس أثناء محاولته تبرئة أنصاره من اقتحام الكونغرس؟</h2></a>
+                            <div class="rate"><span>{{ loop.index }}</span></div><a class="post-title" href="{{ 'post-single'|page ({ date: article.created_at|strftime('%d-%m-%Y')  ,slug: article.slug }) }}">
+                            <h2>{{ post.title }}</h2></a>
                         </div>
                     </div>
-                    <div class="popular-post-item"><a class="media" href=""><img src="assets/images/usa.jpg" alt=""/></a>
-                        <div class="content">
-                            <div class="rate"><span>2</span></div><a class="post-title" href="">
-                            <h2>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل على الرئيس أثناء محاولته تبرئة أنصاره من اقتحام الكونغرس؟</h2></a>
-                        </div>
-                    </div>
-                    <div class="popular-post-item"><a class="media" href=""><img src="assets/images/usa.jpg" alt=""/></a>
-                        <div class="content">
-                            <div class="rate"><span>3</span></div><a class="post-title" href="">
-                            <h2>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل على الرئيس أثناء محاولته تبرئة أنصاره من اقتحام الكونغرس؟</h2></a>
-                        </div>
-                    </div>
-                    <div class="popular-post-item"><a class="media" href=""><img src="assets/images/usa.jpg" alt=""/></a>
-                        <div class="content">
-                            <div class="rate"><span>4</span></div><a class="post-title" href="">
-                            <h2>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل على الرئيس أثناء محاولته تبرئة أنصاره من اقتحام الكونغرس؟</h2></a>
-                        </div>
-                    </div>
-                    <div class="popular-post-item"><a class="media" href=""><img src="assets/images/usa.jpg" alt=""/></a>
-                        <div class="content">
-                            <div class="rate"><span>5</span></div><a class="post-title" href="">
-                            <h2>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل على الرئيس أثناء محاولته تبرئة أنصاره من اقتحام الكونغرس؟</h2></a>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
