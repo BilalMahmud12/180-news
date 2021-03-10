@@ -11,7 +11,7 @@
                             <div class="slide-content">
                                 <div class="category">
                                     {% for category in slide.categories %}
-                                    <a href="{{ 'posts-index'|page ({ category: category.slug, page: articles.url(1) }) }}">{{ category.name }}</a>
+                                    <a href="{{ 'posts-index'|page({ slug: category.slug }) }}">{{ category.name }}</a>
                                     {% endfor %}
                                 </div>
                                 <a class="title" href="{{ 'post-single'|page (({ date: slide.created_at|strftime('%d-%m-%Y')  ,slug: slide.slug })) }}"><h1>{{ slide.title }}</h1></a>

@@ -7,7 +7,7 @@
                 </div>
                 <div class="recent-posts">
                     {% for post in latest_articles %}
-                    <div class="recent-post-item"><a class="media" href="{{ 'post-single'|page (({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug })) }}"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
+                    <div class="recent-post-item"><a class="media" href="{{ 'post-single'|page (({ date: post.created_at|strftime('%d-%m-%Y')  , slug: post.slug })) }}"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
                         <div class="content">
                             <a class="post-title" href="{{ 'post-single'|page (({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug })) }}">
                                 <span class="pre-title">{{ post.intro }}</span>
@@ -15,10 +15,10 @@
                             </a>
                             <div class="post-category">
                                 {% for category in post.categories %}
-                                <a href="{{ 'articles-index'|page ({ category: category.slug, page: articles.url(1) }) }}">{{ category.name }}</a>
+                                <a href="{{ 'posts-index'|page({ slug: category.slug }) }}">{{ category.name }}</a>
                                 {% endfor %}
                             </div>
-                            <div class="post-time"><span>   تم النشر بتاريخ :</span><span>{{ post.created_at| arabicDate('%A %e %B / %Y') }}</span></div>
+                            <div class="post-time"><span>تم النشر بتاريخ :</span><span>{{ post.created_at| arabicDate('%A %e %B / %Y') }}</span></div>
                         </div>
                     </div>
                     {% endfor %}
