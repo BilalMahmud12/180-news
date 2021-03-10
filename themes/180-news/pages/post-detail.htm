@@ -15,8 +15,8 @@ function onStart()
     $slug     = urldecode($slug_un);
 
     $this['article'] = Article::where('slug', $slug)->where('is_active', 1)->first();
-    //$this->page->title = $this['article']->title;
-    //dd($this['article']);
+    $this['article']->increment('visits');
+    $this->page->title = $this['article']->title;
 
 }
 ?>

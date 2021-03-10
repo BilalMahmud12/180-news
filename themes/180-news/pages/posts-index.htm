@@ -19,7 +19,14 @@ function onStart()
         $q->where('id', $this['category']->id);
     })->OrderBy('updated_at', 'desc')->paginate(7);
 
+    $this['mainVideo'] = Article::where('is_video_post', 1)->OrderBy('updated_at', 'desc')->first();
+
+    $this['videoArticles'] = Article::where('is_video_post', 1)->whereHas('categories', function($q) {
+        $q->where('id', $this['category']->id);
+    })->get();
+
     $this->page->title = $this['category']->name;
+
 }
 ?>
 ==
@@ -120,16 +127,18 @@ function onStart()
             <div class="section-title">
                 <h2>فيديوهات</h2>
             </div>
-            <div class="section-content"><a class="main-video" href="">
-                <div class="media">
-                    <div class="play-icon"><svg width="60" height="60" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 4L15 10L5 16V4Z" fill="white"/>
-                    </svg>
-                    </div><img src="assets/images/turkey.jpg" alt="">
-                </div>
-                <div class="title">
-                    <h2>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل على الرئيس أثناء محاولته تبرئة أنصاره من اقتحام الكونغرس؟</h2>
-                </div></a>
+            <div class="section-content">
+                <a class="main-video" href="">
+                    <div class="media">
+                        <div class="play-icon"><svg width="60" height="60" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 4L15 10L5 16V4Z" fill="white"/>
+                        </svg>
+                        </div><img src="{{ mainVideo.image|media }}" alt="{{ mainVideo.slug }}">
+                    </div>
+                    <div class="title">
+                        <h2>{{ mainVideo.title }}</h2>
+                    </div>
+                </a>
                 <div class="videos-container">
                     <div class="glide" id="video-slider">
                         <div class="glide__track" data-glide-el="track">
