@@ -7,9 +7,9 @@
                 </div>
                 <div class="recent-posts">
                     {% for post in latest_articles %}
-                    <div class="recent-post-item"><a class="media" href="{{ 'post-single'|page (({ date: post.created_at|strftime('%d-%m-%Y')  , slug: post.slug })) }}"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
+                    <div class="recent-post-item"><a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  , slug: post.slug }) }}"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
                         <div class="content">
-                            <a class="post-title" href="{{ 'post-single'|page (({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug })) }}">
+                            <a class="post-title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
                                 <span class="pre-title">{{ post.intro }}</span>
                                 <h2>{{ post.title }}</h2>
                             </a>

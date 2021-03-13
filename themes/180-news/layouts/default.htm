@@ -48,21 +48,55 @@ function onStart(){
 ==
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
-    {% partial 'site/blocks/head-links' %}
-    {% styles %}
-    <title> {{ this.page.title }} | {{ settings.site_name }}</title>
-</head>
-<body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="language" content="Arabic">
+        <meta name="revisit-after" content="1 days">
+        <meta name="author" content="180 Investigations">
+        <meta name="robots" content="index,follow">
+        <meta name="generator" content="OctoberCMS">
+        <link rel="icon" type="image/png" href="{{ ''|app }}{{ settings.site_logo_dark|media }}">
 
-{% partial 'site/header' %}
+        <!-- Primary Meta Tags -->
+        <meta name="title" content="{{ this.page.title }}">
+        <meta name="description" content="{{ settings.site_meta_description }}">
+        <meta name="keywords" content="{{ settings.site_search_keywords }}">
 
-    <main>
-        {% page %}
-    </main>
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ 'home'|page }}">
+        <meta property="og:title" content="{{ this.page.title }}">
+        <meta property="og:description" content="{{ settings.site_meta_description }}">
+        <meta property="og:image" content="{{ ''|app }}{{ settings.site_image|media }}">
 
-{% partial 'site/footer' %}
-{% partial 'site/blocks/footer-scripts' %}
-
-</body>
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="{{ ''|app }}">
+        <meta property="twitter:title" content="{{ settings.site_title }}">
+        <meta property="twitter:description" content="{{ settings.site_meta_description }}">
+        <meta property="twitter:image" content="{{ ''|app }}{{ settings.site_image|media }}">
+        <!--start css-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&amp;display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;700&amp;display=swap">
+        <link rel="stylesheet" href="{{'assets/css/glide.core.min.css'|theme}}">
+        <link rel="stylesheet" href="{{ 'assets/css/tailwind.min.css'|theme }}">
+        <link rel="stylesheet" href="{{ 'assets/css/app.min.css'|theme }}">
+        {% styles %}
+        <title> {{ this.page.title }} | {{ settings.site_name }}</title>
+    </head>
+    <body>
+        {% partial 'site/header' %}
+        <main>
+            {% page %}
+        </main>
+        {% partial 'site/footer' %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="{{'assets/js/glide.js'|theme}}"></script>
+        <script src="{{ 'assets/js/app.min.js'|theme }}"></script>
+        {% framework extras %}
+        {% scripts %}
+    </body>
 </html>

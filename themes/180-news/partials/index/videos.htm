@@ -5,7 +5,7 @@
             <h2>فيديوهات</h2>
         </div>
         <div class="section-content">
-            <a class="main-video" href="">
+            <a class="main-video" href="{{ 'video-post'|page({ date: mainVideo.created_at|strftime('%d-%m-%Y')  ,video: mainVideo.slug }) }}">
                 <div class="media">
                     <div class="play-icon"><svg width="60" height="60" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5 4L15 10L5 16V4Z" fill="white"/>
@@ -21,7 +21,7 @@
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">
                             {% for video in videos %}
-                            <li class="video-slide-item glide__slide"><a href="">
+                            <li class="video-slide-item glide__slide"><a href="{{ 'video-post'|page({ date: video.created_at|strftime('%d-%m-%Y')  ,video: video.slug }) }}">
                                 <div class="media">
                                     <div class="play-icon"><svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5 4L15 10L5 16V4Z" fill="white"/>
