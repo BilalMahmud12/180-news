@@ -11,6 +11,7 @@ function onStart() {
     $this['settings'] = Setting::instance();
     $this['main_menu'] = Category::where('in_menu', 1)->where('is_active', 1)->orderBy('sort_order', 'asc')->get();
     $this['other_menu'] = Category::where('in_menu', 0)->where('is_active', 1)->orderBy('sort_order', 'asc')->get();
+    $this['top_posts'] = Article::where('is_active', 1)->orderBy('visits', 'Desc')->take(5)->get();
 
 }
 ?>
