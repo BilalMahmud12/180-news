@@ -1,11 +1,13 @@
 <?php namespace Midorsoft\Publish;
 
+use Midorsoft\Publish\Models\Article;
 use System\Classes\PluginBase;
 use Carbon\Carbon;
 
 
 class Plugin extends PluginBase
 {
+
     public function registerMarkupTags()
     {
         return [

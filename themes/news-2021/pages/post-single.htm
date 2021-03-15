@@ -2,6 +2,7 @@ title = "post-single"
 url = "/:slug/:date"
 layout = "default"
 is_hidden = 0
+
 ==
 <?php
 use Midorsoft\Publish\Models\Category;
@@ -69,7 +70,8 @@ function onStart()
                     </div>
                 </div>
                 <div class="side-bar-right">
-                    <div class="author-box"><a class="author-photo" href=""><img src="{{ post.author.photo|media }}" alt=""></a><a class="author-name" href="">
+                    <div class="author-box"><a class="author-photo" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
+                        <img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></a><a class="author-name" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
                         <p>{{ post.author.name }}</p></a>
                         <div class="author-title">
                             <p>{{ post.author.title }}</p>
