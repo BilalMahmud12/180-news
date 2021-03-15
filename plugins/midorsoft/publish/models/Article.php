@@ -48,14 +48,4 @@ class Article extends Model
         ]
     ];
 
-    public static function filteredArticles()
-    {
-        $categories = Category::select('id', 'name')->get();
-        foreach ($categories as $category) {
-            $categories->map(function ($article){
-                return $article;
-            });
-        }
-
-    }
 }

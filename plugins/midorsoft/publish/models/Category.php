@@ -23,16 +23,6 @@ class Category extends Model
     public $rules = [
     ];
 
-    public $belongsToMany = [
-        'articles' => [
-            Article::class,
-            'table' => 'midorsoft_publish_article_category',
-            'key' => 'category_id',
-            'otherKey' => 'article_id'
-        ],
-
-    ];
-
     public $hasMany = [
         'articles' => [
             Article::class,
@@ -40,20 +30,7 @@ class Category extends Model
         ]
     ];
 
-    public static function recentArticles()
-    {
-        $categories = Category::select('id')->get();
-        foreach ($categories as $category) {
-//            $posts = Category::where('id', $category->id)->with(['articles' => function($q){
-//                $q->take(3);
-//            }])->orderBy('created_at', 'desc')->get();
 
-            return $category->id;
-        }
-
-        //return $categories;
-
-    }
 
 
 
