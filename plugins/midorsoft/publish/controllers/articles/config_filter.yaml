@@ -22,7 +22,7 @@ scopes:
   category:
     label: Category
     modelClass: Midorsoft\Publish\Models\Category
-    conditions: id in (select article_id from midorsoft_publish_article_category where category_id in (:filtered))
+    conditions: id in (select id from midorsoft_publish_articles where category_id in (:filtered))
     nameFrom: name
 
   tag:

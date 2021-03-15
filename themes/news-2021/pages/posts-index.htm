@@ -56,11 +56,19 @@ function onStart()
                 {% endfor %}
                 {% endif %}
             </div>
+            {% if articles.hasPages %}
             <div class="pagination-area">
-                <div class="paginate-container"><a class="previous" href="">    السابق</a>
-                    <div class="page-indicator"><span>   صفحة</span><span>   1</span><span>   من</span><span>   7</span></div><a class="next" href="">    التالي</a>
+                <div class="paginate-container">
+                    {% if articles.currentPage > 1 %}
+                    <a class="previous" href="{{ articles.previousPageUrl }}">    السابق</a>
+                    {% endif %}
+                    <div class="page-indicator"><span>   صفحة</span><span>   {{ articles.currentPage }}</span><span>   من</span><span>   7</span></div>
+                    {% if articles.hasMorePages %}
+                    <a class="next" href="{{ articles.nextPageUrl }}">    التالي</a>
+                    {% endif %}
                 </div>
             </div>
+            {% endif %}
         </section>
         <section class="category-top-posts">
             <div class="title-area"><a class="section-title" href="">
