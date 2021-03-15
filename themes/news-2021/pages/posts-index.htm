@@ -62,7 +62,7 @@ function onStart()
                     {% if articles.currentPage > 1 %}
                     <a class="previous" href="{{ articles.previousPageUrl }}">    السابق</a>
                     {% endif %}
-                    <div class="page-indicator"><span>   صفحة</span><span>   {{ articles.currentPage }}</span><span>   من</span><span>   7</span></div>
+                    <div class="page-indicator"><span>   صفحة</span><span>   {{ articles.currentPage }}</span><span>   من</span><span>   {{ articles.lastPage }}</span></div>
                     {% if articles.hasMorePages %}
                     <a class="next" href="{{ articles.nextPageUrl }}">    التالي</a>
                     {% endif %}
