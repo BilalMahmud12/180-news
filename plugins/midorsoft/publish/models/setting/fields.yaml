@@ -2,6 +2,26 @@ tabs:
     fields:
         site_name:
             label: 'Website Name'
+            span: full
+            type: text
+            tab: General
+        facebook_link:
+            label: Facebook
+            span: left
+            type: text
+            tab: General
+        twitter_link:
+            label: Twitter
+            span: auto
+            type: text
+            tab: General
+        youtube_link:
+            label: Youtube
+            span: auto
+            type: text
+            tab: General
+        telegram_link:
+            label: Telegram
             span: auto
             type: text
             tab: General

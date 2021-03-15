@@ -1,5 +1,5 @@
 title = "posts-index"
-url = "/:slug"
+url = "/:category"
 layout = "default"
 is_hidden = 0
 ==
@@ -14,11 +14,8 @@ function onStart()
     $slug     = urldecode($slug_un);
 
     $this['category'] = Category::where('slug', $slug)->where('is_active', 1)->first();
-
-    $this['articles'] = Article::where('is_active', 1)->where('is_video_post', 0)->where('category_id', $this['category']->id)->OrderBy('updated_at', 'desc')->paginate(7);
-
-    $this['popularArticles'] = Article::where('is_active', 1)->where('category_id', $this['category']->id)->orderBy('visits', 'Desc')->take(5)->get();
-
+    $this['articles'] = Article::where('is_active', 1)->where('category_id', $this['category']->id)->OrderBy('updated_at', 'desc')->paginate(9);
+    $this['top_posts'] = Article::where('is_active', 1)->where('category_id', $this['category']->id)->orderBy('visits', 'Desc')->take(5)->get();
     $this->page->title = $this['category']->name;
 
 }
@@ -32,7 +29,8 @@ function onStart()
             <div class="category-bg"><img src="{{ category.image|media }}" alt="{{ category.slug }}"></div>
             {% endif %}
             <div class="title">
-                <h1>{{ category.name }}</h1><span class="posts-count">{{ category.articles.count }}</span>
+                <h1>{{ category.name }}</h1>
+                <p><span> عدد المقالات تحت هذا الباب :</span><span> {{ category.articles.count }}</span></p>
             </div>
             <div class="category-text">
                 <p>{{ category.description }}</p>
@@ -42,8 +40,14 @@ function onStart()
             <div class="grid-container">
                 {% if category.articles|length %}
                 {% for post in articles %}
-                <div class="latest-article--item"><a class="media" href="/"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
-                    <div class="content"><a class="title" href="/">{{ post.title }}</a>
+                <div class="latest-article--item">
+                    <a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                        {% if post.is_video_post %}
+                        <div class="video-indicator"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></span><span> فيديو</span></div>
+                        {% endif %}
+                    <img src="{{ post.image|media }}" alt="{{ post.slug }}">
+                    </a>
+                    <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a>
                         <div class="meta-data"><a class="author" href="/">
                             <div class="author-img"><img src="{{ post.author.photo|media }}" alt=""></div>
                             <div class="author-name">
@@ -70,60 +74,6 @@ function onStart()
             </div>
             {% endif %}
         </section>
-        <section class="category-top-posts">
-            <div class="title-area"><a class="section-title" href="">
-                <h2> الأكثر قراءة</h2></a></div>
-            <div class="glide" id="categoryTopPosts">
-                <div class="glide__track" data-glide-el="track">
-                    <ul class="glide__slides">
-                        <div class="category-top--item">
-                            <div class="overlay"></div>
-                            <div class="item--bg"><img src="assets/images/turkey.jpg" alt=""></div>
-                            <div class="content"><a class="title" href="">
-                                <h3>ماذا يقول أنصار عزل ترامب الآن؟</h3></a><a class="author" href="">
-                                <div class="author-img"><img src="assets/images/yasinaktay.png" alt=""></div>
-                                <div class="author-name">
-                                    <p> ياسين أقطاي</p>
-                                </div></a></div>
-                        </div>
-                        <div class="category-top--item">
-                            <div class="overlay"></div>
-                            <div class="item--bg"><img src="assets/images/usa.jpg" alt=""></div>
-                            <div class="content"><a class="title" href="">
-                                <h3>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل؟</h3></a><a class="author" href="">
-                                <div class="author-img"><img src="assets/images/yasinaktay.png" alt=""></div>
-                                <div class="author-name">
-                                    <p> ياسين أقطاي</p>
-                                </div></a></div>
-                        </div>
-                        <div class="category-top--item">
-                            <div class="overlay"></div>
-                            <div class="item--bg"><img src="assets/images/usa.jpg" alt=""></div>
-                            <div class="content"><a class="title" href="">
-                                <h3>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل؟</h3></a><a class="author" href="">
-                                <div class="author-img"><img src="assets/images/yasinaktay.png" alt=""></div>
-                                <div class="author-name">
-                                    <p> ياسين أقطاي</p>
-                                </div></a></div>
-                        </div>
-                    </ul>
-                </div>
-                <div class="glide__arrows" data-glide-el="controls">
-                    <button class="glide__arrow glide__arrow--right" data-glide-dir="&gt;"><span><svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M6 15L11 10L6 5L7 3L14 10L7 17L6 15Z" fill="#ffffff7d"/>
-</svg></span></button>
-                    <button class="glide__arrow glide__arrow--left" data-glide-dir="&lt;"><span><svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14 5L9 10L14 15L13 17L6 10L13 3L14 5Z" fill="#ffffff7d"/>
-</svg></span></button>
-                </div>
-                <div class="glide__bullets" data-glide-el="controls[nav]">
-                    <button class="glide__bullet" data-glide-dir="=0"></button>
-                    <button class="glide__bullet" data-glide-dir="=1"></button>
-                    <button class="glide__bullet" data-glide-dir="=2"></button>
-                    <button class="glide__bullet" data-glide-dir="=3"></button>
-                    <button class="glide__bullet" data-glide-dir="=4"></button>
-                </div>
-            </div>
-        </section>
+        {% partial 'site/top-posts' %}
     </div>
 </article>

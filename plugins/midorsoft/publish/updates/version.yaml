@@ -72,3 +72,15 @@
 1.0.25:
     - 'Updated table midorsoft_publish_articles'
     - builder_table_update_midorsoft_publish_articles_6.php
+1.0.26:
+    - 'Updated table midorsoft_publish_categories'
+    - builder_table_update_midorsoft_publish_categories_2.php
+1.0.27:
+    - 'Updated table midorsoft_publish_authors'
+    - builder_table_update_midorsoft_publish_authors_2.php
+1.0.28:
+    - 'Drop table midorsoft_publish_article_category'
+    - builder_table_delete_midorsoft_publish_article_category.php
+1.0.29:
+    - 'Updated table midorsoft_publish_settings'
+    - builder_table_update_midorsoft_publish_settings.php

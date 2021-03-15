@@ -10,6 +10,10 @@ fields:
         type: checkbox
         comment: 'midorsoft.publish::lang.plugin.article_comment_show_in_menu'
         tab: General
+    is_featured:
+        label: 'midorsoft.publish::lang.plugin.featured'
+        span: auto
+        type: checkbox
     sort_order:
         label: 'midorsoft.publish::lang.plugin.category_menu_index'
         span: auto

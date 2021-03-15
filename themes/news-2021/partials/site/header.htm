@@ -47,7 +47,7 @@
             <nav class="main-menu">
                 <ul>
                     {% for item in main_menu %}
-                    <li><a href="{{ 'posts-index'|page({ slug: item.slug }) }}">{{ item.name }}</a></li>
+                    <li><a href="{{ 'posts-index'|page({ category: item.slug }) }}">{{ item.name }}</a></li>
                     {% endfor %}
                     {% if other_menu|length %}
                     <li class="dropdown"><a class="dropdown-link" href="#"><span>المزيد</span><span class="dropdown-icon"><svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -55,7 +55,7 @@
 </svg></span></a>
                         <ul class="dropdown-list">
                             {% for item in other_menu %}
-                            <li><a href="{{ 'posts-index'|page({ slug: item.slug }) }}">{{ item.name }}</a></li>
+                            <li><a href="{{ 'posts-index'|page({ category: item.slug }) }}">{{ item.name }}</a></li>
                             {% endfor %}
                         </ul>
                     </li>
@@ -70,7 +70,7 @@
     <nav class="mobile-menu">
         <ul>
             {% for item in main_menu %}
-            <li><a href="{{ 'posts-index'|page({ slug: item.slug }) }}">{{ item.name }}</a></li>
+            <li><a href="{{ 'posts-index'|page({ category: item.slug }) }}">{{ item.name }}</a></li>
             {% endfor %}
             {% if other_menu|length %}
             <li class="dropdown" id="mobile-dropdown"><a class="dropdown-link" href="#"><span>المزيد</span><span class="dropdown-icon"><svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -78,7 +78,7 @@
 </svg></span></a>
                 <ul class="dropdown-list" id="dropdown-list">
                     {% for item in other_menu %}
-                    <li><a href="{{ 'posts-index'|page({ slug: item.slug }) }}">{{ item.name }}</a></li>
+                    <li><a href="{{ 'posts-index'|page({ category: item.slug }) }}">{{ item.name }}</a></li>
                     {% endfor %}
                 </ul>
             </li>

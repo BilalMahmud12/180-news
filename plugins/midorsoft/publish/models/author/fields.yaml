@@ -11,6 +11,14 @@ tabs:
             required: 1
             type: text
             tab: General
+        slug:
+            label: 'Slug (URL)'
+            span: auto
+            preset:
+                field: name
+                type: slug
+            type: text
+            tab: General
         title:
             label: Title
             span: auto
@@ -23,9 +31,18 @@ tabs:
             span: auto
             type: mediafinder
             tab: General
-        bio:
-            label: 'midorsoft.publish::lang.plugin.author_bio'
-            size: huge
-            span: full
-            type: richeditor
+        email:
+            label: 'Email Address'
+            span: auto
+            type: text
+            tab: General
+        facebook:
+            label: 'Facebook Account'
+            span: left
+            type: text
+            tab: General
+        twitter:
+            label: 'Twitter Account'
+            span: left
+            type: text
             tab: General
