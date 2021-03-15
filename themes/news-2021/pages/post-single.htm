@@ -36,7 +36,7 @@ function onStart()
                 <div class="article-content">
                     <div class="post-media">
                         {% if post.is_video_post %}
-                        <div id="single-video" data-plyr-provider="youtube" data-plyr-embed-id="bTqVqk7FSmY"></div>
+                        <div id="single-video" data-plyr-provider="{{ post.video_source }}" data-plyr-embed-id="{{ post.video_url }}"></div>
                         {% else %}
                         <img src="{{ post.image|media }}" alt="{{ post.slug }}">
                         {% endif %}
