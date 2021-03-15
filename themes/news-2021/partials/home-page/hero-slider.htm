@@ -8,7 +8,7 @@
                         <div class="overlay"></div>
                         <div class="hero-image"><img src="{{ slide.image|media }}" alt="{{ slide.slug }}"></div>
                         <div class="slide-content">
-                            <div class="category"><a href="{{ 'posts-index'|page({ slug: category.slug }) }}">{{ slide.category }}</a></div>
+                            <div class="category"><a href="{{ 'posts-index'|page({ slug: slide.category.slug }) }}">{{ slide.category.name }}</a></div>
                             <div class="title"><a href="{{ 'post-single'|page ({ date: slide.created_at|strftime('%d-%m-%Y')  ,slug: slide.slug }) }}">
                                 <h1>{{ slide.title }}</h1></a></div>
                             <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ slug: slide.author.slug }) }}">
@@ -33,7 +33,7 @@
             </div>
             <div class="glide__bullets" data-glide-el="controls[nav]">
                 {% for bullet in slider_items %}
-                <button class="glide__bullet" data-glide-dir="={{ loop.index }}"></button>
+                <button class="glide__bullet" data-glide-dir="={{ loop.index -1 }}"></button>
                 {% endfor %}
             </div>
         </div>
