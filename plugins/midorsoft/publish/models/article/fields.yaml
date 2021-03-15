@@ -68,7 +68,7 @@ tabs:
             span: auto
             type: codeeditor
             tab: 'midorsoft.publish::lang.plugin.tab_media'
-        categories:
+        category:
             label: 'midorsoft.publish::lang.plugin.article_category'
             nameFrom: name
             descriptionFrom: description

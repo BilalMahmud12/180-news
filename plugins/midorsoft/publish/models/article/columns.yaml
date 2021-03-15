@@ -9,9 +9,9 @@ columns:
         label: Category
         type: text
         select: name
-        relation: categories
-        width: 15%
+        relation: category
         cssClass: other-titles
+        width: 15%
     author:
         label: 'midorsoft.publish::lang.plugin.authors'
         type: text
@@ -27,7 +27,6 @@ columns:
         sortable: true
         width: 3%
         path: ~/plugins/midorsoft/publish/partials/_active.htm
-
     in_slider:
         label: Slider
         type: partial
@@ -40,7 +39,6 @@ columns:
         type: datetime
         invisible: true
         width: 10%
-
     created_at:
         label: 'Create Date'
         type: date

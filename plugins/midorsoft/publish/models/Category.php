@@ -1,7 +1,8 @@
 <?php namespace Midorsoft\Publish\Models;
 
-use Model;
 use Midorsoft\Publish\Models\Article;
+use Model;
+
 
 /**
  * Model
@@ -30,6 +31,13 @@ class Category extends Model
             'otherKey' => 'article_id'
         ],
 
+    ];
+
+    public $hasMany = [
+        'articles' => [
+            Article::class,
+            'key' => 'category_id',
+        ]
     ];
 
     public static function recentArticles()

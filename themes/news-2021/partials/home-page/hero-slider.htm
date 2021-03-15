@@ -1,0 +1,41 @@
+<section class="hero">
+    <div class="wrapper">
+        <div class="glide" id="hero-slider">
+            <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides">
+                    {% for slide in slider_items %}
+                    <li class="hero-slide glide__slide">
+                        <div class="overlay"></div>
+                        <div class="hero-image"><img src="{{ slide.image|media }}" alt="{{ slide.slug }}"></div>
+                        <div class="slide-content">
+                            <div class="category"><a href="{{ 'posts-index'|page({ slug: category.slug }) }}">{{ slide.category }}</a></div>
+                            <div class="title"><a href="{{ 'post-single'|page ({ date: slide.created_at|strftime('%d-%m-%Y')  ,slug: slide.slug }) }}">
+                                <h1>{{ slide.title }}</h1></a></div>
+                            <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ slug: slide.author.slug }) }}">
+                                <div class="author-img"><img src="{{ slide.author.photo|media }}" alt="{{ slide.author.name }}"></div>
+                                <div class="author-name">
+                                    <p>{{ slide.author.name }}</p>
+                                </div></a>
+                                <div class="update-date"><span>    اخر تحديث :</span><span>{{ slide.created_at|strftime('%d-%m-%Y') }}</span></div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--right" data-glide-dir="&gt;"><span><svg width="35" height="35" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 15L11 10L6 5L7 3L14 10L7 17L6 15Z" fill="#ffffff7d"/>
+</svg></span></button>
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="&lt;"><span><svg width="35" height="35" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 5L9 10L14 15L13 17L6 10L13 3L14 5Z" fill="#ffffff7d"/>
+</svg></span></button>
+            </div>
+            <div class="glide__bullets" data-glide-el="controls[nav]">
+                <button class="glide__bullet" data-glide-dir="=0"></button>
+                <button class="glide__bullet" data-glide-dir="=1"></button>
+                <button class="glide__bullet" data-glide-dir="=2"></button>
+            </div>
+        </div>
+    </div>
+</section>

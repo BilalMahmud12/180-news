@@ -32,16 +32,14 @@ class Article extends Model
         'author' => [
             Author::class,
             'key' => 'author_id'
+        ],
+        'category' => [
+            Category::class,
+            'key' => 'category_id'
         ]
     ];
 
     public $belongsToMany = [
-        'categories' => [
-            Category::class,
-            'table' => 'midorsoft_publish_article_category',
-            'key' => 'article_id',
-            'otherKey' => 'category_id'
-        ],
         'tags' => [
             Tag::class,
             'table' => 'midorsoft_publish_article_tag',
