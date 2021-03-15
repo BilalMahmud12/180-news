@@ -34,19 +34,6 @@ function onStart() {
         <meta name="description" content="{{ settings.site_meta_description }}">
         <meta name="keywords" content="{{ settings.site_search_keywords }}">
 
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="{{ 'home'|page }}">
-        <meta property="og:title" content="{{ this.page.title }}">
-        <meta property="og:description" content="{{ settings.site_meta_description }}">
-        <meta property="og:image" content="{{ ''|app }}{{ settings.site_image|media }}">
-
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image">
-        <meta property="twitter:url" content="{{ ''|app }}">
-        <meta property="twitter:title" content="{{ settings.site_title }}">
-        <meta property="twitter:description" content="{{ settings.site_meta_description }}">
-        <meta property="twitter:image" content="{{ ''|app }}{{ settings.site_image|media }}">
         <!--start css-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&amp;display=swap">
@@ -54,7 +41,7 @@ function onStart() {
         <link rel="stylesheet" href="{{'assets/css/glide.core.min.css'|theme}}">
         <link rel="stylesheet" href="{{ 'assets/css/tailwind.min.css'|theme }}">
         <link rel="stylesheet" href="{{ 'assets/css/app.min.css'|theme }}">
-        {% styles %}
+
         <title> {{ this.page.title }} | {{ settings.site_name }}</title>
     </head>
     <body>

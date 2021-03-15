@@ -1,5 +1,5 @@
 title = "posts-index"
-url = "/:category"
+url = "/categories/:category"
 layout = "default"
 is_hidden = 0
 ==
@@ -10,12 +10,12 @@ is_hidden = 0
 function onStart()
 {
     $segments = \Request::segments();
-    $slug_un  = $segments[0];
+    $slug_un  = $segments[1];
     $slug     = urldecode($slug_un);
 
     $this['category'] = Category::where('slug', $slug)->where('is_active', 1)->first();
-    $this['articles'] = Article::where('is_active', 1)->where('category_id', $this['category']->id)->OrderBy('updated_at', 'desc')->paginate(9);
-    //$this['top_posts'] = Article::where('is_active', 1)->where('category_id', $this['category']->id)->orderBy('visits', 'Desc')->take(5)->get();
+    $category = Category::where('slug', $slug)->where('is_active', 1)->first();
+    $this['articles'] = Article::where('is_active', 1)->where('category_id', $category->id)->OrderBy('updated_at', 'desc')->paginate(9);
     $this->page->title = $this['category']->name;
 
 }
@@ -45,11 +45,12 @@ function onStart()
                         {% if post.is_video_post %}
                         <div class="video-indicator"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></span><span> فيديو</span></div>
                         {% endif %}
-                    <img src="{{ post.image|media }}" alt="{{ post.slug }}">
+                        <img src="{{ post.image|media }}" alt="{{ post.slug }}">
+
                     </a>
                     <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a>
-                        <div class="meta-data"><a class="author" href="/">
-                            <div class="author-img"><img src="{{ post.author.photo|media }}" alt=""></div>
+                        <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
+                            <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
                             <div class="author-name">
                                 <p>{{ post.author.name }}</p>
                             </div></a>

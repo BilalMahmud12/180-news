@@ -4,7 +4,7 @@
             <h2> تقارير خاصة</h2></a><a class="section-link" href=""> استعرض المزيد</a></div>
         <div class="grid-container">
             {% for report in special_reports %}
-            <a class="spacial-report--item" href="">
+            <a class="spacial-report--item" href="{{ 'post-single'|page ({ date: report.created_at|strftime('%d-%m-%Y')  ,slug: report.slug }) }}">
                 <div class="media">
                     <div class="overlay"></div><img src="{{ report.image|media }}" alt="{{ report.slug }}">
                 </div>

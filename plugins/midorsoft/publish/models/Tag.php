@@ -8,6 +8,9 @@ use Model;
 class Tag extends Model
 {
     use \October\Rain\Database\Traits\Validation;
+    use \October\Rain\Database\Traits\Sluggable;
+
+    protected $slugs = ['slug' => 'name'];
     
 
     /**

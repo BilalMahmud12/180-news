@@ -8,10 +8,10 @@
                         <div class="overlay"></div>
                         <div class="hero-image"><img src="{{ slide.image|media }}" alt="{{ slide.slug }}"></div>
                         <div class="slide-content">
-                            <div class="category"><a href="{{ 'posts-index'|page({ slug: slide.category.slug }) }}">{{ slide.category.name }}</a></div>
+                            <div class="category"><a href="{{ 'posts-index'|page({ category: slide.category.slug }) }}">{{ slide.category.name }}</a></div>
                             <div class="title"><a href="{{ 'post-single'|page ({ date: slide.created_at|strftime('%d-%m-%Y')  ,slug: slide.slug }) }}">
                                 <h1>{{ slide.title }}</h1></a></div>
-                            <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ slug: slide.author.slug }) }}">
+                            <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ author: slide.author.slug }) }}">
                                 <div class="author-img"><img src="{{ slide.author.photo|media }}" alt="{{ slide.author.name }}"></div>
                                 <div class="author-name">
                                     <p>{{ slide.author.name }}</p>
