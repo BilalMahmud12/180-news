@@ -89,60 +89,6 @@ function onStart()
                 </div>
             </div>
         </section>
-        <section class="category-top-posts">
-            <div class="title-area"><a class="section-title" href="">
-                <h2> الأكثر قراءة</h2></a></div>
-            <div class="glide" id="categoryTopPosts">
-                <div class="glide__track" data-glide-el="track">
-                    <ul class="glide__slides">
-                        <div class="category-top--item">
-                            <div class="overlay"></div>
-                            <div class="item--bg"><img src="assets/images/turkey.jpg" alt=""></div>
-                            <div class="content"><a class="title" href="">
-                                <h3>ماذا يقول أنصار عزل ترامب الآن؟</h3></a><a class="author" href="">
-                                <div class="author-img"><img src="assets/images/yasinaktay.png" alt=""></div>
-                                <div class="author-name">
-                                    <p> ياسين أقطاي</p>
-                                </div></a></div>
-                        </div>
-                        <div class="category-top--item">
-                            <div class="overlay"></div>
-                            <div class="item--bg"><img src="assets/images/usa.jpg" alt=""></div>
-                            <div class="content"><a class="title" href="">
-                                <h3>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل؟</h3></a><a class="author" href="">
-                                <div class="author-img"><img src="assets/images/yasinaktay.png" alt=""></div>
-                                <div class="author-name">
-                                    <p> ياسين أقطاي</p>
-                                </div></a></div>
-                        </div>
-                        <div class="category-top--item">
-                            <div class="overlay"></div>
-                            <div class="item--bg"><img src="assets/images/usa.jpg" alt=""></div>
-                            <div class="content"><a class="title" href="">
-                                <h3>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل؟</h3></a><a class="author" href="">
-                                <div class="author-img"><img src="assets/images/yasinaktay.png" alt=""></div>
-                                <div class="author-name">
-                                    <p> ياسين أقطاي</p>
-                                </div></a></div>
-                        </div>
-                    </ul>
-                </div>
-                <div class="glide__arrows" data-glide-el="controls">
-                    <button class="glide__arrow glide__arrow--right" data-glide-dir="&gt;"><span><svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M6 15L11 10L6 5L7 3L14 10L7 17L6 15Z" fill="#ffffff7d"/>
-</svg></span></button>
-                    <button class="glide__arrow glide__arrow--left" data-glide-dir="&lt;"><span><svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14 5L9 10L14 15L13 17L6 10L13 3L14 5Z" fill="#ffffff7d"/>
-</svg></span></button>
-                </div>
-                <div class="glide__bullets" data-glide-el="controls[nav]">
-                    <button class="glide__bullet" data-glide-dir="=0"></button>
-                    <button class="glide__bullet" data-glide-dir="=1"></button>
-                    <button class="glide__bullet" data-glide-dir="=2"></button>
-                    <button class="glide__bullet" data-glide-dir="=3"></button>
-                    <button class="glide__bullet" data-glide-dir="=4"></button>
-                </div>
-            </div>
-        </section>
+        {% partial 'site/top-posts' %}
     </div>
 </article>

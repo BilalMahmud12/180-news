@@ -8,8 +8,8 @@
                 <div class="category-top--item">
                     <div class="overlay"></div>
                     <div class="item--bg"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></div>
-                    <div class="content"><a class="title" href="">
-                        <h3>{{ post.title }}</h3></a><a class="author" href="">
+                    <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                        <h3>{{ post.title }}</h3></a><a class="author" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
                         <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
                         <div class="author-name">
                             <p>{{ post.author.name }}</p>
