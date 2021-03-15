@@ -1,4 +1,4 @@
-description = "layout of Home Page"
+description = "A layout for pages"
 ==
 <?php
 use Midorsoft\Publish\Models\Setting;
@@ -11,15 +11,6 @@ function onStart() {
     $this['settings'] = Setting::instance();
     $this['main_menu'] = Category::where('in_menu', 1)->where('is_active', 1)->orderBy('sort_order', 'asc')->get();
     $this['other_menu'] = Category::where('in_menu', 0)->where('is_active', 1)->orderBy('sort_order', 'asc')->get();
-    $this['slider_items'] = Article::where('is_active', 1)->where('in_slider', 1)->where('is_vip_post', 0)->where('is_video_post', 0)->orderBy('created_at', 'desc')->take(5)->get();
-    $this['special_reports'] = Article::where('is_active', 1)->where('is_vip_post', 1)->orderBy('created_at', 'desc')->take(4)->get();
-    $this['latest_articles'] = Article::where('is_active', 1)->where('is_vip_post', 0)->where('is_video_post', 0)->orderBy('created_at', 'desc')->take(6)->get();
-    $this['topPosts'] = Article::where('is_active', 1)->where('is_video_post', 0)->orderBy('visits', 'desc')->take(5)->get();
-    $this['videos'] = Article::where('is_video_post', 1)->orderBy('updated_at', 'desc')->take(9)->get();
-
-    $this['category_listing'] = Category::where('is_active', 1)->with(['articles' => function($q) {
-        $q->orderBy('created_at', 'desc')->take(3);
-    } ])->get();
 
 }
 ?>

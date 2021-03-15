@@ -1,4 +1,121 @@
 title = "posts-index"
-url = "/posts-index"
+url = "/:slug"
+layout = "default"
 is_hidden = 0
 ==
+<?php
+    use Midorsoft\Publish\Models\Setting;
+    use Midorsoft\Publish\Models\Category;
+    use Midorsoft\Publish\Models\Article;
+function onStart()
+{
+    $segments = \Request::segments();
+    $slug_un  = $segments[0];
+    $slug     = urldecode($slug_un);
+
+    $this['category'] = Category::where('slug', $slug)->where('is_active', 1)->first();
+
+    $this['articles'] = Article::where('is_active', 1)->where('is_video_post', 0)->where('category_id', $this['category']->id)->OrderBy('updated_at', 'desc')->paginate(7);
+
+    $this['popularArticles'] = Article::where('is_active', 1)->where('category_id', $this['category']->id)->orderBy('visits', 'Desc')->take(5)->get();
+
+    $this->page->title = $this['category']->name;
+
+}
+?>
+==
+<article id="posts-index">
+    <div class="wrapper">
+        <div class="category-title-area">
+            <div class="overlay"></div>
+            {% if category.image %}
+            <div class="category-bg"><img src="{{ category.image|media }}" alt="{{ category.slug }}"></div>
+            {% endif %}
+            <div class="title">
+                <h1>{{ category.name }}</h1><span class="posts-count">{{ category.articles.count }}</span>
+            </div>
+            <div class="category-text">
+                <p>{{ category.description }}</p>
+            </div>
+        </div>
+        <section class="posts-list">
+            <div class="grid-container">
+                {% if category.articles|length %}
+                {% for post in articles %}
+                <div class="latest-article--item"><a class="media" href="/"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
+                    <div class="content"><a class="title" href="/">{{ post.title }}</a>
+                        <div class="meta-data"><a class="author" href="/">
+                            <div class="author-img"><img src="{{ post.author.photo|media }}" alt=""></div>
+                            <div class="author-name">
+                                <p>{{ post.author.name }}</p>
+                            </div></a>
+                            <div class="create-date"><span>{{ post.created_at|strftime('%d-%m-%Y') }}</span><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span></div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+            <div class="pagination-area">
+                <div class="paginate-container"><a class="previous" href="">    السابق</a>
+                    <div class="page-indicator"><span>   صفحة</span><span>   1</span><span>   من</span><span>   7</span></div><a class="next" href="">    التالي</a>
+                </div>
+            </div>
+        </section>
+        <section class="category-top-posts">
+            <div class="title-area"><a class="section-title" href="">
+                <h2> الأكثر قراءة</h2></a></div>
+            <div class="glide" id="categoryTopPosts">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides">
+                        <div class="category-top--item">
+                            <div class="overlay"></div>
+                            <div class="item--bg"><img src="assets/images/turkey.jpg" alt=""></div>
+                            <div class="content"><a class="title" href="">
+                                <h3>ماذا يقول أنصار عزل ترامب الآن؟</h3></a><a class="author" href="">
+                                <div class="author-img"><img src="assets/images/yasinaktay.png" alt=""></div>
+                                <div class="author-name">
+                                    <p> ياسين أقطاي</p>
+                                </div></a></div>
+                        </div>
+                        <div class="category-top--item">
+                            <div class="overlay"></div>
+                            <div class="item--bg"><img src="assets/images/usa.jpg" alt=""></div>
+                            <div class="content"><a class="title" href="">
+                                <h3>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل؟</h3></a><a class="author" href="">
+                                <div class="author-img"><img src="assets/images/yasinaktay.png" alt=""></div>
+                                <div class="author-name">
+                                    <p> ياسين أقطاي</p>
+                                </div></a></div>
+                        </div>
+                        <div class="category-top--item">
+                            <div class="overlay"></div>
+                            <div class="item--bg"><img src="assets/images/usa.jpg" alt=""></div>
+                            <div class="content"><a class="title" href="">
+                                <h3>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل؟</h3></a><a class="author" href="">
+                                <div class="author-img"><img src="assets/images/yasinaktay.png" alt=""></div>
+                                <div class="author-name">
+                                    <p> ياسين أقطاي</p>
+                                </div></a></div>
+                        </div>
+                    </ul>
+                </div>
+                <div class="glide__arrows" data-glide-el="controls">
+                    <button class="glide__arrow glide__arrow--right" data-glide-dir="&gt;"><span><svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 15L11 10L6 5L7 3L14 10L7 17L6 15Z" fill="#ffffff7d"/>
+</svg></span></button>
+                    <button class="glide__arrow glide__arrow--left" data-glide-dir="&lt;"><span><svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 5L9 10L14 15L13 17L6 10L13 3L14 5Z" fill="#ffffff7d"/>
+</svg></span></button>
+                </div>
+                <div class="glide__bullets" data-glide-el="controls[nav]">
+                    <button class="glide__bullet" data-glide-dir="=0"></button>
+                    <button class="glide__bullet" data-glide-dir="=1"></button>
+                    <button class="glide__bullet" data-glide-dir="=2"></button>
+                    <button class="glide__bullet" data-glide-dir="=3"></button>
+                    <button class="glide__bullet" data-glide-dir="=4"></button>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
