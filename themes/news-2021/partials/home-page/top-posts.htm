@@ -5,36 +5,18 @@
         <div class="glide" id="categoryTopPosts">
             <div class="glide__track" data-glide-el="track">
                 <ul class="glide__slides">
+                    {% for post in topPosts %}
                     <div class="category-top--item">
                         <div class="overlay"></div>
-                        <div class="item--bg"><img src="assets/images/turkey.jpg" alt=""></div>
-                        <div class="content"><a class="title" href="">
-                            <h3>ماذا يقول أنصار عزل ترامب الآن؟</h3></a><a class="author" href="">
-                            <div class="author-img"><img src="assets/images/yasinaktay.png" alt=""></div>
+                        <div class="item--bg"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></div>
+                        <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                            <h3>{{ post.title }}</h3></a><a class="author" href="{{ 'author-profile'|page ({ slug: slide.author.slug }) }}">
+                            <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
                             <div class="author-name">
-                                <p> ياسين أقطاي</p>
+                                <p>{{ post.author.name }}</p>
                             </div></a></div>
                     </div>
-                    <div class="category-top--item">
-                        <div class="overlay"></div>
-                        <div class="item--bg"><img src="assets/images/usa.jpg" alt=""></div>
-                        <div class="content"><a class="title" href="">
-                            <h3>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل؟</h3></a><a class="author" href="">
-                            <div class="author-img"><img src="assets/images/yasinaktay.png" alt=""></div>
-                            <div class="author-name">
-                                <p> ياسين أقطاي</p>
-                            </div></a></div>
-                    </div>
-                    <div class="category-top--item">
-                        <div class="overlay"></div>
-                        <div class="item--bg"><img src="assets/images/usa.jpg" alt=""></div>
-                        <div class="content"><a class="title" href="">
-                            <h3>قاطع ترامب وصرخ في وجهه! مسؤول أمريكي ينفعل؟</h3></a><a class="author" href="">
-                            <div class="author-img"><img src="assets/images/yasinaktay.png" alt=""></div>
-                            <div class="author-name">
-                                <p> ياسين أقطاي</p>
-                            </div></a></div>
-                    </div>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="glide__arrows" data-glide-el="controls">
@@ -46,11 +28,9 @@
 </svg></span></button>
             </div>
             <div class="glide__bullets" data-glide-el="controls[nav]">
-                <button class="glide__bullet" data-glide-dir="=0"></button>
-                <button class="glide__bullet" data-glide-dir="=1"></button>
-                <button class="glide__bullet" data-glide-dir="=2"></button>
-                <button class="glide__bullet" data-glide-dir="=3"></button>
-                <button class="glide__bullet" data-glide-dir="=4"></button>
+                {% for item in topPosts %}
+                <button class="glide__bullet" data-glide-dir="={{ loop.index -1 }}"></button>
+                {% endfor %}
             </div>
         </div>
     </div>
