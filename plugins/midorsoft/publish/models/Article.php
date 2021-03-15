@@ -23,7 +23,7 @@ class Article extends Model
     public $rules = [
         'title' => 'required',
         'slug'  => 'required',
-        'categories' => 'required',
+        'category' => 'required',
         'author' => 'required',
         'image' => 'required'
     ];
