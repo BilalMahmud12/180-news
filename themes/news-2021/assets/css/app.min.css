@@ -1722,7 +1722,7 @@ article#index-page section.category-top-posts .wrapper #categoryTopPosts .glide_
 
 article#index-page section.category-top-posts .wrapper #categoryTopPosts .glide__track ul.glide__slides .category-top--item .content {
   position: absolute;
-  top: 50%;
+  top: 63%;
   right: 0;
   transform: translate(0, -25%);
   width: 100%;
@@ -2319,7 +2319,7 @@ article#posts-index .wrapper section.category-top-posts #categoryTopPosts .glide
 
 article#posts-index .wrapper section.category-top-posts #categoryTopPosts .glide__track ul.glide__slides .category-top--item .content {
   position: absolute;
-  top: 50%;
+  top: 63%;
   right: 0;
   transform: translate(0, -25%);
   width: 100%;
@@ -3141,7 +3141,7 @@ article#post-single .wrapper section.category-top-posts #categoryTopPosts .glide
 
 article#post-single .wrapper section.category-top-posts #categoryTopPosts .glide__track ul.glide__slides .category-top--item .content {
   position: absolute;
-  top: 50%;
+  top: 63%;
   right: 0;
   transform: translate(0, -25%);
   width: 100%;
