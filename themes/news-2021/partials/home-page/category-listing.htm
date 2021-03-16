@@ -52,7 +52,7 @@
         <div class="title-area"><a class="section-title" href="{{ 'posts-index'|page ({ category: Cat03Posts.slug }) }}">
             <h2>{{ Cat03Posts.name }}</h2></a><a class="section-link" href="{{ 'posts-index'|page ({ category: Cat03Posts.slug }) }}"> استعرض المزيد</a></div>
         <div class="grid-container">
-            {% for post in Cat01Posts.articles %}
+            {% for post in Cat03Posts.articles %}
             <div class="latest-article--item"><a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
                 <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a>
                     <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
@@ -76,7 +76,7 @@
         <div class="title-area"><a class="section-title" href="{{ 'posts-index'|page ({ category: Cat04Posts.slug }) }}">
             <h2>{{ Cat04Posts.name }}</h2></a><a class="section-link" href="{{ 'posts-index'|page ({ category: Cat04Posts.slug }) }}"> استعرض المزيد</a></div>
         <div class="grid-container">
-            {% for post in Cat01Posts.articles %}
+            {% for post in Cat04Posts.articles %}
             <div class="latest-article--item"><a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
                 <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a>
                     <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
@@ -100,7 +100,7 @@
         <div class="title-area"><a class="section-title" href="{{ 'posts-index'|page ({ category: Cat05Posts.slug }) }}">
             <h2>{{ Cat05Posts.name }}</h2></a><a class="section-link" href="{{ 'posts-index'|page ({ category: Cat05Posts.slug }) }}"> استعرض المزيد</a></div>
         <div class="grid-container">
-            {% for post in Cat01Posts.articles %}
+            {% for post in Cat05Posts.articles %}
             <div class="latest-article--item"><a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
                 <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a>
                     <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
@@ -124,7 +124,7 @@
         <div class="title-area"><a class="section-title" href="{{ 'posts-index'|page ({ category: Cat06Posts.slug }) }}">
             <h2>{{ Cat06Posts.name }}</h2></a><a class="section-link" href="{{ 'posts-index'|page ({ category: Cat06Posts.slug }) }}"> استعرض المزيد</a></div>
         <div class="grid-container">
-            {% for post in Cat01Posts.articles %}
+            {% for post in Cat06Posts.articles %}
             <div class="latest-article--item"><a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
                 <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a>
                     <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
