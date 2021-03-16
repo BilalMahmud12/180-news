@@ -1,7 +1,7 @@
 <section class="special-reports">
     <div class="wrapper">
-        <div class="title-area"><a class="section-title" href="">
-            <h2> تقارير خاصة</h2></a><a class="section-link" href=""> استعرض المزيد</a></div>
+        <div class="title-area"><a class="section-title" href="{{ 'special-reports'|page }}">
+            <h2> تقارير خاصة</h2></a><a class="section-link" href="{{ 'special-reports'|page }}"> استعرض المزيد</a></div>
         <div class="grid-container">
             {% for report in special_reports %}
             <a class="spacial-report--item" href="{{ 'post-single'|page ({ date: report.created_at|strftime('%d-%m-%Y')  ,slug: report.slug }) }}">
