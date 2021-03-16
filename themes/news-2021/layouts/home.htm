@@ -7,6 +7,7 @@ use Midorsoft\Publish\Models\Author;
 use Midorsoft\Publish\Models\Tag;
 use Midorsoft\Publish\Models\Article;
 use Carbon\Carbon;
+
 function onStart() {
     $this['settings'] = Setting::instance();
     $this['main_menu'] = Category::where('in_menu', 1)->where('is_active', 1)->orderBy('sort_order', 'asc')->get();
@@ -17,10 +18,15 @@ function onStart() {
     $this['topPosts'] = Article::where('is_active', 1)->where('is_video_post', 0)->orderBy('visits', 'desc')->take(5)->get();
     $this['videos'] = Article::where('is_video_post', 1)->orderBy('updated_at', 'desc')->take(9)->get();
 
-    $this['category_listing'] = Category::where('is_active', 1)->with(['articles' => function($q) {
-        $q->orderBy('created_at', 'desc')->take(3);
-    } ])->get();
+    $this['category_list'] = Category::where('is_active', 1)->with('filteredArticles')->get();
 
+    $this['category_lists'] = Category::where('is_active', 1)->select('name', 'slug')
+    ->with(['filteredArticles'])
+    ->get()
+    ->map(function( $category ){
+    $category = $category->filteredArticles->take(3);
+    return $category;
+    });
 }
 ?>
 ==
@@ -62,6 +68,15 @@ function onStart() {
         <link rel="stylesheet" href="{{'assets/css/glide.core.min.css'|theme}}">
         <link rel="stylesheet" href="{{ 'assets/css/tailwind.min.css'|theme }}">
         <link rel="stylesheet" href="{{ 'assets/css/app.min.css'|theme }}">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TDTFD9N5VE"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-TDTFD9N5VE');
+        </script>
         {% styles %}
         <title> {{ this.page.title }} | {{ settings.site_name }}</title>
     </head>

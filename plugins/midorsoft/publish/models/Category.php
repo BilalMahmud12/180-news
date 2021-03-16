@@ -33,4 +33,9 @@ class Category extends Model
         ]
     ];
 
+    public function filteredArticles()
+    {
+        return $this->hasMany(Article::class, 'category_id')->where('is_active', 1)->orderBy('created_at', 'desc');
+    }
+
 }
