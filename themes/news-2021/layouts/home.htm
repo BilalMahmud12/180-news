@@ -51,34 +51,7 @@ function onStart() {
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="language" content="Arabic">
-        <meta name="revisit-after" content="1 days">
-        <meta name="author" content="180 Investigations">
-        <meta name="robots" content="index,follow">
-        <meta name="generator" content="OctoberCMS">
-        <link rel="icon" type="image/png" href="{{ ''|app }}{{ settings.site_logo_dark|media }}">
-
-        <!-- Primary Meta Tags -->
-        <meta name="title" content="{{ this.page.title }}">
-        <meta name="description" content="{{ settings.site_meta_description }}">
-        <meta name="keywords" content="{{ settings.site_search_keywords }}">
-
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="{{ 'home'|page }}">
-        <meta property="og:title" content="{{ this.page.title }}">
-        <meta property="og:description" content="{{ settings.site_meta_description }}">
-        <meta property="og:image" content="{{ ''|app }}{{ settings.site_image|media }}">
-
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image">
-        <meta property="twitter:url" content="{{ ''|app }}">
-        <meta property="twitter:title" content="{{ settings.site_title }}">
-        <meta property="twitter:description" content="{{ settings.site_meta_description }}">
-        <meta property="twitter:image" content="{{ ''|app }}{{ settings.site_image|media }}">
+        {% partial 'blocks/head' %}
         <!--start css-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&amp;display=swap">
@@ -86,15 +59,7 @@ function onStart() {
         <link rel="stylesheet" href="{{'assets/css/glide.core.min.css'|theme}}">
         <link rel="stylesheet" href="{{ 'assets/css/tailwind.min.css'|theme }}">
         <link rel="stylesheet" href="{{ 'assets/css/app.min.css'|theme }}">
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TDTFD9N5VE"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
 
-            gtag('config', 'G-TDTFD9N5VE');
-        </script>
         {% styles %}
         <title> {{ this.page.title }} | {{ settings.site_name }}</title>
     </head>
