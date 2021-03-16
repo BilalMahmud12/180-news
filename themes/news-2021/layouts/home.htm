@@ -18,15 +18,33 @@ function onStart() {
     $this['topPosts'] = Article::where('is_active', 1)->where('is_video_post', 0)->orderBy('visits', 'desc')->take(5)->get();
     $this['videos'] = Article::where('is_video_post', 1)->orderBy('updated_at', 'desc')->take(9)->get();
 
-    $this['category_list'] = Category::where('is_active', 1)->with('filteredArticles')->get();
+    $this['Cat01Posts'] = Category::where('is_active', 1)->where('id', 1)->with(['articles' => function($q){
+    $q->where('is_active', 1)->orderBy('updated_at', 'desc')->take(3);
+    }])->first();
 
-    $this['category_lists'] = Category::where('is_active', 1)->select('name', 'slug')
-    ->with(['filteredArticles'])
-    ->get()
-    ->map(function( $category ){
-    $category = $category->filteredArticles->take(3);
-    return $category;
-    });
+    $this['Cat02Posts'] = Category::where('is_active', 1)->where('id', 2)->with(['articles' => function($q){
+    $q->where('is_video_post', 0)->orderBy('updated_at', 'desc')->take(3);
+    }])->first();
+
+    $this['Cat03Posts'] = Category::where('is_active', 1)->where('id', 3)->with(['articles' => function($q){
+    $q->where('is_video_post', 0)->orderBy('updated_at', 'desc')->take(3);
+    }])->first();
+
+
+    $this['Cat04Posts'] = Category::where('is_active', 1)->where('id', 4)->with(['articles' => function($q){
+    $q->where('is_video_post', 0)->orderBy('updated_at', 'desc')->take(3);
+    }])->first();
+
+
+    $this['Cat05Posts'] = Category::where('is_active', 1)->where('id', 5)->with(['articles' => function($q){
+    $q->where('is_video_post', 0)->orderBy('updated_at', 'desc')->take(3);
+    }])->first();
+
+    $this['Cat06Posts'] = Category::where('is_active', 1)->where('id', 6)->with(['articles' => function($q){
+    $q->where('is_video_post', 0)->orderBy('updated_at', 'desc')->take(3);
+    }])->first();
+
+
 }
 ?>
 ==

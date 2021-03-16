@@ -1,11 +1,10 @@
+{% if Cat01Posts.articles|length %}
 <section class="category-listing">
     <div class="wrapper">
-
-        {% for category in category_list %}
         <div class="title-area"><a class="section-title" href="">
-            <h2>{{ category.name }}</h2></a><a class="section-link" href=""> استعرض المزيد</a></div>
+            <h2>{{ Cat01Posts.name }}</h2></a><a class="section-link" href=""> استعرض المزيد</a></div>
         <div class="grid-container">
-            {% for post in category.articles %}
+            {% for post in Cat01Posts.articles %}
             <div class="latest-article--item"><a class="media" href="/"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
                 <div class="content"><a class="title" href="/">{{ post.title }}</a>
                     <div class="meta-data"><a class="author" href="/">
@@ -19,6 +18,126 @@
             </div>
             {% endfor %}
         </div>
-        {% endfor %}
     </div>
 </section>
+{% endif %}
+
+{% if Cat02Posts.articles|length %}
+<section class="category-listing">
+    <div class="wrapper">
+        <div class="title-area"><a class="section-title" href="">
+            <h2>{{ Cat02Posts.name }}</h2></a><a class="section-link" href=""> استعرض المزيد</a></div>
+        <div class="grid-container">
+            {% for post in Cat02Posts.articles %}
+            <div class="latest-article--item"><a class="media" href="/"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
+                <div class="content"><a class="title" href="/">{{ post.title }}</a>
+                    <div class="meta-data"><a class="author" href="/">
+                        <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
+                        <div class="author-name">
+                            <p>{{ post.author.name }}</p>
+                        </div></a>
+                        <div class="create-date"><span>{{ post.created_at|strftime('%d-%m-%Y') }}</span><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if Cat03Posts.articles|length %}
+<section class="category-listing">
+    <div class="wrapper">
+        <div class="title-area"><a class="section-title" href="">
+            <h2>{{ Cat03Posts.name }}</h2></a><a class="section-link" href=""> استعرض المزيد</a></div>
+        <div class="grid-container">
+            {% for post in Cat03Posts.articles %}
+            <div class="latest-article--item"><a class="media" href="/"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
+                <div class="content"><a class="title" href="/">{{ post.title }}</a>
+                    <div class="meta-data"><a class="author" href="/">
+                        <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
+                        <div class="author-name">
+                            <p>{{ post.author.name }}</p>
+                        </div></a>
+                        <div class="create-date"><span>{{ post.created_at|strftime('%d-%m-%Y') }}</span><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if Cat04Posts.articles|length %}
+<section class="category-listing">
+    <div class="wrapper">
+        <div class="title-area"><a class="section-title" href="">
+            <h2>{{ Cat04Posts.name }}</h2></a><a class="section-link" href=""> استعرض المزيد</a></div>
+        <div class="grid-container">
+            {% for post in Cat04Posts.articles %}
+            <div class="latest-article--item"><a class="media" href="/"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
+                <div class="content"><a class="title" href="/">{{ post.title }}</a>
+                    <div class="meta-data"><a class="author" href="/">
+                        <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
+                        <div class="author-name">
+                            <p>{{ post.author.name }}</p>
+                        </div></a>
+                        <div class="create-date"><span>{{ post.created_at|strftime('%d-%m-%Y') }}</span><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if Cat05Posts.articles|length %}
+<section class="category-listing">
+    <div class="wrapper">
+        <div class="title-area"><a class="section-title" href="">
+            <h2>{{ Cat05Posts.name }}</h2></a><a class="section-link" href=""> استعرض المزيد</a></div>
+        <div class="grid-container">
+            {% for post in Cat05Posts.articles %}
+            <div class="latest-article--item"><a class="media" href="/"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
+                <div class="content"><a class="title" href="/">{{ post.title }}</a>
+                    <div class="meta-data"><a class="author" href="/">
+                        <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
+                        <div class="author-name">
+                            <p>{{ post.author.name }}</p>
+                        </div></a>
+                        <div class="create-date"><span>{{ post.created_at|strftime('%d-%m-%Y') }}</span><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if Cat06Posts.articles|length %}
+<section class="category-listing">
+    <div class="wrapper">
+        <div class="title-area"><a class="section-title" href="">
+            <h2>{{ Cat06Posts.name }}</h2></a><a class="section-link" href=""> استعرض المزيد</a></div>
+        <div class="grid-container">
+            {% for post in Cat06Posts.articles %}
+            <div class="latest-article--item"><a class="media" href="/"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
+                <div class="content"><a class="title" href="/">{{ post.title }}</a>
+                    <div class="meta-data"><a class="author" href="/">
+                        <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
+                        <div class="author-name">
+                            <p>{{ post.author.name }}</p>
+                        </div></a>
+                        <div class="create-date"><span>{{ post.created_at|strftime('%d-%m-%Y') }}</span><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
