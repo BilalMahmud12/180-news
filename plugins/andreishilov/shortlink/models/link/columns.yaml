@@ -1,0 +1,13 @@
+columns:
+  id:
+    label: andreishilov.shortlink::lang.models.link.columns.id.label
+    type: text
+    sortable: true
+  link:
+    label: andreishilov.shortlink::lang.models.link.columns.link.label
+    type: text
+    sortable: true
+  code:
+    label: andreishilov.shortlink::lang.models.link.columns.code.label
+    type: text
+    sortable: true

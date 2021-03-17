@@ -1,0 +1,15 @@
+list: $/andreishilov/shortlink/models/link/columns.yaml
+modelClass: AndreiShilov\ShortLink\Models\Link
+title: andreishilov.shortlink::lang.models.link.name_plural
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+  buttons: list_toolbar
+  search:
+    prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'andreishilov/shortlink/links/update/:id'
+defaultSort:
+  column: code
+  direction: desc

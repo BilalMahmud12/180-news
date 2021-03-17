@@ -1,0 +1,7 @@
+fields:
+    code_length:
+        label: andreishilov.shortlink::lang.models.settings.fields.code_length.label
+        comment: andreishilov.shortlink::lang.models.settings.fields.code_length.description
+        span: left
+        type: number
+        default: 3
