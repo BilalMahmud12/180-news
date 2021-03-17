@@ -18,6 +18,8 @@ function onStart() {
     $this['topPosts'] = Article::where('is_active', 1)->where('is_video_post', 0)->orderBy('visits', 'desc')->take(5)->get();
     $this['videos'] = Article::where('is_video_post', 1)->orderBy('updated_at', 'desc')->take(9)->get();
 
+    $this['banner01'] = Category::where('id', 11)->first();
+
     $this['Cat01Posts'] = Category::where('is_active', 1)->where('id', 1)->with(['articles' => function($q){
     $q->where('is_active', 1)->orderBy('updated_at', 'desc')->take(3);
     }])->first();
