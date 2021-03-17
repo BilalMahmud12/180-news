@@ -1,5 +1,6 @@
 <?php namespace Midorsoft\Publish;
 
+use Illuminate\Database\Eloquent\Builder;
 use Midorsoft\Publish\Models\Article;
 use System\Classes\PluginBase;
 use Carbon\Carbon;
@@ -7,6 +8,12 @@ use Carbon\Carbon;
 
 class Plugin extends PluginBase
 {
+    public function boot()
+    {
+        Builder::macro('whereLike', function(string $attribute, string $searchTerm) {
+            return $this->orWhere($attribute, 'LIKE', "%{$searchTerm}%");
+        });
+    }
 
     public function registerMarkupTags()
     {

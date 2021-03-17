@@ -36,7 +36,7 @@
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="{{ 'category-index'|page ({ slug: category.slug }) }}">
+<meta property="og:url" content="{{ 'posts-index'|page ({ slug: category.slug }) }}">
 <meta property="og:title" content="{{ this.page.title }}">
 <meta property="og:description" content="{{ this.page.meta_description }}">
 <meta property="og:image" content="{{ ''|app }}{{ category.image|media }}">
@@ -63,10 +63,10 @@
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="{{ 'category-single'|page ({ category: article.category.slug, date: article.created_at|strftime('%d-%m-%Y')  ,slug: article.slug }) }}">
+<meta property="twitter:url" content="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
 <meta property="twitter:title" content="{{ this.page.title }}">
 <meta property="twitter:description" content="{{ this.page.meta_description }}">
-<meta property="twitter:image" content="{{ ''|app }}{{ article.image|media }}">
+<meta property="twitter:image" content="{{ ''|app }}{{ post.image|media }}">
 
 {% elseif this.page.id == 'author-profile' %}
 <!-- Primary Meta Tags -->

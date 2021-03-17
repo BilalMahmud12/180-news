@@ -1,6 +1,7 @@
 <?php namespace Midorsoft\Publish\Models;
 
 use Midorsoft\Publish\Controllers\Articles;
+use Illuminate\Database\Eloquent\Builder;
 use Model;
 
 /**
@@ -12,6 +13,8 @@ class Article extends Model
     use \October\Rain\Database\Traits\Sluggable;
 
     protected $slugs = ['slug' => 'title'];
+
+
     
 
     /**
