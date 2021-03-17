@@ -87,3 +87,6 @@
 1.0.30:
     - 'Updated table midorsoft_publish_tags'
     - builder_table_update_midorsoft_publish_tags_2.php
+1.0.31:
+    - 'Updated table midorsoft_publish_articles'
+    - builder_table_update_midorsoft_publish_articles_7.php

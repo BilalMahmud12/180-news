@@ -19,6 +19,17 @@ fields:
         label: 'Show in Slider'
         span: auto
         type: checkbox
+    short_code:
+        label: 'Short Link'
+        span: auto
+        default: ''
+        disabled: 0
+        readOnly: 1
+        preset:
+            field: slug
+            type: camel
+        type: text
+        commentAbove: 'ex: https://180news.net/go/shortlink'
 tabs:
     fields:
         intro:
@@ -36,6 +47,9 @@ tabs:
             label: 'midorsoft.publish::lang.plugin.article_slug'
             span: right
             required: 1
+            preset:
+                field: title
+                type: slug
             type: text
             tab: 'midorsoft.publish::lang.plugin.tab_general'
         content:

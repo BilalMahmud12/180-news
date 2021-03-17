@@ -15,4 +15,21 @@ class Articles extends Controller
         parent::__construct();
         BackendMenu::setContext('Midorsoft.Publish', 'articles-menu', 'articles-list');
     }
+
+    public function shortLinker($length)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
+    public function formAfterSave($model)
+    {
+        $link = $this->shortLinker(5);
+        $model->update(['short_code' => $link]);
+    }
 }
