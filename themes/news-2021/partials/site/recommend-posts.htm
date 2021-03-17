@@ -1,0 +1,18 @@
+<div class="other-recommendations">
+    <div class="title-area"><a class="section-title" href="#">
+        <h2>   موضوعات قد تهمك</h2></a></div>
+    <div class="recommeded-posts">
+        {% for post in recommends %}
+        <a class="recommended-post-item" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+        <div class="overlay"></div>
+        <div class="media"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></div>
+        <div class="category">
+            <p>{{ post.category.name }}</p>
+        </div>
+        <div class="content">
+            <h2>{{ post.title }}</h2>
+        </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>

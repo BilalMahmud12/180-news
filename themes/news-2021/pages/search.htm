@@ -23,6 +23,49 @@ function onStart()
 }
 ?>
 ==
+<article id="search-results">
+    <div class="wrapper">
+        <div class="category-title-area">
+            <div class="overlay"></div>
+            <div class="category-bg"><img src="{{ 'assets/images/search-results.jpg'|theme }}" alt="180-news-search-results"></div>
+            <div class="title"><span>   نتائج البحث عن:</span>
+                <h1><span>   " {{ searchTerm }} "</span></h1>
+                <p><span> عدد النتائج :</span><span> {{ search.count }}</span></p>
+            </div>
+        </div>
+        <div class="page-grid">
+            <div class="search-results">
+                <ul class="post-results--list">
+                    {% for post in search %}
+                    <li class="post-result-list--item">
+                        <div class="media"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></div>
+                        <div class="content"><a class="category" href="/">{{ post.category.name }}</a><a class="title" href="/">
+                            <h2>{{ post.title }}</h2></a>
+                        </div>
+                    </li>
+                    {% endfor %}
+
+                </ul>
+                {% if search.hasPages %}
+                <div class="pagination-area">
+                    <div class="paginate-container">
+                        {% if search.currentPage > 1 %}
+                        <a class="previous" href="{{ search.previousPageUrl }}">    السابق</a>
+                        {% endif %}
+                        <div class="page-indicator"><span>   صفحة</span><span>   {{ search.currentPage }}</span><span>   من</span><span>   {{ search.lastPage }}</span></div>
+                        {% if search.hasMorePages %}
+                        <a class="next" href="{{ search.nextPageUrl }}">    التالي</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <div class="sidebar-left">
+                {% partial 'site/recommend-posts' %}
+            </div>
+        </div>
+    </div>
+</article>
 <article id="posts-index">
     <div class="wrapper">
         <div class="category-title-area">

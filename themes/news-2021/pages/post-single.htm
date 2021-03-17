@@ -24,14 +24,6 @@ function onStart()
 ==
 <article id="post-single">
     <div class="wrapper">
-        <section id="post-header">
-            <div class="post-title">
-                <h1>{{ post.title }}</h1>
-            </div>
-            <div class="post-meta"><a class="category" href="{{ 'posts-index'|page({ category: post.category.slug }) }}">{{ post.category.name }}</a>
-                <div class="date"><span>{{ post.created_at|strftime('%d-%m-%Y') }}</span><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span></div>
-            </div>
-        </section>
         <section id="post-body">
             <div class="body-grid">
                 <div class="article-content">
@@ -41,6 +33,14 @@ function onStart()
                         {% else %}
                         <img src="{{ post.image|media }}" alt="{{ post.slug }}">
                         {% endif %}
+                    </div>
+                    <div class="post-heading">
+                        <div class="post-meta"><a class="category" href="{{ 'posts-index'|page({ category: post.category.slug }) }}">{{ post.category.name }}</a>
+                            <div class="date"><span>{{ post.created_at|strftime('%d-%m-%Y') }}</span><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span></div>
+                        </div>
+                        <div class="post-title">
+                            <h1>{{ post.title }}</h1>
+                        </div>
                     </div>
                     <div class="post-content">
                         {{ post.content|raw }}
@@ -93,9 +93,11 @@ function onStart()
                     </div>
                 </div>
                 <div class="side-bar-right">
-                    <div class="author-box"><a class="author-photo" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
-                        <img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></a><a class="author-name" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
-                        <p>{{ post.author.name }}</p></a>
+                    <div class="author-box">
+                        <a class="author-photo" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
+                            <img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}">
+                        </a>
+                        <a class="author-name" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}"><p>{{ post.author.name }}</p></a>
                         <div class="author-title">
                             <p>{{ post.author.title }}</p>
                         </div>
@@ -111,6 +113,7 @@ function onStart()
                             </svg></a></li>
                         </ul>
                     </div>
+                    {% partial 'site/recommend-posts' %}
                 </div>
             </div>
         </section>
