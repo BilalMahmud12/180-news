@@ -18,3 +18,9 @@ tabs:
                 type: slug
             type: text
             tab: 'midorsoft.publish::lang.plugin.tab_general'
+        image:
+            label: Image
+            mode: image
+            span: auto
+            type: mediafinder
+            tab: 'midorsoft.publish::lang.plugin.tab_general'

@@ -1,5 +1,76 @@
 title = "tags-index"
-url = "/tags-index"
+url = "/tags/:tag"
 layout = "default"
 is_hidden = 0
 ==
+<?php
+use Midorsoft\Publish\Models\Setting;
+use Midorsoft\Publish\Models\Tag;
+use Midorsoft\Publish\Models\Article;
+function onStart()
+{
+    $segments = \Request::segments();
+    $slug_un  = $segments[1];
+    $slug     = urldecode($slug_un);
+
+    $this['tag'] = Tag::where('slug', $slug)->where('is_active', 1)->first();
+    $tag = Tag::where('slug', $slug)->where('is_active', 1)->first();
+    $this['posts'] = Article::where('is_active', 1)->whereHas('tags', function($q){
+        $q->where('tag_id', $this['tag']->id);
+    })->get();
+    $this->page->title = $this['tag']->name;
+}
+?>
+==
+<article id="posts-index">
+    <div class="wrapper">
+        <div class="category-title-area">
+            <div class="overlay"></div>
+            <div class="category-bg"><img src="{{ tag.image|media }}" alt="180-news-{{ tag.slug }}"></div>
+            <div class="title">
+                <h1>{{ tag.name }}</h1>
+                <p><span> عدد المقالات تحت هذه الكلمة المفتاحية :</span><span> {{ posts.count }}</span></p>
+            </div>
+        </div>
+        <section class="posts-list">
+            <div class="grid-container">
+                {% if posts|length %}
+                {% for post in posts %}
+                <div class="latest-article--item">
+                    <a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                        {% if post.is_video_post %}
+                        <div class="video-indicator"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></span><span> فيديو</span></div>
+                        {% endif %}
+                        <img src="{{ post.image|media }}" alt="{{ post.slug }}">
+
+                    </a>
+                    <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a>
+                        <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
+                            <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
+                            <div class="author-name">
+                                <p>{{ post.author.name }}</p>
+                            </div></a>
+                            <div class="create-date"><span>{{ post.created_at|strftime('%d-%m-%Y') }}</span><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span></div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+            {% if posts.hasPages %}
+            <div class="pagination-area">
+                <div class="paginate-container">
+                    {% if posts.currentPage > 1 %}
+                    <a class="previous" href="{{ posts.previousPageUrl }}">    السابق</a>
+                    {% endif %}
+                    <div class="page-indicator"><span>   صفحة</span><span>   {{ posts.currentPage }}</span><span>   من</span><span>   {{ posts.lastPage }}</span></div>
+                    {% if posts.hasMorePages %}
+                    <a class="next" href="{{ posts.nextPageUrl }}">    التالي</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        </section>
+        {% partial 'site/top-posts' %}
+    </div>
+</article>
