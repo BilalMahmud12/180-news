@@ -2680,9 +2680,12 @@ article#search-results .wrapper .page-grid .search-results ul.post-results--list
 
 article#search-results .wrapper .page-grid .search-results ul.post-results--list li.post-result-list--item .media {
   border-radius: 1rem;
+  flex: 1 1 0%;
   overflow: hidden;
+  max-width: 130px;
   width: 130px;
   height: 130px;
+  max-height: 130px;
 }
 
 article#search-results .wrapper .page-grid .search-results ul.post-results--list li.post-result-list--item .media img {
@@ -2695,9 +2698,10 @@ article#search-results .wrapper .page-grid .search-results ul.post-results--list
 }
 
 article#search-results .wrapper .page-grid .search-results ul.post-results--list li.post-result-list--item .content {
-  margin-right: 0.75rem;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 article#search-results .wrapper .page-grid .search-results ul.post-results--list li.post-result-list--item .content .category {
@@ -2790,14 +2794,15 @@ article#search-results .wrapper .page-grid .sidebar-left .other-recommendations 
   position: absolute;
   z-index: 5;
   top: 5%;
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
   border-radius: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
   --tw-text-opacity: 1;
-  color: rgba(0, 26, 78, var(--tw-text-opacity));
-  background: #eab75f;
+  color: rgba(151, 0, 0, var(--tw-text-opacity));
 }
 
 article#search-results .wrapper .page-grid .sidebar-left .other-recommendations .recommeded-posts a.recommended-post-item .content {

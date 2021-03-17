@@ -39,7 +39,8 @@ function onStart()
                     {% for post in search %}
                     <li class="post-result-list--item">
                         <div class="media"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></div>
-                        <div class="content"><a class="category" href="/">{{ post.category.name }}</a><a class="title" href="/">
+                        <div class="content"><a class="category" href="{{ 'posts-index'|page({ category: post.category.slug }) }}">{{ post.category.name }}</a>
+                            <a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
                             <h2>{{ post.title }}</h2></a>
                         </div>
                     </li>
