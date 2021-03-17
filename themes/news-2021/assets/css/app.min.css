@@ -2792,9 +2792,8 @@ article#search-results .wrapper .page-grid .sidebar-left .other-recommendations 
   z-index: 5;
   bottom: 10%;
   max-width: 80%;
-  font-weight: 700;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
@@ -3406,14 +3405,15 @@ article#post-single .wrapper section#post-body .body-grid .side-bar-right .other
   position: absolute;
   z-index: 5;
   top: 5%;
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
   border-radius: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
   --tw-text-opacity: 1;
-  color: rgba(0, 26, 78, var(--tw-text-opacity));
-  background: #eab75f;
+  color: rgba(151, 0, 0, var(--tw-text-opacity));
 }
 
 article#post-single .wrapper section#post-body .body-grid .side-bar-right .other-recommendations .recommeded-posts a.recommended-post-item .content {
@@ -3421,9 +3421,8 @@ article#post-single .wrapper section#post-body .body-grid .side-bar-right .other
   z-index: 5;
   bottom: 10%;
   max-width: 80%;
-  font-weight: 700;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
