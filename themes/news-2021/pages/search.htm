@@ -1,5 +1,5 @@
 title = "search"
-url = "/search/"
+url = "/search"
 layout = "default"
 is_hidden = 0
 
@@ -20,6 +20,8 @@ function onStart()
     ->whereLike('title', $searchTerm)
     ->whereLike('content', $searchTerm)
     ->get();
+
+
 }
 ?>
 ==
