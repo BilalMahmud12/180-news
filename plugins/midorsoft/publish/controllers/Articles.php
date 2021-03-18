@@ -27,7 +27,7 @@ class Articles extends Controller
         return $randomString;
     }
 
-    public function formAfterSave($model)
+    public function formAfterCreate($model)
     {
         $link = $this->shortLinker(5);
         $model->update(['short_code' => $link]);
