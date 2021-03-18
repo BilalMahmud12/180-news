@@ -3569,6 +3569,63 @@ article#post-single .wrapper section#post-body .body-grid .article-content .post
   color: rgba(151, 0, 0, var(--tw-text-opacity));
 }
 
+article#post-single .wrapper section#post-body .body-grid .article-content .post-content .references {
+  --tw-bg-opacity: 1;
+  background-color: rgba(241, 245, 249, var(--tw-bg-opacity));
+  border-radius: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+article#post-single .wrapper section#post-body .body-grid .article-content .post-content .references .ref-title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+article#post-single .wrapper section#post-body .body-grid .article-content .post-content .references ol.reference-list > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+
+article#post-single .wrapper section#post-body .body-grid .article-content .post-content .references ol.reference-list {
+  display: flex;
+  flex-direction: column;
+}
+
+article#post-single .wrapper section#post-body .body-grid .article-content .post-content .references ol.reference-list li {
+  margin-right: -1rem;
+}
+
+article#post-single .wrapper section#post-body .body-grid .article-content .post-content .references ol.reference-list li::marker {
+  margin-left: 0.25rem;
+  padding-left: 0.75rem;
+}
+
+article#post-single .wrapper section#post-body .body-grid .article-content .post-content .caution {
+  --tw-bg-opacity: 1;
+  background-color: rgba(245, 230, 230, var(--tw-bg-opacity));
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+article#post-single .wrapper section#post-body .body-grid .article-content .post-content .caution .caution-icon {
+  margin-left: 0.75rem;
+}
+
+article#post-single .wrapper section#post-body .body-grid .article-content .post-content .caution p {
+  margin-bottom: 0px;
+}
+
 article#post-single .wrapper section#post-body .body-grid .article-content .post-content .post-tags {
   --tw-border-opacity: 1;
   border-color: rgba(203, 213, 225, var(--tw-border-opacity));
