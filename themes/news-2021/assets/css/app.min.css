@@ -3675,8 +3675,8 @@ article#post-single .wrapper section#post-body .body-grid .article-content .post
 
 article#post-single .wrapper section#post-body .body-grid .article-content .post-content .share-buttons ul.social-share-list > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
-  margin-right: calc(0.75rem * var(--tw-space-x-reverse));
-  margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
   --tw-space-x-reverse: 1;
 }
 
@@ -3684,6 +3684,14 @@ article#post-single .wrapper section#post-body .body-grid .article-content .post
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+}
+
+@media (min-width: 768px) {
+  article#post-single .wrapper section#post-body .body-grid .article-content .post-content .share-buttons ul.social-share-list > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+    margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+  }
 }
 
 article#post-single .wrapper section#post-body .body-grid .article-content .post-content .share-buttons ul.social-share-list li span {
