@@ -1,7 +1,0 @@
-<?php echo $this->makePartial('~/modules/backend/widgets/form/partials/_field_text.htm', ['field' => $this->formField])?>
-
-<script>
-    $(function () {
-        $('#<?= e($field->getId()) ?>').anshShortLinkCode();
-    });
-</script>

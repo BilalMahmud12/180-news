@@ -46,7 +46,6 @@ function onStart()
                         {{ post.content|raw }}
 
                         {% if post.references|length %}
-
                         <div class="references">
                             <div class="ref-title">     المصادر</div>
                             <ol class="reference-list">
@@ -56,12 +55,14 @@ function onStart()
                             </ol>
                         </div>
                         {% endif %}
+                        {% if post.with_caution %}
                         <div class="caution">
                             <div class="caution-icon"><svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 24 24" width="30px" fill="#ff3e3e"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></div>
                             <div class="caution-text">
                                 <p>  هذا المقال يعبر فقط عن رأي الكاتب ولا يعبر عن رأي فريق التحرير</p>
                             </div>
                         </div>
+                        {% endif %}
                         <div class="post-tags">
                             <ul class="tag-list">
                                 <li><span> كلمات مفتاحية</span></li>

@@ -30,6 +30,10 @@ fields:
             type: camel
         type: text
         commentAbove: 'ex: https://180news.net/go/shortlink'
+    with_caution:
+        label: 'Show Caution'
+        span: auto
+        type: checkbox
 tabs:
     fields:
         intro:
