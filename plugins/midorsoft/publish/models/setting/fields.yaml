@@ -82,3 +82,9 @@ tabs:
             span: full
             type: richeditor
             tab: Policy
+        production:
+            label: '180 Production Services'
+            size: giant
+            span: full
+            type: richeditor
+            tab: '180 Production'
