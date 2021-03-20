@@ -1,6 +1,7 @@
 <?php namespace Midorsoft\Publish;
 
 use Illuminate\Database\Eloquent\Builder;
+use IntlDateFormatter;
 use Midorsoft\Publish\Models\Article;
 use System\Classes\PluginBase;
 use Carbon\Carbon;
@@ -19,10 +20,16 @@ class Plugin extends PluginBase
     {
         return [
             'filters' => [
-                'arabicDate' => function ($date_time, $format) {
-                    $carbon = new Carbon($date_time);
-                    setlocale(LC_ALL, 'ars.UTF-8');
-                    return $carbon->formatLocalized($format);
+                'arabicDate' => function ($date_time) {
+                    $date = $date_time->getTimestamp();
+                    $fmt = datefmt_create(
+                        'ars',
+                        IntlDateFormatter::FULL,
+                        IntlDateFormatter::FULL,
+                        'GMT',
+                        IntlDateFormatter::GREGORIAN
+                    );
+                    return datefmt_format($fmt, $date);
                 },
             ],
         ];

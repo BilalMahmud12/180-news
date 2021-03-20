@@ -16,7 +16,8 @@
                                 <div class="author-name">
                                     <p>{{ slide.author.name }}</p>
                                 </div></a>
-                                <div class="update-date"><span>    اخر تحديث :</span><span>{{ slide.created_at|strftime('%d-%m-%Y') }}</span></div>
+                                <div class="update-date"><span>    اخر تحديث :</span><span>{{ slide.created_at|arabicDate }}</span></div>
+
                             </div>
                         </div>
                     </li>

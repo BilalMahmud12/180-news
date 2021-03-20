@@ -10,3 +10,5 @@ Route::get('/go/{link}', function (){
     $construct = '/' . $url->slug . '/' .date( "d-m-Y", strtotime( $url->created_at ) );
     return redirect($construct);
 });
+
+
