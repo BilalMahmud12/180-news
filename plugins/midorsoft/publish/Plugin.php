@@ -24,7 +24,7 @@ class Plugin extends PluginBase
                     $date = $date_time->getTimestamp();
                     $fmt = datefmt_create(
                         'ars',
-                        IntlDateFormatter::LONG ,
+                        IntlDateFormatter::FULL,
                         IntlDateFormatter::SHORT,
                         'Asia/Istanbul',
                         IntlDateFormatter::GREGORIAN,
