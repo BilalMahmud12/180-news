@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Jenssegers\Date\Date;
 use Midorsoft\Publish\Models\Article;
 
 Route::get('/go/{link}', function (){
@@ -10,5 +11,3 @@ Route::get('/go/{link}', function (){
     $construct = '/' . $url->slug . '/' .date( "d-m-Y", strtotime( $url->created_at ) );
     return redirect($construct);
 });
-
-

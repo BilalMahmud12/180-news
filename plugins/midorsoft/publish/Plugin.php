@@ -24,10 +24,10 @@ class Plugin extends PluginBase
                     $date = $date_time->getTimestamp();
                     $fmt = datefmt_create(
                         'ars',
-                        IntlDateFormatter::FULL,
-                        IntlDateFormatter::FULL,
-                        'GMT',
-                        IntlDateFormatter::GREGORIAN
+                        IntlDateFormatter::LONG ,
+                        IntlDateFormatter::SHORT,
+                        'Asia/Istanbul',
+                        IntlDateFormatter::GREGORIAN,
                     );
                     return datefmt_format($fmt, $date);
                 },
