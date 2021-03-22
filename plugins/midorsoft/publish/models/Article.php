@@ -54,4 +54,9 @@ class Article extends Model
         ]
     ];
 
+    public function postVisits()
+    {
+        return $this->hasOne('post_id', 'midorsoft_publish_post_visits');
+    }
+
 }

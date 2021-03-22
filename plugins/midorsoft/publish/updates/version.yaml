@@ -96,3 +96,9 @@
 1.0.33:
     - 'Updated table midorsoft_publish_settings'
     - builder_table_update_midorsoft_publish_settings_2.php
+1.0.34:
+    - 'Created table midorsoft_publish_post_visits'
+    - builder_table_create_midorsoft_publish_post_visits.php
+1.0.35:
+    - 'Created table midorsoft_publish_search_terms'
+    - builder_table_create_midorsoft_publish_search_terms.php

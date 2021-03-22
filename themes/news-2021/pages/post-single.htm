@@ -17,7 +17,11 @@ function onStart()
 
     $this['post'] = Article::where('slug', $slug)->where('is_active', 1)->first();
     $this['post']->increment('visits');
+    $post_id = $this['post']->id;
+    $category_id = $this['post']->category_id;
+    $this['read_more'] = Article::where('id', '!=', $post_id)->where('category_id', $category_id)->orderBy('created_at', 'desc')->take(5)->get();
     $this->page->title = $this['post']->title;
+
 
 }
 ?>
@@ -187,6 +191,7 @@ function onStart()
                             </svg></a></li>
                         </ul>
                     </div>
+                    {% partial 'site/read-more' %}
                     {% partial 'site/recommend-posts' %}
                 </div>
             </div>
