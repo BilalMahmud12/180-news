@@ -9,6 +9,7 @@ use Midorsoft\Publish\Models\Category;
 use Midorsoft\Publish\Models\Author;
 use Midorsoft\Publish\Models\Tag;
 use Midorsoft\Publish\Models\Article;
+
 function onStart()
 {
     $segments = \Request::segments();
@@ -22,6 +23,12 @@ function onStart()
     $this['read_more'] = Article::where('id', '!=', $post_id)->where('category_id', $category_id)->inRandomOrder()->take(6)->get();
     $this->page->title = $this['post']->title;
 
+    $this->page->meta_description = $this['post']->meta_desc;
+
+    $meta_keywords_row = $this['post']->tags;
+    $meta_keywords = [];
+    foreach($meta_keywords_row as $tag) array_push($meta_keywords , $tag->name);
+    $this->page->search_keywords = implode(",", $meta_keywords);
 
 }
 ?>
