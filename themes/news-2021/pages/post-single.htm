@@ -30,6 +30,7 @@ function onStart()
     foreach($meta_keywords_row as $tag) array_push($meta_keywords , $tag->name);
     $this->page->search_keywords = implode(",", $meta_keywords);
 
+
 }
 ?>
 ==
@@ -175,6 +176,7 @@ function onStart()
                                 </li>
                             </ul>
                         </div>
+                        <div id="disqus_thread"></div>
                     </div>
                 </div>
                 <div class="side-bar-right">
@@ -206,3 +208,16 @@ function onStart()
         {% partial 'site/top-posts' %}
     </div>
 </article>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://180news.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
