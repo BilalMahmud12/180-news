@@ -1,5 +1,74 @@
 title = "videos-index"
-url = "/videos-index"
+url = "/فيديو"
 layout = "default"
 is_hidden = 0
 ==
+<?php
+    use Midorsoft\Publish\Models\Setting;
+    use Midorsoft\Publish\Models\Category;
+    use Midorsoft\Publish\Models\Article;
+function onStart()
+{
+    $this['articles'] = Article::where('is_active', 1)->where('is_video_post', 1)->OrderBy('updated_at', 'desc')->paginate(9);
+    $this['count'] = Article::where('is_active', 1)->where('is_video_post', 1)->count();
+}
+?>
+==
+<article id="posts-index">
+    <div class="wrapper">
+        <div class="category-title-area">
+            <div class="overlay"></div>
+            {% if category.image %}
+            <div class="category-bg"><img src="{{ category.image|media }}" alt="فيديوهات"></div>
+            {% endif %}
+            <div class="title">
+                <h1>فيديوهات</h1>
+                <p><span> عدد الفيديوهات تحت هذا الباب :</span><span> {{ count }}</span></p>
+            </div>
+            <div class="category-text">
+                <p>{{ category.description }}</p>
+            </div>
+        </div>
+        <section class="posts-list">
+            <div class="grid-container">
+                {% for post in articles %}
+                <div class="latest-article--item">
+                    <a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                        {% if post.is_video_post %}
+                        <div class="video-indicator"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></span><span> فيديو</span></div>
+                        {% endif %}
+                        <img src="{{ post.image|media }}" alt="{{ post.slug }}">
+
+                    </a>
+                    <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a>
+                        <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
+                            <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
+                            <div class="author-name">
+                                <p>{{ post.author.name }}</p>
+                            </div></a>
+                            <div class="create-date">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span>
+                                <span>{{ post.created_at|arabicDate }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% if articles.hasPages %}
+            <div class="pagination-area">
+                <div class="paginate-container">
+                    {% if articles.currentPage > 1 %}
+                    <a class="previous" href="{{ articles.previousPageUrl }}">    السابق</a>
+                    {% endif %}
+                    <div class="page-indicator"><span>   صفحة</span><span>   {{ articles.currentPage }}</span><span>   من</span><span>   {{ articles.lastPage }}</span></div>
+                    {% if articles.hasMorePages %}
+                    <a class="next" href="{{ articles.nextPageUrl }}">    التالي</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        </section>
+        {% partial 'site/top-posts' %}
+    </div>
+</article>

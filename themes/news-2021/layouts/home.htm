@@ -14,36 +14,36 @@ function onStart() {
     $this['other_menu'] = Category::where('in_menu', 0)->where('is_active', 1)->orderBy('sort_order', 'asc')->get();
     $this['slider_items'] = Article::where('is_active', 1)->where('in_slider', 1)->where('is_vip_post', 0)->where('is_video_post', 0)->orderBy('created_at', 'desc')->take(8)->get();
     $this['special_reports'] = Article::where('is_active', 1)->where('is_vip_post', 1)->orderBy('created_at', 'desc')->take(4)->get();
-    $this['latest_articles'] = Article::where('is_active', 1)->where('is_vip_post', 0)->where('is_video_post', 0)->orderBy('created_at', 'desc')->take(6)->get();
+    $this['latest_articles'] = Article::where('is_active', 1)->where('is_vip_post', 0)->where('is_video_post', 0)->orderBy('created_at', 'desc')->take(9)->get();
     $this['topPosts'] = Article::where('is_active', 1)->where('is_video_post', 0)->orderBy('visits', 'desc')->take(5)->get();
     $this['videos'] = Article::where('is_video_post', 1)->orderBy('updated_at', 'desc')->take(9)->get();
 
     $this['banner01'] = Category::where('id', 11)->first();
 
     $this['Cat01Posts'] = Category::where('is_active', 1)->where('id', 1)->with(['articles' => function($q){
-    $q->where('is_active', 1)->orderBy('updated_at', 'desc')->take(3);
+    $q->where('is_active', 1)->orderBy('updated_at', 'desc')->take(6);
     }])->first();
 
     $this['Cat02Posts'] = Category::where('is_active', 1)->where('id', 2)->with(['articles' => function($q){
-    $q->where('is_active', 1)->orderBy('updated_at', 'desc')->take(3);
+    $q->where('is_active', 1)->orderBy('updated_at', 'desc')->take(6);
     }])->first();
 
     $this['Cat03Posts'] = Category::where('is_active', 1)->where('id', 3)->with(['articles' => function($q){
-    $q->where('is_active', 1)->orderBy('updated_at', 'desc')->take(3);
+    $q->where('is_active', 1)->orderBy('updated_at', 'desc')->take(6);
     }])->first();
 
 
     $this['Cat04Posts'] = Category::where('is_active', 1)->where('id', 4)->with(['articles' => function($q){
-    $q->where('is_active', 1)->orderBy('updated_at', 'desc')->take(3);
+    $q->where('is_active', 1)->orderBy('updated_at', 'desc')->take(6);
     }])->first();
 
 
     $this['Cat05Posts'] = Category::where('is_active', 1)->where('id', 5)->with(['articles' => function($q){
-    $q->where('is_active', 1)->orderBy('updated_at', 'desc')->take(3);
+    $q->where('is_active', 1)->orderBy('updated_at', 'desc')->take(6);
     }])->first();
 
     $this['Cat06Posts'] = Category::where('is_active', 1)->where('id', 6)->with(['articles' => function($q){
-    $q->where('is_active', 1)->orderBy('updated_at', 'desc')->take(3);
+    $q->where('is_active', 1)->orderBy('updated_at', 'desc')->take(6);
     }])->first();
 
 
