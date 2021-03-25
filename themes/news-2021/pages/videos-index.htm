@@ -18,9 +18,7 @@ function onStart()
     <div class="wrapper">
         <div class="category-title-area">
             <div class="overlay"></div>
-            {% if category.image %}
-            <div class="category-bg"><img src="{{ category.image|media }}" alt="فيديوهات"></div>
-            {% endif %}
+            <div class="category-bg"><img src="{{ 'assets/images/film___Super_Portrait.jpg'|theme }}" alt="فيديوهات"></div>
             <div class="title">
                 <h1>فيديوهات</h1>
                 <p><span> عدد الفيديوهات تحت هذا الباب :</span><span> {{ count }}</span></p>
