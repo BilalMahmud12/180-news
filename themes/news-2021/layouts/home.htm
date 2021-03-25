@@ -33,12 +33,12 @@ function onStart() {
     }])->first();
 
 
-    $this['Cat04Posts'] = Category::where('is_active', 1)->where('id', 4)->with(['articles' => function($q){
+    $this['Cat04Posts'] = Category::where('is_active', 1)->where('id', 8)->with(['articles' => function($q){
     $q->where('is_active', 1)->orderBy('updated_at', 'desc')->take(6);
     }])->first();
 
 
-    $this['Cat05Posts'] = Category::where('is_active', 1)->where('id', 5)->with(['articles' => function($q){
+    $this['Cat05Posts'] = Category::where('is_active', 1)->where('id', 10)->with(['articles' => function($q){
     $q->where('is_active', 1)->orderBy('updated_at', 'desc')->take(6);
     }])->first();
 
