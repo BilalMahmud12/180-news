@@ -50,6 +50,7 @@
                     {% for item in main_menu %}
                     <li><a href="{{ 'posts-index'|page({ category: item.slug }) }}">{{ item.name }}</a></li>
                     {% endfor %}
+                    <li><a href="{{ 'videos-index'|page }}">فيديوهات</a></li>
                     {% if other_menu|length %}
                     <li class="dropdown"><a class="dropdown-link" href="#"><span>المزيد</span><span class="dropdown-icon"><svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M5 6L10 11L15 6L17 7L10 14L3 7L5 6Z" fill="black"/>
@@ -73,6 +74,7 @@
             {% for item in main_menu %}
             <li><a href="{{ 'posts-index'|page({ category: item.slug }) }}">{{ item.name }}</a></li>
             {% endfor %}
+            <li><a href="{{ 'videos-index'|page }}">فيديوهات</a></li>
             {% if other_menu|length %}
             <li class="dropdown" id="mobile-dropdown"><a class="dropdown-link" href="#"><span>المزيد</span><span class="dropdown-icon"><svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M5 6L10 11L15 6L17 7L10 14L3 7L5 6Z" fill="black"/>
