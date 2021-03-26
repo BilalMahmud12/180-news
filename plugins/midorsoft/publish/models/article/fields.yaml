@@ -68,6 +68,7 @@ tabs:
             options:
                 youtube: YouTube
                 vimeo: Vimeo
+                facebook: Facebook
             showSearch: true
             span: auto
             type: dropdown
