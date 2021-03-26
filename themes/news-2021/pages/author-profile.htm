@@ -15,7 +15,7 @@ function onStart()
     $slug     = urldecode($slug_un);
 
     $this['author'] = Author::where('slug', $slug)->where('is_active', 1)->first();
-    $this['posts'] = Article::where('author_id', $this['author']->id)->where('is_active', 1)->OrderBy('updated_at', 'desc')->paginate(9);
+    $this['posts'] = Article::where('author_id', $this['author']->id)->where('is_active', 1)->OrderBy('created_at', 'desc')->paginate(9);
     $this->page->title = $this['author']->name;
 
 

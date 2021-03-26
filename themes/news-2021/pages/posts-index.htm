@@ -15,7 +15,7 @@ function onStart()
 
     $this['category'] = Category::where('slug', $slug)->where('is_active', 1)->first();
     $category = Category::where('slug', $slug)->where('is_active', 1)->first();
-    $this['articles'] = Article::where('is_active', 1)->where('category_id', $category->id)->OrderBy('updated_at', 'desc')->paginate(9);
+    $this['articles'] = Article::where('is_active', 1)->where('category_id', $category->id)->OrderBy('created_at', 'desc')->paginate(9);
     $this['count'] = Article::where('is_active', 1)->where('category_id', $category->id)->count();
     $this->page->title = $this['category']->name;
     $this->page->meta_description = $this['category']->meta_desc;
