@@ -54,7 +54,6 @@ function onStart() {
 <html lang="ar" dir="rtl">
     <head>
         {% partial 'blocks/head' %}
-
         <!--start css-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&amp;display=swap">
@@ -62,6 +61,7 @@ function onStart() {
         <link rel="stylesheet" href="{{'assets/css/glide.core.min.css'|theme}}">
         <link rel="stylesheet" href="{{ 'assets/css/tailwind.min.css'|theme }}">
         <link rel="stylesheet" href="{{ 'assets/css/app.min.css'|theme }}">
+
         {% styles %}
         <title> {{ this.page.title }} | {{ settings.site_name }}</title>
     </head>
@@ -74,7 +74,6 @@ function onStart() {
             {% page %}
         </main>
         {% partial 'site/footer' %}
-
         <script src="{{'assets/js/glide.js'|theme}}"></script>
         <script src="{{ 'assets/js/app.min.js'|theme }}"></script>
     </body>
