@@ -55,7 +55,13 @@ function onStart() {
     <head>
         {% partial 'blocks/head' %}
 
-
+        <!--start css-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&amp;display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;700&amp;display=swap">
+        <link rel="stylesheet" href="{{'assets/css/glide.core.min.css'|theme}}">
+        <link rel="stylesheet" href="{{ 'assets/css/tailwind.min.css'|theme }}">
+        <link rel="stylesheet" href="{{ 'assets/css/app.min.css'|theme }}">
         {% styles %}
         <title> {{ this.page.title }} | {{ settings.site_name }}</title>
     </head>
@@ -68,13 +74,7 @@ function onStart() {
             {% page %}
         </main>
         {% partial 'site/footer' %}
-        <!--start css-->
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&amp;display=swap">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;700&amp;display=swap">
-        <link rel="stylesheet" href="{{'assets/css/glide.core.min.css'|theme}}">
-        <link rel="stylesheet" href="{{ 'assets/css/tailwind.min.css'|theme }}">
-        <link rel="stylesheet" href="{{ 'assets/css/app.min.css'|theme }}">
+
         <script src="{{'assets/js/glide.js'|theme}}"></script>
         <script src="{{ 'assets/js/app.min.js'|theme }}"></script>
     </body>
