@@ -71,7 +71,7 @@ function onStart() {
         <!-- End Google Tag Manager (noscript) -->
         {% partial 'site/header' %}
         <main>
-            <div class="ramadan_moon"><img src="assets/images/ramadan_moon.svg" alt=""></div>
+            <div class="ramadan_moon"><img src="{{ 'assets/images/ramadan_moon.svg'|theme }}" alt="ramadan_badge"></div>
             {% page %}
         </main>
         {% partial 'site/footer' %}
