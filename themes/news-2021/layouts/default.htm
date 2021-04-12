@@ -28,7 +28,7 @@ function onStart() {
         <link rel="stylesheet" href="{{ 'assets/css/plyr.css'|theme }}">
         <link rel="stylesheet" href="{{'assets/css/glide.core.min.css'|theme}}">
         <link rel="stylesheet" href="{{ 'assets/css/tailwind.min.css'|theme }}">
-        <link rel="stylesheet" href="{{ 'assets/css/app.min.css?v=1.1'|theme }}">
+        <link rel="stylesheet" href="{{ 'assets/css/app.min.css?v=1.2'|theme }}">
 
         <title> {{ this.page.title }} | {{ settings.site_name }}</title>
         <link rel="amphtml" href="https://amp.example.com/amp/news/fast-bird-sighted">
@@ -39,6 +39,7 @@ function onStart() {
         <!-- End Google Tag Manager (noscript) -->
         {% partial 'site/header' %}
         <main>
+            <div class="ramadan_moon"><img src="assets/images/ramadan_moon.svg" alt=""></div>
             {% page %}
         </main>
         {% partial 'site/footer' %}

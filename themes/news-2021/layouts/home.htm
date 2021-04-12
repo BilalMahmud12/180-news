@@ -60,7 +60,7 @@ function onStart() {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;700&amp;display=swap">
         <link rel="stylesheet" href="{{'assets/css/glide.core.min.css'|theme}}">
         <link rel="stylesheet" href="{{ 'assets/css/tailwind.min.css'|theme }}">
-        <link rel="stylesheet" href="{{ 'assets/css/app.min.css?v=1.1'|theme }}">
+        <link rel="stylesheet" href="{{ 'assets/css/app.min.css?v=1.2'|theme }}">
 
         {% styles %}
         <title> {{ this.page.title }} | {{ settings.site_name }}</title>
@@ -71,6 +71,7 @@ function onStart() {
         <!-- End Google Tag Manager (noscript) -->
         {% partial 'site/header' %}
         <main>
+            <div class="ramadan_moon"><img src="assets/images/ramadan_moon.svg" alt=""></div>
             {% page %}
         </main>
         {% partial 'site/footer' %}

@@ -49,6 +49,51 @@ main {
   }
 }
 
+main .ramadan_moon {
+  position: fixed;
+  left: 12%;
+  top: 94px;
+  z-index: 15;
+  width: 145px;
+  -webkit-animation: shake 3s infinite;
+          animation: shake 3s infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+main .ramadan_moon img {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 640px) {
+  main .ramadan_moon {
+    left: 6%;
+    top: 38px;
+    width: 91px;
+  }
+}
+
+@-webkit-keyframes shake {
+  0% {
+    transform: skewY(4deg);
+  }
+
+  100% {
+    transform: skewY(-4deg);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: skewY(4deg);
+  }
+
+  100% {
+    transform: skewY(-4deg);
+  }
+}
+
 .font-heading {
   font-family: 'Almarai', sans-serif;
 }
@@ -5049,16 +5094,17 @@ section#banner-01.banner-type--01 .wrapper .banner-container .content a.page-lin
   }
 }
 
-#banHorizontal_lg .wrapper .banner-container {
+#banHorizontal_lg .wrapper a.banner-container {
   --tw-bg-opacity: 1;
   background-color: rgba(203, 213, 225, var(--tw-bg-opacity));
   border-radius: 1rem;
+  display: block;
   height: 100%;
   overflow: hidden;
   position: relative;
 }
 
-#banHorizontal_lg .wrapper .banner-container .overlay {
+#banHorizontal_lg .wrapper a.banner-container .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -5068,7 +5114,7 @@ section#banner-01.banner-type--01 .wrapper .banner-container .content a.page-lin
   background: linear-gradient(200deg, #2d3748 0%, transparent 130%);
 }
 
-#banHorizontal_lg .wrapper .banner-container .bg-image {
+#banHorizontal_lg .wrapper a.banner-container .bg-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -5077,7 +5123,7 @@ section#banner-01.banner-type--01 .wrapper .banner-container .content a.page-lin
   z-index: 0;
 }
 
-#banHorizontal_lg .wrapper .banner-container .bg-image img {
+#banHorizontal_lg .wrapper a.banner-container .bg-image img {
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
@@ -5086,7 +5132,7 @@ section#banner-01.banner-type--01 .wrapper .banner-container .content a.page-lin
   height: 100%;
 }
 
-#banHorizontal_lg .wrapper .banner-container .content {
+#banHorizontal_lg .wrapper a.banner-container .content {
   position: relative;
   z-index: 5;
   display: flex;
@@ -5101,23 +5147,23 @@ section#banner-01.banner-type--01 .wrapper .banner-container .content a.page-lin
 }
 
 @media (min-width: 768px) {
-  #banHorizontal_lg .wrapper .banner-container .content {
+  #banHorizontal_lg .wrapper a.banner-container .content {
     flex-direction: row;
   }
 }
 
-#banHorizontal_lg .wrapper .banner-container .content .banner-text {
+#banHorizontal_lg .wrapper a.banner-container .content .banner-text {
   justify-content: center;
 }
 
-#banHorizontal_lg .wrapper .banner-container .content .banner-text .heading-01 > :not([hidden]) ~ :not([hidden]) {
+#banHorizontal_lg .wrapper a.banner-container .content .banner-text .heading-01 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
   --tw-space-x-reverse: 1;
 }
 
-#banHorizontal_lg .wrapper .banner-container .content .banner-text .heading-01 {
+#banHorizontal_lg .wrapper a.banner-container .content .banner-text .heading-01 {
   --tw-bg-opacity: 1;
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
   border-radius: 1rem;
@@ -5133,28 +5179,28 @@ section#banner-01.banner-type--01 .wrapper .banner-container .content a.page-lin
 }
 
 @media (min-width: 768px) {
-  #banHorizontal_lg .wrapper .banner-container .content .banner-text .heading-01 {
+  #banHorizontal_lg .wrapper a.banner-container .content .banner-text .heading-01 {
     margin-right: 0px;
     margin-left: auto;
   }
 }
 
-#banHorizontal_lg .wrapper .banner-container .content .banner-text .heading-01 {
-  width: 226px;
+#banHorizontal_lg .wrapper a.banner-container .content .banner-text .heading-01 {
+  width: 195px;
 }
 
-#banHorizontal_lg .wrapper .banner-container .content .banner-text .heading-01 span {
+#banHorizontal_lg .wrapper a.banner-container .content .banner-text .heading-01 span {
   font-size: 1.25rem;
   line-height: 1.75rem;
   --tw-text-opacity: 1;
   color: rgba(151, 0, 0, var(--tw-text-opacity));
 }
 
-#banHorizontal_lg .wrapper .banner-container .content .banner-text .heading-01 span img {
+#banHorizontal_lg .wrapper a.banner-container .content .banner-text .heading-01 span img {
   width: 113px;
 }
 
-#banHorizontal_lg .wrapper .banner-container .content .banner-text .description {
+#banHorizontal_lg .wrapper a.banner-container .content .banner-text .description {
   font-size: 1.5rem;
   line-height: 2rem;
   margin-bottom: 1rem;
@@ -5164,12 +5210,12 @@ section#banner-01.banner-type--01 .wrapper .banner-container .content a.page-lin
 }
 
 @media (min-width: 768px) {
-  #banHorizontal_lg .wrapper .banner-container .content .banner-text .description {
+  #banHorizontal_lg .wrapper a.banner-container .content .banner-text .description {
     text-align: right;
   }
 }
 
-#banHorizontal_lg .wrapper .banner-container .content .banner-text .heading-02 {
+#banHorizontal_lg .wrapper a.banner-container .content .banner-text .heading-02 {
   font-size: 2.25rem;
   line-height: 2.5rem;
   text-align: center;
@@ -5178,24 +5224,24 @@ section#banner-01.banner-type--01 .wrapper .banner-container .content a.page-lin
 }
 
 @media (min-width: 768px) {
-  #banHorizontal_lg .wrapper .banner-container .content .banner-text .heading-02 {
+  #banHorizontal_lg .wrapper a.banner-container .content .banner-text .heading-02 {
     text-align: right;
   }
 }
 
-#banHorizontal_lg .wrapper .banner-container .content .photos > :not([hidden]) ~ :not([hidden]) {
+#banHorizontal_lg .wrapper a.banner-container .content .photos > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
   --tw-space-x-reverse: 1;
 }
 
-#banHorizontal_lg .wrapper .banner-container .content .photos {
+#banHorizontal_lg .wrapper a.banner-container .content .photos {
   display: flex;
   align-items: center;
 }
 
-#banHorizontal_lg .wrapper .banner-container .content .photos .photo_01, #banHorizontal_lg .wrapper .banner-container .content .photos .photo_02 {
+#banHorizontal_lg .wrapper a.banner-container .content .photos .photo_01, #banHorizontal_lg .wrapper a.banner-container .content .photos .photo_02 {
   width: 180px;
   height: 180px;
   --tw-border-opacity: 1;
@@ -5206,13 +5252,13 @@ section#banner-01.banner-type--01 .wrapper .banner-container .content a.page-lin
 }
 
 @media (max-width: 640px) {
-  #banHorizontal_lg .wrapper .banner-container .content .photos .photo_01, #banHorizontal_lg .wrapper .banner-container .content .photos .photo_02 {
+  #banHorizontal_lg .wrapper a.banner-container .content .photos .photo_01, #banHorizontal_lg .wrapper a.banner-container .content .photos .photo_02 {
     width: 130px;
     height: 130px;
   }
 }
 
-#banHorizontal_lg .wrapper .banner-container .content .photos .photo_01 img, #banHorizontal_lg .wrapper .banner-container .content .photos .photo_02 img {
+#banHorizontal_lg .wrapper a.banner-container .content .photos .photo_01 img, #banHorizontal_lg .wrapper a.banner-container .content .photos .photo_02 img {
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
