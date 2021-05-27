@@ -1,0 +1,19 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {% for category in categories %}
+    <url>
+        <loc>{{ url('/categories/') }}/{{ category.slug }}</loc>
+        <lastmod>{{ category.created_at|date(c) }}</lastmod>
+        <changefreq>always</changefreq>
+        <periodity>0.5</periodity>
+    </url>
+    {% endfor %}
+    {% for article in articles %}
+    <url>
+        <loc>{{ url('/') }}/{{ article.created_at|strftime('%d-%m-%Y') }}/{{ article.slug }}</loc>
+        <lastmod>{{ category.created_at|date(c) }}</lastmod>
+        <changefreq>always</changefreq>
+        <periodity>0.5</periodity>
+    </url>
+    {% endfor %}
+
+</urlset>
