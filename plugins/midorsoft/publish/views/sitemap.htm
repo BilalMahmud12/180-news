@@ -5,16 +5,14 @@
         <loc>{{ url('/categories/') }}/{{ category.slug }}</loc>
         <lastmod>{{ category.created_at }}</lastmod>
         <changefreq>always</changefreq>
-        <periodity>0.5</periodity>
         <priority>1.0</priority>
     </url>
     {% endfor %}
     {% for article in articles %}
     <url>
         <loc>{{ url('/') }}/{{ article.slug }}/{{ article.created_at|strftime('%Y-%m-%d') }}</loc>
-        <lastmod>{{ category.created_at }}</lastmod>
+        <lastmod>{{ article.created_at }}</lastmod>
         <changefreq>always</changefreq>
-        <periodity>0.5</periodity>
         <priority>1.0</priority>
     </url>
     {% endfor %}
