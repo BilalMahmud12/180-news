@@ -15,23 +15,24 @@ Route::get('/go/{link}', function (){
 });
 
 
-Route::get('date', function (){
-    $date = new Date();
-    $fmt = datefmt_create(
-        'ars',
-        IntlDateFormatter::LONG ,
-        IntlDateFormatter::SHORT,
-        'Asia/Istanbul',
-        IntlDateFormatter::GREGORIAN,
-
-    );
-    return datefmt_format($fmt, $date);
-    //return strftime("%e %B %Y %A", time());
-});
+//Route::get('date', function (){
+//    $date = new Date();
+//    $fmt = datefmt_create(
+//        'ars',
+//        IntlDateFormatter::LONG ,
+//        IntlDateFormatter::SHORT,
+//        'Asia/Istanbul',
+//        IntlDateFormatter::GREGORIAN,
+//
+//    );
+//    return datefmt_format($fmt, $date);
+//    //return strftime("%e %B %Y %A", time());
+//});
 
 Route::get('sitemap.xml', function (){
-    $categories = Category::all();
-    $articles = Article::all();
+    $categories = Category::where('is_active', 1)->get();
+    $articles = Article::where('is_active', 1)->get();
+
     return Response::view('midorsoft.publish::sitemap', [
         'categories' => $categories,
         'articles' => $articles

@@ -31,6 +31,10 @@ class Plugin extends PluginBase
                     );
                     return datefmt_format($fmt, $date);
                 },
+
+                'rawURL' => function($slug) {
+                    return rawurlencode($slug);
+                }
             ],
         ];
     }
