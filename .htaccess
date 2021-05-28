@@ -9,6 +9,7 @@
     RewriteRule (.*) https://180news.net/$1 [R=301,L]
 
     RewriteRule ^robots.txt - [L]
+    RewriteRule ^ads.txt - [L]
 
     ##
     ## You may need to uncomment the following line for some hosting environments,
