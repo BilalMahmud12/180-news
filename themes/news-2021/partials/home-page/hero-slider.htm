@@ -25,16 +25,16 @@
                 </ul>
             </div>
             <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--right" data-glide-dir="&gt;"><span><svg width="35" height="35" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <button aria-label="slide right" class="glide__arrow glide__arrow--right" data-glide-dir="&gt;"><span><svg width="35" height="35" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M6 15L11 10L6 5L7 3L14 10L7 17L6 15Z" fill="#ffffff7d"/>
 </svg></span></button>
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="&lt;"><span><svg width="35" height="35" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <button aria-label="slide left" class="glide__arrow glide__arrow--left" data-glide-dir="&lt;"><span><svg width="35" height="35" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M14 5L9 10L14 15L13 17L6 10L13 3L14 5Z" fill="#ffffff7d"/>
 </svg></span></button>
             </div>
             <div class="glide__bullets" data-glide-el="controls[nav]">
                 {% for bullet in slider_items %}
-                <button class="glide__bullet" data-glide-dir="={{ loop.index -1 }}"></button>
+                <button aria-label="slide bullet" class="glide__bullet" data-glide-dir="={{ loop.index -1 }}"></button>
                 {% endfor %}
             </div>
         </div>

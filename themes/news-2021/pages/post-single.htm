@@ -46,40 +46,40 @@ function onStart()
                     <div class="share-buttons">
                         <ul class="social-share-list">
                             <li>
-                                <a class="telegram-share" href="https://telegram.me/share/url?url={{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}&text={{ post.title }}">
+                                <a rel="noreferrer" class="telegram-share" href="https://telegram.me/share/url?url={{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}&text={{ post.title }}">
                                     <svg id="Bold" enable-background="new 0 0 24 24" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg">
                                         <path d="m9.417 15.181-.397 5.584c.568 0 .814-.244 1.109-.537l2.663-2.545 5.518 4.041c1.012.564 1.725.267 1.998-.931l3.622-16.972.001-.001c.321-1.496-.541-2.081-1.527-1.714l-21.29 8.151c-1.453.564-1.431 1.374-.247 1.741l5.443 1.693 12.643-7.911c.595-.394 1.136-.176.691.218z" fill="white"/>
                                     </svg>
                                 </a>
                             </li>
                             <li>
-                                <a class="twitter-share" href="https://twitter.com/intent/tweet?url={{ 'post-single'|page ({ cdate: article.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}&text={{ post.title }}&via=">
+                                <a rel="noreferrer" class="twitter-share" href="https://twitter.com/intent/tweet?url={{ 'post-single'|page ({ cdate: article.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}&text={{ post.title }}&via=">
                                     <svg width="21" height="21" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M18.94 4.45999C18.45 5.18999 17.83 5.83999 17.11 6.35999C17.12 6.50999 17.12 6.66999 17.12 6.82999C17.12 11.68 13.43 17.27 6.69 17.27C4.62 17.27 2.69 16.66 1.06 15.62C1.35 15.65 1.64 15.67 1.94 15.67C3.66 15.67 5.24 15.08 6.49 14.1C5.72534 14.0842 4.98472 13.8299 4.37157 13.3728C3.75843 12.9156 3.30338 12.2783 3.07 11.55C3.29 11.59 3.52 11.62 3.76 11.62C4.09 11.62 4.42 11.57 4.72 11.49C3.8906 11.3197 3.14528 10.8687 2.60972 10.2129C2.07415 9.5571 1.78111 8.73668 1.78 7.88999V7.84999C2.28 8.11999 2.84 8.28999 3.44 8.30999C2.9378 7.97313 2.52636 7.51769 2.24206 6.98398C1.95776 6.45026 1.80936 5.85471 1.81 5.24999C1.81 4.57999 1.99 3.94999 2.31 3.40999C4.12 5.62999 6.82 7.08999 9.87 7.23999C9.81 6.96999 9.77 6.68999 9.77 6.39999C9.77265 5.42838 10.1605 4.49747 10.8484 3.81137C11.5364 3.12527 12.4684 2.73999 13.44 2.73999C14.5 2.73999 15.45 3.17999 16.12 3.89999C16.95 3.72999 17.74 3.42999 18.45 3.00999C18.17 3.85999 17.59 4.57999 16.83 5.02999C17.5586 4.95035 18.2704 4.75806 18.94 4.45999Z" fill="white"/>
                                     </svg>
                                 </a>
                             </li>
                             <li>
-                                <a class="facebook-share" href="https://www.facebook.com/sharer.php?u={{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                                <a rel="noreferrer" class="facebook-share" href="https://www.facebook.com/sharer.php?u={{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
                                     <svg width="21" height="21" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M8.46 18H11.39V10.7H13.84L14.21 7.86H11.39V6.04C11.39 5.22 11.62 4.66 12.8 4.66H14.31V2.11C14.05 2.08 13.16 2 12.12 2C9.94 2 8.46 3.33 8.46 5.76V7.86H6V10.7H8.46V18Z" fill="#fff"/>
                                     </svg>
                                 </a>
                             </li>
                             <li>
-                                <a class="" href="whatsapp://send?text={{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}" target="_blank">
+                                <a rel="noreferrer" class="" href="whatsapp://send?text={{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}" target="_blank">
                                     <svg enable-background="new 0 0 24 24" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="m20.52 3.449c-2.28-2.204-5.28-3.449-8.475-3.449-9.17 0-14.928 9.935-10.349 17.838l-1.696 6.162 6.335-1.652c2.76 1.491 5.021 1.359 5.716 1.447 10.633 0 15.926-12.864 8.454-20.307z" fill="#eceff1"/><path d="m12.067 21.751-.006-.001h-.016c-3.182 0-5.215-1.507-5.415-1.594l-3.75.975 1.005-3.645-.239-.375c-.99-1.576-1.516-3.391-1.516-5.26 0-8.793 10.745-13.19 16.963-6.975 6.203 6.15 1.848 16.875-7.026 16.875z" fill="#4caf50"/><path d="m17.507 14.307-.009.075c-.301-.15-1.767-.867-2.04-.966-.613-.227-.44-.036-1.617 1.312-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.293-.506.32-.578.878-1.634.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.576-.05-.997-.042-1.368.344-1.614 1.774-1.207 3.604.174 5.55 2.714 3.552 4.16 4.206 6.804 5.114.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345z" fill="#fafafa"/></svg>
                                 </a>
                             </li>
                             <li>
-                                <a class="mail-share" href="mailto:%7Bemail_address%7D?subject={{ post.title }}&body={{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                                <a rel="noreferrer" class="mail-share" href="mailto:%7Bemail_address%7D?subject={{ post.title }}&body={{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M3.86999 4H17.12C18.37 4 19 4.59 19 5.79V14.21C19 15.4 18.37 16 17.12 16H3.86999C2.61999 16 1.98999 15.4 1.98999 14.21V5.79C1.98999 4.59 2.61999 4 3.86999 4ZM10.49 12.6L17.23 7.07C17.47 6.87 17.66 6.41 17.36 6C17.07 5.59 16.54 5.58 16.19 5.83L10.49 9.69L4.79999 5.83C4.44999 5.58 3.91999 5.59 3.62999 6C3.32999 6.41 3.51999 6.87 3.75999 7.07L10.49 12.6Z" fill="black"/>
                                     </svg>
                                 </a>
                             </li>
                             <li>
-                                <a id="postShortLink" class="" href="{{ ''|app }}/go/{{ post.short_code }}">
+                                <a rel="noreferrer" id="postShortLink" class="" href="{{ ''|app }}/go/{{ post.short_code }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray" width="21px" height="21px"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
                                 </a>
                             </li>
@@ -141,40 +141,40 @@ function onStart()
                             <ul class="social-share-list">
                                 <li><span> شارك</span></li>
                                 <li>
-                                    <a class="telegram-share" href="https://telegram.me/share/url?url={{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}&text={{ post.title }}">
+                                    <a rel="noreferrer" class="telegram-share" href="https://telegram.me/share/url?url={{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}&text={{ post.title }}">
                                         <svg id="Bold" enable-background="new 0 0 24 24" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg">
                                             <path d="m9.417 15.181-.397 5.584c.568 0 .814-.244 1.109-.537l2.663-2.545 5.518 4.041c1.012.564 1.725.267 1.998-.931l3.622-16.972.001-.001c.321-1.496-.541-2.081-1.527-1.714l-21.29 8.151c-1.453.564-1.431 1.374-.247 1.741l5.443 1.693 12.643-7.911c.595-.394 1.136-.176.691.218z" fill="white"/>
                                         </svg>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="twitter-share" href="https://twitter.com/intent/tweet?url={{ 'post-single'|page ({ cdate: article.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}&text={{ post.title }}&via=">
+                                    <a rel="noreferrer" class="twitter-share" href="https://twitter.com/intent/tweet?url={{ 'post-single'|page ({ cdate: article.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}&text={{ post.title }}&via=">
                                         <svg width="21" height="21" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M18.94 4.45999C18.45 5.18999 17.83 5.83999 17.11 6.35999C17.12 6.50999 17.12 6.66999 17.12 6.82999C17.12 11.68 13.43 17.27 6.69 17.27C4.62 17.27 2.69 16.66 1.06 15.62C1.35 15.65 1.64 15.67 1.94 15.67C3.66 15.67 5.24 15.08 6.49 14.1C5.72534 14.0842 4.98472 13.8299 4.37157 13.3728C3.75843 12.9156 3.30338 12.2783 3.07 11.55C3.29 11.59 3.52 11.62 3.76 11.62C4.09 11.62 4.42 11.57 4.72 11.49C3.8906 11.3197 3.14528 10.8687 2.60972 10.2129C2.07415 9.5571 1.78111 8.73668 1.78 7.88999V7.84999C2.28 8.11999 2.84 8.28999 3.44 8.30999C2.9378 7.97313 2.52636 7.51769 2.24206 6.98398C1.95776 6.45026 1.80936 5.85471 1.81 5.24999C1.81 4.57999 1.99 3.94999 2.31 3.40999C4.12 5.62999 6.82 7.08999 9.87 7.23999C9.81 6.96999 9.77 6.68999 9.77 6.39999C9.77265 5.42838 10.1605 4.49747 10.8484 3.81137C11.5364 3.12527 12.4684 2.73999 13.44 2.73999C14.5 2.73999 15.45 3.17999 16.12 3.89999C16.95 3.72999 17.74 3.42999 18.45 3.00999C18.17 3.85999 17.59 4.57999 16.83 5.02999C17.5586 4.95035 18.2704 4.75806 18.94 4.45999Z" fill="white"/>
                                         </svg>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="facebook-share" href="https://www.facebook.com/sharer.php?u={{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                                    <a rel="noreferrer" class="facebook-share" href="https://www.facebook.com/sharer.php?u={{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
                                         <svg width="21" height="21" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M8.46 18H11.39V10.7H13.84L14.21 7.86H11.39V6.04C11.39 5.22 11.62 4.66 12.8 4.66H14.31V2.11C14.05 2.08 13.16 2 12.12 2C9.94 2 8.46 3.33 8.46 5.76V7.86H6V10.7H8.46V18Z" fill="#fff"/>
                                         </svg>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="" href="whatsapp://send?text={{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}" target="_blank">
+                                    <a rel="noreferrer" class="" href="whatsapp://send?text={{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}" target="_blank">
                                         <svg enable-background="new 0 0 24 24" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="m20.52 3.449c-2.28-2.204-5.28-3.449-8.475-3.449-9.17 0-14.928 9.935-10.349 17.838l-1.696 6.162 6.335-1.652c2.76 1.491 5.021 1.359 5.716 1.447 10.633 0 15.926-12.864 8.454-20.307z" fill="#eceff1"/><path d="m12.067 21.751-.006-.001h-.016c-3.182 0-5.215-1.507-5.415-1.594l-3.75.975 1.005-3.645-.239-.375c-.99-1.576-1.516-3.391-1.516-5.26 0-8.793 10.745-13.19 16.963-6.975 6.203 6.15 1.848 16.875-7.026 16.875z" fill="#4caf50"/><path d="m17.507 14.307-.009.075c-.301-.15-1.767-.867-2.04-.966-.613-.227-.44-.036-1.617 1.312-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.293-.506.32-.578.878-1.634.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.576-.05-.997-.042-1.368.344-1.614 1.774-1.207 3.604.174 5.55 2.714 3.552 4.16 4.206 6.804 5.114.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345z" fill="#fafafa"/></svg>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="mail-share" href="mailto:%7Bemail_address%7D?subject={{ post.title }}&body={{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                                    <a rel="noreferrer" class="mail-share" href="mailto:%7Bemail_address%7D?subject={{ post.title }}&body={{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3.86999 4H17.12C18.37 4 19 4.59 19 5.79V14.21C19 15.4 18.37 16 17.12 16H3.86999C2.61999 16 1.98999 15.4 1.98999 14.21V5.79C1.98999 4.59 2.61999 4 3.86999 4ZM10.49 12.6L17.23 7.07C17.47 6.87 17.66 6.41 17.36 6C17.07 5.59 16.54 5.58 16.19 5.83L10.49 9.69L4.79999 5.83C4.44999 5.58 3.91999 5.59 3.62999 6C3.32999 6.41 3.51999 6.87 3.75999 7.07L10.49 12.6Z" fill="black"/>
                                     </svg>
                                     </a>
                                 </li>
                                 <li>
-                                    <a id="postShortLink" class="" href="{{ ''|app }}/go/{{ post.short_code }}">
+                                    <a rel="noreferrer" id="postShortLink" class="" href="{{ ''|app }}/go/{{ post.short_code }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray" width="21px" height="21px"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
                                     </a>
                                 </li>
