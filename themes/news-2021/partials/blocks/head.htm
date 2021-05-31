@@ -94,7 +94,7 @@
             "@type": "WebPage",
             "@id": "{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}"
         },
-        "headline": "Article headline",
+        "headline": "{{ post.title }}",
         "image": [
             "{{ ''|app }}{{ post.image|media }}"
         ],
