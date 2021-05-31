@@ -30,6 +30,19 @@
 <meta property="twitter:description" content="{{ settings.site_meta_description }}">
 <meta property="twitter:image" content="{{ '/'|app }}{{ settings.site_image|media }}">
 
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://180news.net/",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://180news.net/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+</script>
+
 {% elseif this.page.id == 'posts-index' %}
 <!-- Primary Meta Tags -->
 <meta name="title" content="{{ this.page.title }}">
@@ -71,6 +84,35 @@
 <meta property="twitter:title" content="{{ this.page.title }}">
 <meta property="twitter:description" content="{{ this.page.meta_description }}">
 <meta property="twitter:image" content="{{ ''|app }}{{ post.image|media }}">
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}"
+        },
+        "headline": "Article headline",
+        "image": [
+            "{{ ''|app }}{{ post.image|media }}"
+        ],
+        "datePublished": "{{ post.created_at }}",
+        "dateModified": "{{ post.updated_at }}",
+        "author": {
+            "@type": "Person",
+            "name": "{{ post.author.name }}"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "180 News",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{'assets/images/180_logo_dark.svg'|theme}}"
+            }
+        }
+    }
+</script>
 
 {% elseif this.page.id == 'author-profile' %}
 <!-- Primary Meta Tags -->
