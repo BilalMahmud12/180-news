@@ -28,7 +28,7 @@ function onStart() {
         <link rel="stylesheet" href="{{ 'assets/css/plyr.css'|theme }}">
         <link rel="stylesheet" href="{{'assets/css/glide.core.min.css'|theme}}">
         <link rel="stylesheet" href="{{ 'assets/css/tailwind.min.css'|theme }}">
-        <link rel="stylesheet" href="{{ 'assets/css/app.min.css?v=1.3'|theme }}">
+        <link rel="stylesheet" href="{{ 'assets/css/app.min.css?v=1.4'|theme }}">
 
         <title> {{ this.page.title }} | {{ settings.site_name }}</title>
         <link rel="amphtml" href="https://amp.example.com/amp/news/fast-bird-sighted">
@@ -37,10 +37,12 @@ function onStart() {
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJDDDRJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
+        {% partial 'banners/hero_ad_banner' %}
         {% partial 'site/header' %}
         <main>
             {% page %}
         </main>
+
         {% partial 'site/footer' %}
         <script src="https://cdn.plyr.io/3.6.3/plyr.polyfilled.js"></script>
         <script src="{{'assets/js/glide.js'|theme}}"></script>

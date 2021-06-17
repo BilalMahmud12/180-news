@@ -1,18 +1,29 @@
-<div class="other-recommendations">
+<div class="read-more">
     <div class="title-area"><a class="section-title" href="#">
-        <h2>   اقرأ أيضا</h2></a></div>
-    <div class="recommeded-posts">
+        <h2>اقرأ أيضا</h2></a></div>
+    <div class="posts-list">
         {% for post in read_more %}
-        <a class="recommended-post-item" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
-            <div class="overlay"></div>
-            <div class="media"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></div>
-            <div class="category">
-                <p>{{ post.category.name }}</p>
+        <div class="latest-article--item">
+            <a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                {% if post.is_video_post %}
+                <div class="video-indicator">
+                    <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></span><span> فيديو</span>
+                </div>
+                {% endif %}
+                <img src="{{ post.image|media }}" alt="{{ post.slug }}"/>
+            </a>
+            <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a>
+                <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
+                    <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"/></div>
+                    <div class="author-name">
+                        <p>{{ post.author.name }}</p>
+                    </div></a>
+                    <div class="create-date"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span>
+                        <span>{{ post.created_at|arabicDate }}</span>
+                    </div>
+                </div>
             </div>
-            <div class="content">
-                <h2>{{ post.title }}</h2>
-            </div>
-        </a>
+        </div>
         {% endfor %}
     </div>
 </div>
