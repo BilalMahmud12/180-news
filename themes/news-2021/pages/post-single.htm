@@ -20,7 +20,7 @@ function onStart()
     $this['post']->increment('visits');
     $post_id = $this['post']->id;
     $category_id = $this['post']->category_id;
-    $this['read_more'] = Article::where('id', '!=', $post_id)->where('category_id', $category_id)->inRandomOrder()->take(6)->get();
+    $this['read_more'] = Article::where('id', '!=', $post_id)->where('category_id', $category_id)->inRandomOrder()->take(9)->get();
     $this->page->title = $this['post']->title;
 
     $this->page->meta_description = $this['post']->meta_desc;
@@ -193,9 +193,23 @@ function onStart()
                             </div>
                             <div id="disqus_thread"></div>
                         </div>
+                        <div class="after-post-ad"><span class="ad-label">  مساحة إعلانية</span>
+                            <div class="ad-container">
+                                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                <!-- Ad Block -->
+                                <ins class="adsbygoogle"
+                                     style="display:block"
+                                     data-ad-client="ca-pub-8669361533184979"
+                                     data-ad-slot="9884075096"
+                                     data-ad-format="auto"
+                                     data-full-width-responsive="true"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </div>
+                        </div>
                     </div>
                     {% partial 'site/top-posts' %}
-
                 </section>
             </div>
             <div class="side-bar">
