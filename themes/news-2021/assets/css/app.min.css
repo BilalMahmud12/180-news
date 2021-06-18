@@ -272,19 +272,6 @@ Ad Banners
   position: relative;
 }
 
-.ad_banner_block .wrapper .ad-container:after {
-  content: "ضع إعلانك هنا";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-  font-size: 1.5rem;
-  line-height: 2rem;
-  --tw-text-opacity: 1;
-  color: rgba(203, 213, 225, var(--tw-text-opacity));
-}
-
 /**
 website header
 ****/
