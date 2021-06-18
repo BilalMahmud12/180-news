@@ -95,9 +95,6 @@ Ad Banners
   --tw-border-opacity: 1;
   border-color: rgba(51, 65, 85, var(--tw-border-opacity));
   border-bottom-width: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
 }
 
@@ -270,8 +267,6 @@ Ad Banners
 
 .ad_banner_block .wrapper .ad-container {
   height: 224px;
-  display: flex;
-  justify-content: center;
   padding: 1rem;
   position: relative;
 }
