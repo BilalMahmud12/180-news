@@ -2729,8 +2729,6 @@ article#posts-index .wrapper .category-title-area .category-text p {
 }
 
 article#posts-index .wrapper .category-ad-block {
-  --tw-bg-opacity: 1;
-  background-color: rgba(236, 253, 245, var(--tw-bg-opacity));
   margin-top: 1.5rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -2748,8 +2746,6 @@ article#posts-index .wrapper .category-ad-block span.ad-label {
 }
 
 article#posts-index .wrapper .category-ad-block .ad-container {
-  display: flex;
-  justify-content: center;
   min-height: 280px;
 }
 
