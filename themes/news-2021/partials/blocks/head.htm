@@ -86,6 +86,19 @@
 <meta property="twitter:description" content="{{ this.page.meta_description }}">
 <meta property="twitter:image" content="{{ ''|app }}{{ post.image|media }}">
 
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+<script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+        OneSignal.init({
+            appId: "3cadad82-c493-4e5b-9a1a-2dc3c73fad36",
+            notifyButton: {
+                enable: true,
+            },
+        });
+    });
+</script>
+
 <script type="application/ld+json">
     {
         "@context": "https://schema.org",

@@ -10,6 +10,8 @@
 
     RewriteRule ^robots.txt - [L]
     RewriteRule ^ads.txt - [L]
+    RewriteRule ^OneSignalSDKUpdaterWorker.js - [L]
+    RewriteRule ^OneSignalSDKWorker.js - [L]
 
     ##
     ## You may need to uncomment the following line for some hosting environments,
