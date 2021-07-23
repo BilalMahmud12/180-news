@@ -102,3 +102,9 @@
 1.0.35:
     - 'Created table midorsoft_publish_search_terms'
     - builder_table_create_midorsoft_publish_search_terms.php
+1.0.36:
+    - 'Updated table midorsoft_publish_settings'
+    - builder_table_update_midorsoft_publish_settings_3.php
+1.0.37:
+    - 'Updated table midorsoft_publish_settings'
+    - builder_table_update_midorsoft_publish_settings_4.php

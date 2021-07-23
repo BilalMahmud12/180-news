@@ -88,3 +88,16 @@ tabs:
             span: full
             type: richeditor
             tab: '180 Production'
+        live_stream_link:
+            label: 'Live Stream Link'
+            span: full
+            type: text
+            tab: 'Live Stream'
+        live_stream_src:
+            label: 'Live Stream Source'
+            options:
+                youtube: YouTube
+            showSearch: true
+            span: auto
+            type: dropdown
+            tab: 'Live Stream'
