@@ -38,3 +38,11 @@ Route::get('stream', function (){
     $live_src = $settings->live_stream_src;
     return [$live_link, $live_src];
 });
+
+
+Route::group(['prefix' => 'api'], function (){
+    Route::get('/menu-items', function (){
+        return 'hello-world';
+    });
+
+});
