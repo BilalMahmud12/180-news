@@ -2,14 +2,13 @@
 
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
-use Jenssegers\Date\Date;
-use Midorsoft\Publish\Models\Article;
-use Midorsoft\Publish\Models\Category;
+
 use Midorsoft\Publish\Models\Setting;
-
-
-
-use Config;
+use Midorsoft\Publish\Models\Category;
+use Midorsoft\Publish\Models\Author;
+use Midorsoft\Publish\Models\Tag;
+use Midorsoft\Publish\Models\Article;
+use Carbon\Carbon;
 
 Route::get('/go/{link}', function (){
     $segments = \Request::segments();
@@ -41,8 +40,10 @@ Route::get('stream', function (){
 
 
 Route::group(['prefix' => 'api'], function (){
+
     Route::get('/menu-items', function (){
-        return 'hello-world';
+        $query = Category::where('in_menu', 1)->where('is_active', 1)->orderBy('sort_order', 'asc')->get();
+        return response()->json($query);
     });
 
 });
