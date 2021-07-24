@@ -42,7 +42,15 @@ Route::get('stream', function (){
 Route::group(['prefix' => 'api'], function (){
 
     Route::get('/menu-items', function (){
-        $query = Category::where('is_active', 1)
+        $query = Category::where('in_menu', 1)->where('is_active', 1)
+            ->orderBy('sort_order', 'asc')
+            ->select('id', 'name', 'slug' ,'sort_order')
+            ->get();
+        return response()->json($query);
+    });
+
+    Route::get('/other-menu-items', function (){
+        $query = Category::where('in_menu', 0)->where('is_active', 1)
             ->orderBy('sort_order', 'asc')
             ->select('id', 'name', 'slug' ,'sort_order')
             ->get();
