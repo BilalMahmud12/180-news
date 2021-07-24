@@ -42,7 +42,35 @@ Route::get('stream', function (){
 Route::group(['prefix' => 'api'], function (){
 
     Route::get('/menu-items', function (){
-        $query = Category::where('in_menu', 1)->where('is_active', 1)->orderBy('sort_order', 'asc')->get();
+        $query = Category::where('is_active', 1)
+            ->orderBy('sort_order', 'asc')
+            ->select('id', 'name', 'slug' ,'sort_order')
+            ->get();
+        return response()->json($query);
+    });
+
+    Route::get('/hero-slides', function () {
+        $query = Article::where('is_active', 1)->where('in_slider', 1)
+            ->where('is_vip_post', 0)->orderBy('created_at', 'desc')
+            ->select('id', 'title', 'slug', 'image', 'author_id', 'created_at')
+            ->with('author')
+            ->take(8)->get();
+        return response()->json($query);
+    });
+
+    Route::get('/special-reports', function() {
+        $query = Article::where('is_active', 1)->where('is_vip_post', 1)->orderBy('created_at', 'desc')
+            ->select('id', 'title', 'slug', 'image', 'author_id', 'created_at')
+            ->with('author')
+            ->take(4)->get();
+        return response()->json($query);
+    });
+
+    Route::get('/latest-articles', function() {
+        $query = Article::where('is_active', 1)->where('is_vip_post', 0)->orderBy('created_at', 'desc')
+            ->select('id', 'title', 'slug', 'image', 'author_id', 'created_at')
+            ->with('author')
+            ->take(9)->get();
         return response()->json($query);
     });
 
