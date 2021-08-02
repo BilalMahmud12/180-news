@@ -35,7 +35,9 @@ Route::get('stream', function (){
     $settings = Setting::instance();
     $live_link = $settings->live_stream_link;
     $live_src = $settings->live_stream_src;
-    return [$live_link, $live_src];
+    $live_title = $settings->live_stream_title;
+    $live_desc = $settings->live_stream_desc;
+    return [$live_link, $live_src, $live_title, $live_desc];
 });
 
 
