@@ -20,8 +20,8 @@ Route::get('/go/{link}', function (){
 
 
 Route::get('sitemap.xml', function (){
-    $categories = Category::where('is_active', 1)->get();
-    $articles = Article::where('is_active', 1)->get();
+    $categories = Category::where('is_active', 1)->orderBy('created_at', 'desc')->get();
+    $articles = Article::where('is_active', 1)->orderBy('created_at', 'desc')->get();
 
     return Response::view('midorsoft.publish::sitemap', [
         'categories' => $categories,
