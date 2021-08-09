@@ -1,11 +1,11 @@
-<section class="banner-type--01" id="banner-01">
+<section class="banner_t01" id="banner-01">
     <div class="wrapper">
-        <div class="banner-container">
+        <div class="banner-container"><span>
+                <p class="new">  قسم خاص</p></span>
             <div class="overlay"></div>
-            <div class="media"><img src="{{ banner01.image|media }}" alt=""></div>
+            <div class="media"><img src="{{ 'assets/images/army.png'|theme }}" alt=""></div>
             <div class="content">
-                <div class="title"><span>
-                    <p class="new">  قسم خاص</p></span>
+                <div class="title">
                     <h3>{{ banner01.name }}</h3>
                 </div><a class="page-link" href="{{ 'posts-index'|page({ category: banner01.slug }) }}">   استكشف المزيد</a>
             </div>

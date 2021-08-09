@@ -4,22 +4,16 @@
         <div class="title-area"><a class="section-title" href="{{ 'posts-index'|page ({ category: Cat01Posts.slug }) }}">
             <h2>{{ Cat01Posts.name }}</h2></a><a class="section-link" href="{{ 'posts-index'|page ({ category: Cat01Posts.slug }) }}"> استعرض المزيد</a></div>
         <div class="grid-container">
+            {% partial 'ad-units/unit-02' %}
             {% for post in Cat01Posts.articles %}
-            <div class="latest-article--item"><a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
-                <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a>
-                    <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
-                        <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
-                        <div class="author-name">
-                            <p>{{ post.author.name }}</p>
-                        </div></a>
-                        <div class="create-date">
-                            <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span>
-                            <span>{{ post.created_at|arabicDate }}</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="latest-article--item">
+                <a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                    <img src="{{ post.image|media }}" alt="{{ post.slug }}">
+                </a>
+                <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a></div>
             </div>
             {% endfor %}
+            {% partial 'ad-units/unit-02' %}
         </div>
     </div>
 </section>
@@ -30,27 +24,21 @@
 {% if Cat02Posts.articles|length %}
 <section class="category-listing">
     <div class="wrapper">
-    <div class="title-area"><a class="section-title" href="{{ 'posts-index'|page ({ category: Cat02Posts.slug }) }}">
-        <h2>{{ Cat02Posts.name }}</h2></a><a class="section-link" href="{{ 'posts-index'|page ({ category: Cat02Posts.slug }) }}"> استعرض المزيد</a></div>
-    <div class="grid-container">
-        {% for post in Cat02Posts.articles %}
-        <div class="latest-article--item"><a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
-            <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a>
-                <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
-                    <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
-                    <div class="author-name">
-                        <p>{{ post.author.name }}</p>
-                    </div></a>
-                    <div class="create-date">
-                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span>
-                        <span>{{ post.created_at|arabicDate }}</span>
-                    </div>
-                </div>
+        <div class="title-area"><a class="section-title" href="{{ 'posts-index'|page ({ category: Cat02Posts.slug }) }}">
+            <h2>{{ Cat02Posts.name }}</h2></a><a class="section-link" href="{{ 'posts-index'|page ({ category: Cat02Posts.slug }) }}"> استعرض المزيد</a></div>
+        <div class="grid-container">
+            {% partial 'ad-units/unit-02' %}
+            {% for post in Cat02Posts.articles %}
+            <div class="latest-article--item">
+                <a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                    <img src="{{ post.image|media }}" alt="{{ post.slug }}">
+                </a>
+                <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a></div>
             </div>
+            {% endfor %}
+            {% partial 'ad-units/unit-02' %}
         </div>
-        {% endfor %}
     </div>
-</div>
 </section>
 {% endif %}
 
@@ -62,22 +50,16 @@
         <div class="title-area"><a class="section-title" href="{{ 'posts-index'|page ({ category: Cat03Posts.slug }) }}">
             <h2>{{ Cat03Posts.name }}</h2></a><a class="section-link" href="{{ 'posts-index'|page ({ category: Cat03Posts.slug }) }}"> استعرض المزيد</a></div>
         <div class="grid-container">
+            {% partial 'ad-units/unit-02' %}
             {% for post in Cat03Posts.articles %}
-            <div class="latest-article--item"><a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
-                <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a>
-                    <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
-                        <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
-                        <div class="author-name">
-                            <p>{{ post.author.name }}</p>
-                        </div></a>
-                        <div class="create-date">
-                            <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span>
-                            <span>{{ post.created_at|arabicDate }}</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="latest-article--item">
+                <a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                    <img src="{{ post.image|media }}" alt="{{ post.slug }}">
+                </a>
+                <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a></div>
             </div>
             {% endfor %}
+            {% partial 'ad-units/unit-02' %}
         </div>
     </div>
 </section>
@@ -91,22 +73,16 @@
         <div class="title-area"><a class="section-title" href="{{ 'posts-index'|page ({ category: Cat04Posts.slug }) }}">
             <h2>{{ Cat04Posts.name }}</h2></a><a class="section-link" href="{{ 'posts-index'|page ({ category: Cat04Posts.slug }) }}"> استعرض المزيد</a></div>
         <div class="grid-container">
+            {% partial 'ad-units/unit-02' %}
             {% for post in Cat04Posts.articles %}
-            <div class="latest-article--item"><a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
-                <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a>
-                    <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
-                        <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
-                        <div class="author-name">
-                            <p>{{ post.author.name }}</p>
-                        </div></a>
-                        <div class="create-date">
-                            <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span>
-                            <span>{{ post.created_at|arabicDate }}</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="latest-article--item">
+                <a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                    <img src="{{ post.image|media }}" alt="{{ post.slug }}">
+                </a>
+                <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a></div>
             </div>
             {% endfor %}
+            {% partial 'ad-units/unit-02' %}
         </div>
     </div>
 </section>
@@ -120,22 +96,16 @@
         <div class="title-area"><a class="section-title" href="{{ 'posts-index'|page ({ category: Cat05Posts.slug }) }}">
             <h2>{{ Cat05Posts.name }}</h2></a><a class="section-link" href="{{ 'posts-index'|page ({ category: Cat05Posts.slug }) }}"> استعرض المزيد</a></div>
         <div class="grid-container">
+            {% partial 'ad-units/unit-02' %}
             {% for post in Cat05Posts.articles %}
-            <div class="latest-article--item"><a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
-                <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a>
-                    <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
-                        <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
-                        <div class="author-name">
-                            <p>{{ post.author.name }}</p>
-                        </div></a>
-                        <div class="create-date">
-                            <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span>
-                            <span>{{ post.created_at|arabicDate }}</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="latest-article--item">
+                <a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                    <img src="{{ post.image|media }}" alt="{{ post.slug }}">
+                </a>
+                <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a></div>
             </div>
             {% endfor %}
+            {% partial 'ad-units/unit-02' %}
         </div>
     </div>
 </section>
@@ -149,22 +119,16 @@
         <div class="title-area"><a class="section-title" href="{{ 'posts-index'|page ({ category: Cat06Posts.slug }) }}">
             <h2>{{ Cat06Posts.name }}</h2></a><a class="section-link" href="{{ 'posts-index'|page ({ category: Cat06Posts.slug }) }}"> استعرض المزيد</a></div>
         <div class="grid-container">
+            {% partial 'ad-units/unit-02' %}
             {% for post in Cat06Posts.articles %}
-            <div class="latest-article--item"><a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
-                <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a>
-                    <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
-                        <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
-                        <div class="author-name">
-                            <p>{{ post.author.name }}</p>
-                        </div></a>
-                        <div class="create-date">
-                            <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span>
-                            <span>{{ post.created_at|arabicDate }}</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="latest-article--item">
+                <a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                    <img src="{{ post.image|media }}" alt="{{ post.slug }}">
+                </a>
+                <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a></div>
             </div>
             {% endfor %}
+            {% partial 'ad-units/unit-02' %}
         </div>
     </div>
 </section>

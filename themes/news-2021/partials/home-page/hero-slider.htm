@@ -1,41 +1,56 @@
 <section class="hero">
-    <div class="wrapper">
-        <div class="glide" id="hero-slider">
-            <div class="glide__track" data-glide-el="track">
-                <ul class="glide__slides">
-                    {% for slide in slider_items %}
-                    <li class="hero-slide glide__slide">
-                        <div class="overlay"></div>
-                        <div class="hero-image"><img src="{{ slide.image|media }}" alt="{{ slide.slug }}"></div>
-                        <div class="slide-content">
-                            <div class="category"><a href="{{ 'posts-index'|page({ category: slide.category.slug }) }}">{{ slide.category.name }}</a></div>
-                            <div class="title"><a href="{{ 'post-single'|page ({ date: slide.created_at|strftime('%d-%m-%Y')  ,slug: slide.slug }) }}">
-                                <h1>{{ slide.title }}</h1></a></div>
-                            <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ author: slide.author.slug }) }}">
-                                <div class="author-img"><img src="{{ slide.author.photo|media }}" alt="{{ slide.author.name }}"></div>
-                                <div class="author-name">
-                                    <p>{{ slide.author.name }}</p>
-                                </div></a>
-                                <div class="update-date"><span>    اخر تحديث :</span><span>{{ slide.created_at|arabicDate }}</span></div>
+    <div class="hero-wrapper">
+        <div class="hero-grid">
+            <div class="slider-container">
+                <div class="splide" id="hero-slider">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            {% for slide in slider_items %}
+                            <li class="hero-slide splide__slide">
+                                <div class="overlay"></div>
+                                <div class="hero-image"><img src="{{ slide.image|media }}" alt="{{ slide.slug }}"></div>
+                                <div class="slide-content">
+                                    <div class="category"><a href="{{ 'posts-index'|page({ category: slide.category.slug }) }}">{{ slide.category.name }}</a></div>
+                                    <div class="title">
+                                        <a href="{{ 'post-single'|page ({ date: slide.created_at|strftime('%d-%m-%Y')  ,slug: slide.slug }) }}">
+                                        <h1>{{ slide.title }}</h1>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="stream-container">
+                <div class="stream-panel">
+                    <div class="stream-header">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                        <span>   البث التجريبي</span>
+                    </div>
+                    <div class="stream-body">
+                        <video class="video-js vjs-theme-sea" id="homeStream" data-setup="{ &quot;techOrder&quot;: [&quot;youtube&quot;], &quot;sources&quot;: [{ &quot;type&quot;: &quot;video/youtube&quot;, &quot;src&quot;: &quot;https://www.youtube.com/watch?v=9Auq9mYxFEE&quot;}] }">
+                            <source src="https://www.youtube.com/watch?v=9QRLHqTJo-c&amp;t=5603s">
+                        </video>
+                    </div>
+                </div>
 
-                            </div>
+                <div class="stream-ad">
+                    <div class="splide" id="stream-ads_slider">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <li class="splide__slide">
+                                    {% partial 'ad-units/unit-04' %}
+                                </li>
+                            </ul>
                         </div>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="glide__arrows" data-glide-el="controls">
-                <button aria-label="slide right" class="glide__arrow glide__arrow--right" data-glide-dir="&gt;"><span><svg width="35" height="35" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M6 15L11 10L6 5L7 3L14 10L7 17L6 15Z" fill="#ffffff7d"/>
-</svg></span></button>
-                <button aria-label="slide left" class="glide__arrow glide__arrow--left" data-glide-dir="&lt;"><span><svg width="35" height="35" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14 5L9 10L14 15L13 17L6 10L13 3L14 5Z" fill="#ffffff7d"/>
-</svg></span></button>
-            </div>
-            <div class="glide__bullets" data-glide-el="controls[nav]">
-                {% for bullet in slider_items %}
-                <button aria-label="slide bullet" class="glide__bullet" data-glide-dir="={{ loop.index -1 }}"></button>
-                {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
