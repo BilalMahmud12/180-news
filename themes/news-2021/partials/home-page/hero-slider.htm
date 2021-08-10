@@ -8,7 +8,7 @@
                             {% for slide in slider_items %}
                             <li class="hero-slide splide__slide">
                                 <div class="overlay"></div>
-                                <div class="hero-image"><img data-src="{{ slide.image|media }}" alt="{{ slide.slug }}"></div>
+                                <div class="hero-image"><img data-src="{{ slide.image|media }}" alt="{{ slide.slug }}" width="100%" height="100%"></div>
                                 <div class="slide-content">
                                     <div class="category"><a href="{{ 'posts-index'|page({ category: slide.category.slug }) }}">{{ slide.category.name }}</a></div>
                                     <div class="title">
