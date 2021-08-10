@@ -52,7 +52,7 @@ function onStart() {
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
     <head>
-        <script src="https://unpkg.com/vue@3"></script>
+
         {% partial 'blocks/head' %}
         <!--fonts-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -63,15 +63,12 @@ function onStart() {
         <link rel="stylesheet" href="{{ 'assets/css/splide.min.css'|theme }}">
         <link rel="stylesheet" href="{{ 'assets/css/tailwind.min.css'|theme }}">
         <link rel="stylesheet" href="{{ 'assets/css/app.min.css?v=2.0'|theme }}">
+        <script src="https://unpkg.com/vue@3"></script>
 
         {% styles %}
         <title> {{ this.page.title }} — {{ settings.site_name }}</title>
     </head>
     <body id="app">
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJDDDRJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-
         <div class="hero_ad-unit">
             <div class="wrapper">
                 {% partial 'ad-units/unit-01' %}
