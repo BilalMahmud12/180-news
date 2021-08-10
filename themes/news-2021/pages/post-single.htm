@@ -20,7 +20,6 @@ function onStart()
     $this['post']->increment('visits');
     $post_id = $this['post']->id;
     $category_id = $this['post']->category_id;
-    $this['read_more'] = Article::where('id', '!=', $post_id)->where('category_id', $category_id)->inRandomOrder()->take(12)->get();
     $this['from_category'] = Article::where('category_id', $this['post']->category_id)->inRandomOrder()->take(10)->get();
     $this->page->title = $this['post']->title;
 
