@@ -108,12 +108,22 @@ function onStart()
                 <section class="post-media">
                     <div class="post-image-video">
                         {% if post.is_video_post %}
-                        <video class="video-js vjs-theme-sea" id="videoInPost" data-setup="{ techOrder: ['youtube'], sources: [{ type: 'video/youtube', src: '{{ post.video_url }}' }] }"></video>
+                        <video
+                                id="vid1"
+                                class="video-js vjs-default-skin"
+                                controls
+                                autoplay
+                                width="640" height="264"
+                                data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "{{ post.video_url }}"}] }'
+                        >
+                        </video>
                         {% else %}
                         <img src="{{ post.image|media }}" alt="{{ post.slug }}">
                         {% endif %}
+
                     </div>
                 </section>
+
                 <section class="post-body">
                     <div class="article-content">
                         <div class="post-content">
