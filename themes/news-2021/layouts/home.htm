@@ -55,8 +55,10 @@ function onStart() {
         {% partial 'blocks/head' %}
         <!--fonts-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&amp;display=swap" crossorigin="anonymous">
-        <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;500;600;700&amp;display=swap" crossorigin="anonymous">
+        <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&amp;display=swap" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&amp;display=swap">
+        <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;500;600;700&amp;display=swap" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;500;600;700&amp;display=swap">
         <!--css-->
         <link rel="stylesheet" href="{{ 'assets/css/tailwind.min.css'|theme }}">
         <link rel="stylesheet" href="{{ 'assets/css/app.min.css?v=2.1'|theme }}">
