@@ -34,8 +34,14 @@
                         <span>   البث التجريبي</span>
                     </div>
                     <div class="stream-body">
-                        <video class="video-js vjs-theme-sea" id="homeStream" data-setup="{ &quot;techOrder&quot;: [&quot;youtube&quot;], &quot;sources&quot;: [{ &quot;type&quot;: &quot;video/youtube&quot;, &quot;src&quot;: &quot;https://www.youtube.com/watch?v=9Auq9mYxFEE&quot;}] }">
-                            <source src="https://www.youtube.com/watch?v=9QRLHqTJo-c&amp;t=5603s">
+                        <video
+                                id="homeStream"
+                                class="video-js vjs-default-skin"
+                                controls
+                                autoplay
+                                width="640" height="264"
+                                data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "{{ settings.live_stream_link }}"}] }'
+                        >
                         </video>
                     </div>
                 </div>
