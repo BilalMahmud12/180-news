@@ -38,20 +38,8 @@ function onStart()
     <div class="wrapper">
         <div class="post-detail-grid">
             <div class="main-content">
-                <section class="post-media">
-                    <div class="post-image-video">
-                        {% if post.is_video_post %}
-                        {% if post.video_source == 'facebook' %}
-                        <div class="fb-video" data-href="{{ post.video_url }}" data-width="auto" data-show-text="false"></div>
-                        {% else %}
-                        <div id="single-video" data-plyr-provider="{{ post.video_source }}" data-plyr-embed-id="{{ post.video_url }}"></div>
-                        {% endif %}
-                        {% else %}
-                        <img src="{{ post.image|media }}" alt="{{ post.slug }}">
-                        {% endif %}
-                    </div>
-                </section>
                 <section class="post-header">
+                    <div class="category"><span><a href="{{ 'posts-index'|page({ category: post.category.slug }) }}"> {{ post.category.name }}</a></span></div>
                     <div class="post-title">
                         <h1>{{ post.title }}</h1>
                     </div>
@@ -68,7 +56,9 @@ function onStart()
                     </div>
                     <div class="post-meta">
                         <div class="category-share">
-                            <div class="category"><span>   تحقيقات 180</span><span><a href="{{ 'posts-index'|page({ category: post.category.slug }) }}">{{ post.category.name }}</a></span></div>
+                            <div class="post-date">
+                                <div class="create-date"><span>   تم النشر:</span><span>{{ post.created_at|arabicDate }}</span></div>
+                            </div>
                             <div class="share-buttons">
                                 <ul class="social-share-list">
                                     <li>
@@ -112,9 +102,21 @@ function onStart()
                                 </ul>
                             </div>
                         </div>
-                        <div class="post-date">
-                            <div class="create-date"><span>   تم النشر:</span><span>{{ post.created_at|arabicDate }}</span></div>
-                        </div>
+                    </div>
+                </section>
+
+
+                <section class="post-media">
+                    <div class="post-image-video">
+                        {% if post.is_video_post %}
+                        {% if post.video_source == 'facebook' %}
+                        <div class="fb-video" data-href="{{ post.video_url }}" data-width="auto" data-show-text="false"></div>
+                        {% else %}
+                        <div id="single-video" data-plyr-provider="{{ post.video_source }}" data-plyr-embed-id="{{ post.video_url }}"></div>
+                        {% endif %}
+                        {% else %}
+                        <img src="{{ post.image|media }}" alt="{{ post.slug }}">
+                        {% endif %}
                     </div>
                 </section>
                 <section class="post-body">

@@ -20,24 +20,31 @@ function onStart() {
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
     <head>
+        <script src="https://unpkg.com/vue@3"></script>
         {% partial 'blocks/head' %}
-        <!--start css-->
+        <!--fonts-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link rel="stylesheet" as="font" href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&amp;display=swap">
-        <link rel="stylesheet" as="font" href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;700&amp;display=swap">
-        <link rel="stylesheet" href="{{ 'assets/css/plyr.css'|theme }}">
-        <link rel="stylesheet" href="{{'assets/css/glide.core.min.css'|theme}}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&amp;display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;500;600;700&amp;display=swap">
+        <!--css-->
+        <link rel="stylesheet" href="https://vjs.zencdn.net/7.11.4/video-js.css">
+        <link rel="stylesheet" href="{{ 'assets/css/splide.min.css'|theme }}">
+        <link rel="stylesheet" href="{{ 'assets/css/splide.core.min.css'|theme }}">
         <link rel="stylesheet" href="{{ 'assets/css/tailwind.min.css'|theme }}">
-        <link rel="stylesheet" href="{{ 'assets/css/app.min.css?v=1.8'|theme }}">
+        <link rel="stylesheet" href="{{ 'assets/css/app.min.css?v=2.0'|theme }}">
 
         <title> {{ this.page.title }} | {{ settings.site_name }}</title>
-        <link rel="amphtml" href="https://amp.example.com/amp/news/fast-bird-sighted">
     </head>
-    <body>
+    <body id="app">
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJDDDRJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
-        {% partial 'banners/google/hero_ad_banner' %}
+
+        <div class="hero_ad-unit">
+            <div class="wrapper">
+                {% partial 'ad-units/unit-01' %}
+            </div>
+        </div>
         {% partial 'site/header' %}
         <main>
             {% page %}
@@ -45,8 +52,10 @@ function onStart() {
 
         {% partial 'banners/google/ad_banner_block' %}
         {% partial 'site/footer' %}
-        <script src="https://cdn.plyr.io/3.6.3/plyr.polyfilled.js"></script>
-        <script src="{{'assets/js/glide.js'|theme}}"></script>
+        <script src="{{ 'assets/js/splide.min.js'|theme }}"></script>
+        <script src="{{ 'assets/js/video.min.js'|theme }}"></script>
+        <script src="{{ 'assets/js/Youtube.min.js'|theme }}" defer></script>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <script src="{{ 'assets/js/app.min.js'|theme }}"></script>
     </body>
 </html>
