@@ -219,14 +219,14 @@ function onStart()
             <div class="right-section">
                 <section class="from-category">
                     <div class="title-area">
-                        <a class="section-title" href="">
+                        <a class="section-title" href="#">
                         <h2><span>   من</span><span>{{ post.category.name }}</span></h2></a>
                     </div>
                     <div class="grid-container">
                         {% for samePost in from_category %}
                         <a class="fromCategory--item" href="{{ 'post-single'|page ({ date: samePost.created_at|strftime('%d-%m-%Y')  ,slug: samePost.slug }) }}">
                         <div class="media">
-                            <div class="overlay"></div><img src="{{ samePost.image|media }}" alt="{{ samePost.slug }}">
+                            <div class="overlay"></div><img data-src="{{ samePost.image|media }}" alt="{{ samePost.slug }}" width="100%" height="100%">
                         </div>
                         <div class="content">
                             <h2 class="title">{{ samePost.title }}</h2>
@@ -255,7 +255,7 @@ function onStart()
                                 <div class="position">
                                     <p>{{ loop.index }}</p>
                                 </div>
-                                <div class="overlay"></div><img src="{{ post.image|media }}" alt="{{ post.slug }}">
+                                <div class="overlay"></div><img data-src="{{ post.image|media }}" alt="{{ post.slug }}" width="100%" height="100%">
                             </div>
                             <div class="content">
                                 <h2 class="title">{{ post.title }}</h2>
