@@ -26,57 +26,30 @@ function onStart()
 <article id="posts-index">
     <div class="wrapper">
         <div class="category-title-area">
-            <div class="overlay"></div>
-            {% if category.image %}
-            <div class="category-bg"><img src="{{ category.image|media }}" alt="{{ category.slug }}"></div>
-            {% endif %}
             <div class="title">
                 <h1>{{ category.name }}</h1>
-                <p><span> عدد المقالات تحت هذا الباب :</span><span> {{ count }}</span></p>
             </div>
-            <div class="category-text">
-                <p>{{ category.description }}</p>
-            </div>
-        </div>
-        <div class="category-ad-block">
-            <span class="ad-label">  مساحة إعلانية</span>
-            <div class="ad-container" align="center">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- Ads_home -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-8669361533184979"
-                     data-ad-slot="4676313587"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+            <div class="posts-count">
+                <p><span> عدد المقالات :</span><span> {{ count }}</span><span> مقالا</span></p>
             </div>
         </div>
+
         <section class="posts-list">
             <div class="grid-container">
                 {% if category.articles|length %}
                 {% for post in articles %}
-                <div class="latest-article--item">
-                    <a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
-                        {% if post.is_video_post %}
-                        <div class="video-indicator"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></span><span> فيديو</span></div>
-                        {% endif %}
-                        <img src="{{ post.image|media }}" alt="{{ post.slug }}">
-
-                    </a>
-                    <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a>
-                        <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
-                            <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
-                            <div class="author-name">
-                                <p>{{ post.author.name }}</p>
-                            </div></a>
-                            <div class="create-date">
-                                <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span>
-                                <span>{{ post.created_at|arabicDate }}</span>
-                            </div>
-                        </div>
+                <div class="latest-article--item"><a class="media" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                    {% if post.is_video_post %}
+                    <div class="video-indicator">
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></span>
+                        <span> فيديو</span>
+                    </div>
+                    {% endif %}
+                    <img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
+                    <div class="content">
+                        <a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                            {{ post.title }}
+                        </a>
                     </div>
                 </div>
                 {% endfor %}
@@ -88,7 +61,12 @@ function onStart()
                     {% if articles.currentPage > 1 %}
                     <a class="previous" href="{{ articles.previousPageUrl }}">    السابق</a>
                     {% endif %}
-                    <div class="page-indicator"><span>   صفحة</span><span>   {{ articles.currentPage }}</span><span>   من</span><span>   {{ articles.lastPage }}</span></div>
+                    <div class="page-indicator">
+                        <span>   صفحة</span>
+                        <span class="current_page"   {{ articles.currentPage }}</span>
+                        <span>   من</span>
+                        <span class="last_page">   {{ articles.lastPage }}</span>
+                    </div>
                     {% if articles.hasMorePages %}
                     <a class="next" href="{{ articles.nextPageUrl }}">    التالي</a>
                     {% endif %}
