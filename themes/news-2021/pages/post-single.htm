@@ -21,6 +21,7 @@ function onStart()
     $post_id = $this['post']->id;
     $category_id = $this['post']->category_id;
     $this['read_more'] = Article::where('id', '!=', $post_id)->where('category_id', $category_id)->inRandomOrder()->take(9)->get();
+    $this['from_category'] = Article::where('category_id', $this['post']->category_id)->inRandomOrder()->take(10)->get();
     $this->page->title = $this['post']->title;
 
     $this->page->meta_description = $this['post']->meta_desc;
@@ -49,9 +50,11 @@ function onStart()
                         </a>
                         <div class="author-info"><a class="author-name" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
                             <p>{{ post.author.name }}</p></a>
+                            {% if post.author.title %}
                             <div class="author-title">
                                 <p>{{ post.author.title }}</p>
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="post-meta">
@@ -204,43 +207,52 @@ function onStart()
                         </div>
                     </div>
                 </section>
-
             </div>
+
             <div class="side-bar">
-                <div class="sidebar-ad-block"><span class="ad-label">  مساحة إعلانية</span>
-                    <div class="ad-container">
-                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                        <!-- Ad Block -->
-                        <ins class="adsbygoogle"
-                             style="display:block"
-                             data-ad-client="ca-pub-8669361533184979"
-                             data-ad-slot="9884075096"
-                             data-ad-format="auto"
-                             data-full-width-responsive="true"></ins>
-                        <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
-                    </div>
-                </div>
+                {% partial 'ad-units/unit-02' %}
                 {% partial 'site/recommend-posts' %}
-                <div class="sidebar-ad-block"><span class="ad-label">  مساحة إعلانية</span>
-                    <div class="ad-container">
-                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                        <!-- Ad Block -->
-                        <ins class="adsbygoogle"
-                             style="display:block"
-                             data-ad-client="ca-pub-8669361533184979"
-                             data-ad-slot="9884075096"
-                             data-ad-format="auto"
-                             data-full-width-responsive="true"></ins>
-                        <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
-                    </div>
-                </div>
+                {% partial 'ad-units/unit-02' %}
             </div>
         </div>
-        {% partial 'site/top-posts' %}
-        {% partial 'site/read-more' %}
+
+        <div class="more-content-grid">
+            <div class="right-section">
+                <section class="from-category">
+                    <div class="title-area">
+                        <a class="section-title" href="">
+                        <h2><span>   من</span><span>{{ post.category.name }}</span></h2></a>
+                    </div>
+                    <div class="grid-container">
+                        {% for samePost in from_category %}
+                        <a class="fromCategory--item" href="{{ 'post-single'|page ({ date: samePost.created_at|strftime('%d-%m-%Y')  ,slug: samePost.slug }) }}">
+                        <div class="media">
+                            <div class="overlay"></div><img src="{{ samePost.image|media }}" alt="{{ samePost.slug }}">
+                        </div>
+                        <div class="content">
+                            <h2 class="title">{{ samePost.title }}</h2>
+                        </div></a>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+            <div class="left-section"><a id="unit_03" href=""><span class="ad-label">وحدة إعلانية</span>
+                <div class="overlay"></div>
+                <div class="media"><img src="assets/images/ad-units/ad-unit-03.jpg" alt="ad-unit-180-news"></div>
+                <div class="ad-content">
+                    <div class="headline">
+                        <h2> يمكن لملايين القراء في جميع أنحاء العالم من مشاهدة إعلانك هنا</h2>
+                        <p>  اضغط علي هذا الإعلان للتواصل ومعرفة التفاصيل</p>
+                    </div>
+                </div></a><a id="unit_03" href=""><span class="ad-label">وحدة إعلانية</span>
+                <div class="overlay"></div>
+                <div class="media"><img src="assets/images/ad-units/ad-unit-03.jpg" alt="ad-unit-180-news"></div>
+                <div class="ad-content">
+                    <div class="headline">
+                        <h2> يمكن لملايين القراء في جميع أنحاء العالم من مشاهدة إعلانك هنا</h2>
+                        <p>  اضغط علي هذا الإعلان للتواصل ومعرفة التفاصيل</p>
+                    </div>
+                </div></a></div>
+        </div>
     </div>
 </article>
