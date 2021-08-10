@@ -62,8 +62,6 @@ function onStart() {
         <link rel="stylesheet" href="{{ 'assets/css/splide.min.css'|theme }}">
         <link rel="stylesheet" href="{{ 'assets/css/tailwind.min.css'|theme }}">
         <link rel="stylesheet" href="{{ 'assets/css/app.min.css?v=2.1'|theme }}">
-        <script src="https://unpkg.com/vue@3"></script>
-
         {% styles %}
         <title> {{ this.page.title }} — {{ settings.site_name }}</title>
     </head>
@@ -80,6 +78,7 @@ function onStart() {
             </main>
             {% partial 'site/footer' %}
         </div>
+        <script src="https://unpkg.com/vue@3"></script>
         <script src="{{ 'assets/js/splide.min.js'|theme }}"></script>
         <script src="{{ 'assets/js/video.min.js'|theme }}"></script>
         <script src="{{ 'assets/js/Youtube.min.js'|theme }}" defer></script>
