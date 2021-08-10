@@ -55,11 +55,9 @@ function onStart() {
         {% partial 'blocks/head' %}
         <!--fonts-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&amp;display=swap">
-        <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;500;600;700&amp;display=swap">
+        <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&amp;display=swap" crossorigin="anonymous">
+        <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;500;600;700&amp;display=swap" crossorigin="anonymous">
         <!--css-->
-        <link rel="stylesheet" href="https://vjs.zencdn.net/7.11.4/video-js.css">
-        <link rel="stylesheet" href="{{ 'assets/css/splide.min.css'|theme }}">
         <link rel="stylesheet" href="{{ 'assets/css/tailwind.min.css'|theme }}">
         <link rel="stylesheet" href="{{ 'assets/css/app.min.css?v=2.1'|theme }}">
         {% styles %}
@@ -78,6 +76,8 @@ function onStart() {
             </main>
             {% partial 'site/footer' %}
         </div>
+        <link rel="stylesheet" href="https://vjs.zencdn.net/7.11.4/video-js.css">
+        <link rel="stylesheet" href="{{ 'assets/css/splide.min.css'|theme }}">
         <script src="https://unpkg.com/vue@3" defer></script>
         <script src="{{ 'assets/js/splide.min.js'|theme }}" defer></script>
         <script src="{{ 'assets/js/video.min.js'|theme }}" defer></script>
