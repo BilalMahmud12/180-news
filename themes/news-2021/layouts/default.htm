@@ -20,7 +20,7 @@ function onStart() {
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
     <head>
-        <script src="https://unpkg.com/vue@3"></script>
+
         {% partial 'blocks/head' %}
         <!--fonts-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -31,7 +31,7 @@ function onStart() {
         <link rel="stylesheet" href="{{ 'assets/css/splide.min.css'|theme }}">
         <link rel="stylesheet" href="{{ 'assets/css/tailwind.min.css'|theme }}">
         <link rel="stylesheet" href="{{ 'assets/css/app.min.css?v=2.0'|theme }}">
-
+        <script src="https://unpkg.com/vue@3"></script>
         <title> {{ this.page.title }} | {{ settings.site_name }}</title>
     </head>
     <body id="app">
