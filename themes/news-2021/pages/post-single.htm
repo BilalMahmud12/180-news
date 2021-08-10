@@ -105,15 +105,10 @@ function onStart()
                     </div>
                 </section>
 
-
                 <section class="post-media">
                     <div class="post-image-video">
                         {% if post.is_video_post %}
-                        {% if post.video_source == 'facebook' %}
-                        <div class="fb-video" data-href="{{ post.video_url }}" data-width="auto" data-show-text="false"></div>
-                        {% else %}
-                        <div id="single-video" data-plyr-provider="{{ post.video_source }}" data-plyr-embed-id="{{ post.video_url }}"></div>
-                        {% endif %}
+                        <video class="video-js vjs-theme-sea" id="videoInPost" data-setup="{ techOrder: ['youtube'], sources: [{ type: 'video/youtube', src: '{{ post.video_url }}' }] }"></video>
                         {% else %}
                         <img src="{{ post.image|media }}" alt="{{ post.slug }}">
                         {% endif %}
