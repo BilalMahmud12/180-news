@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-    <div class="search-area" v-if="showSearch">
+    <div id="search_area" class="search-area" v-if="showSearch">
         <div class="wrapper">
             <form action="{{ 'search' | page }}" method="get">
                 <input id="search" name="q" type="search" autocomplete="off" placeholder="ابحث خلال المواضيع و الفيديوهات">
@@ -74,7 +74,7 @@
             </nav>
         </div>
     </div>
-    <div class="mobile-menu-container" v-if="showMobileMenu">
+    <div id="mobile_menu_container" class="mobile-menu-container" v-if="showMobileMenu">
         <div class="mobile-search">
             <div class="wrapper">
                 <form>
