@@ -34,18 +34,20 @@ function onStart() {
         <script src="https://unpkg.com/vue@3"></script>
         <title> {{ this.page.title }} | {{ settings.site_name }}</title>
     </head>
-    <body id="app">
-        <div class="hero_ad-unit">
-            <div class="wrapper">
-                {% partial 'ad-units/unit-01' %}
+    <body>
+        <div id="app">
+            <div class="hero_ad-unit">
+                <div class="wrapper">
+                    {% partial 'ad-units/unit-01' %}
+                </div>
             </div>
+            {% partial 'site/header' %}
+            <main>
+                {% page %}
+            </main>
+            {% partial 'site/footer' %}
         </div>
-        {% partial 'site/header' %}
-        <main>
-            {% page %}
-        </main>
 
-        {% partial 'site/footer' %}
         <script src="{{ 'assets/js/splide.min.js'|theme }}"></script>
         <script src="{{ 'assets/js/video.min.js'|theme }}"></script>
         <script src="{{ 'assets/js/Youtube.min.js'|theme }}" defer></script>
