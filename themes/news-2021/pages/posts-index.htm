@@ -45,7 +45,7 @@ function onStart()
                         <span> فيديو</span>
                     </div>
                     {% endif %}
-                    <img src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
+                    <img data-src="{{ post.image|media }}" alt="{{ post.slug }}"></a>
                     <div class="content">
                         <a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
                             {{ post.title }}
