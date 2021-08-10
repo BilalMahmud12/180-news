@@ -21,7 +21,7 @@ function onStart()
     $post_id = $this['post']->id;
     $category_id = $this['post']->category_id;
     $this['read_more'] = Article::where('id', '!=', $post_id)->where('category_id', $category_id)->inRandomOrder()->take(9)->get();
-    $this['from_category'] = Article::where('category_id', $this['post']->category_id)->inRandomOrder()->take(10)->get();
+    $this['from_category'] = Article::where('category_id', $this['post']->category_id)->inRandomOrder()->take(5)->get();
     $this->page->title = $this['post']->title;
 
     $this->page->meta_description = $this['post']->meta_desc;
