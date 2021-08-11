@@ -1,16 +1,16 @@
 on: push
 name: Publish Website
 jobs:
-  web-deploy:
-    name: Website Deploy
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v2
-
-      - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+      - uses: actions/checkout@v2.1.0
         with:
-          server: ftp://188.40.30.18/
-          username: ssstvc_0
-          password: ${{ secrets.FTP_PASS }}
+          fetch-depth: 2
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        with:
+          ftp-server: ftp://188.40.30.18/
+          ftp-username: ssstvc_0
+          ftp-password: ${{ secrets.FTP_PASS }}
