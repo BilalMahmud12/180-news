@@ -75,11 +75,16 @@ function onStart()
             <div class="pagination-area">
                 <div class="paginate-container">
                     {% if posts.currentPage > 1 %}
-                    <a class="previous" href="{{ posts.previousPageUrl }}">    السابق</a>
+                    <a class="previous" href="{{ posts.previousPageUrl }}"> السابق</a>
                     {% endif %}
-                    <div class="page-indicator"><span>   صفحة</span><span>   {{ posts.currentPage }}</span><span>   من</span><span>   {{ posts.lastPage }}</span></div>
+                    <div class="page-indicator">
+                        <span>   صفحة</span>
+                        <span class="current_page">   {{ posts.currentPage }}</span>
+                        <span>   من</span>
+                        <span class="last_page">   {{ posts.lastPage }}</span>
+                    </div>
                     {% if posts.hasMorePages %}
-                    <a class="next" href="{{ posts.nextPageUrl }}">    التالي</a>
+                    <a class="next" href="{{ posts.nextPageUrl }}"> التالي</a>
                     {% endif %}
                 </div>
             </div>
