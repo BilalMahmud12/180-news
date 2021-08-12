@@ -1,35 +1,22 @@
-<section class="category-top-posts">
-    <div class="title-area"><a class="section-title" href="#">
-        <h2> الأكثر قراءة</h2></a></div>
-    <div class="glide" id="categoryTopPosts">
-        <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
-                {% for post in top_posts %}
-                <div class="category-top--item">
-                    <div class="overlay"></div>
-                    <div class="item--bg"><img src="{{ post.image|media }}" alt="{{ post.slug }}"></div>
-                    <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
-                        <h3>{{ post.title }}</h3></a><a class="author" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
-                        <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
-                        <div class="author-name">
-                            <p>{{ post.author.name }}</p>
-                        </div></a></div>
+<section class="top-posts">
+    <div class="title-area">
+        <a class="section-title" href="#">
+            <h2> الأكثر قراءة</h2>
+        </a>
+    </div>
+    <div class="grid-container">
+        {% for post in top_posts %}
+        <a class="top10--item" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+            <div class="media">
+                <div class="position">
+                    <p>{{ loop.index }}</p>
                 </div>
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="glide__arrows" data-glide-el="controls">
-            <button class="glide__arrow glide__arrow--right" data-glide-dir="&gt;"><span><svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M6 15L11 10L6 5L7 3L14 10L7 17L6 15Z" fill="#ffffff7d"/>
-</svg></span></button>
-            <button class="glide__arrow glide__arrow--left" data-glide-dir="&lt;"><span><svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14 5L9 10L14 15L13 17L6 10L13 3L14 5Z" fill="#ffffff7d"/>
-</svg></span></button>
-        </div>
-        <div class="glide__bullets" data-glide-el="controls[nav]">
-            {% for item in top_posts %}
-            <button class="glide__bullet" data-glide-dir="={{ loop.index -1 }}"></button>
-            {% endfor %}
-        </div>
+                <div class="overlay"></div><img src="{{ post.image|media }}" alt="{{ post.slug }}">
+            </div>
+            <div class="content">
+                <h2 class="title">{{ post.title }}</h2>
+            </div>
+        </a>
+        {% endfor %}
     </div>
 </section>
