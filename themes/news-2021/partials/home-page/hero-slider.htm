@@ -45,7 +45,7 @@
                         >
                         </video>
                     </div>
-                    {% elseif settings.live_stream_src === 'facebook' %}
+                    {% else settings.live_stream_src === 'facebook' %}
                     <div id="fb-root"></div>
                     <div class="fb-video" data-href="{{ settings.live_stream_link }}" data-width="100%" data-show-text="false"></div>
                     {% endif %}
