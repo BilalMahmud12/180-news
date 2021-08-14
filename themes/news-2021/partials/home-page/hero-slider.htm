@@ -33,6 +33,7 @@
                         </span>
                         <span>   البث التجريبي</span>
                     </div>
+                    {% if settings.live_stream_src === 'youtube' %}
                     <div class="stream-body">
                         <video
                                 id="homeStream"
@@ -43,8 +44,11 @@
                                 data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "{{ settings.live_stream_link }}"}] }'
                         >
                         </video>
-
                     </div>
+                    {% elseif settings.live_stream_src === 'facebook' %}
+                    <div id="fb-root"></div>
+                    <div class="fb-video" data-href="{{ settings.live_stream_link }}" data-width="100%" data-show-text="false"></div>
+                    {% endif %}
                 </div>
 
                 <div class="stream-ad">
