@@ -5,11 +5,12 @@ jobs:
     name: FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.1.0
-      - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+      - uses: actions/checkout@master
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASS }}
-          post: 21
+            fetch-depth: 2
+      - name: FTP-Deploy-Action
+        uses: Automattic/FTP-Deploy-Action@3.0.1
+        with:
+          ftp-server: ${{ secrets.FTP_HOST }}
+          ftp-username: ${{ secrets.FTP_USER }}
+          ftp-password: ${{ secrets.FTP_PASS }}
