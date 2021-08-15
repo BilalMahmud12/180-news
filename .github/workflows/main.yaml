@@ -14,3 +14,5 @@ jobs:
           server: ftp://188.40.30.18/
           username: ssstvc_0
           password: ${{ secrets.FTP_PASS }}
+          protocol: ftps
+          port: 22
