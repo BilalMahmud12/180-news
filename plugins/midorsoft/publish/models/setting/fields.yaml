@@ -90,7 +90,7 @@ tabs:
             tab: '180 Production'
         live_stream_link:
             label: 'Live Stream Link'
-            span: full
+            span: left
             type: text
             tab: 'Live Stream'
         live_stream_src:
@@ -100,4 +100,15 @@ tabs:
             showSearch: true
             span: auto
             type: dropdown
+            tab: 'Live Stream'
+        live_stream_title:
+            label: 'Live Stream Title'
+            span: full
+            type: text
+            tab: 'Live Stream'
+        live_stream_desc:
+            label: 'Live Stream Desc'
+            size: small
+            span: full
+            type: textarea
             tab: 'Live Stream'

@@ -108,3 +108,6 @@
 1.0.37:
     - 'Updated table midorsoft_publish_settings'
     - builder_table_update_midorsoft_publish_settings_4.php
+1.0.38:
+    - 'Updated table midorsoft_publish_settings'
+    - builder_table_update_midorsoft_publish_settings_5.php

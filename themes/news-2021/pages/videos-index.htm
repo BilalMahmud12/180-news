@@ -42,16 +42,12 @@ function onStart()
                         <h2>{{ settings.live_stream_title }}</h2>
                     </div>
                     <div class="stream-description">
-                        <p>{{ settings.live_stream_desc }}ر</p>
+                        <p>{{ settings.live_stream_desc }}</p>
                     </div>
                 </div>
-                <div class="left-side"><a id="unit_05" href=""><span class="ad-label">وحدة إعلانية</span>
-                    <div class="ad-content">
-                        <div class="headline">
-                            <h2> لحجز هذه المساحة الإعلانية</h2>
-                            <p>  اضغط هنا</p>
-                        </div>
-                    </div></a></div>
+                <div class="left-side">
+                    {% partial 'ad-units/unit-05' %}
+                </div>
             </div>
         </section>
         <div class="grid-container">
