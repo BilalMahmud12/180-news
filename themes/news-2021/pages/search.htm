@@ -1,4 +1,4 @@
-title = "search"
+title = "البحث"
 url = "/search"
 layout = "default"
 is_hidden = 0
@@ -53,7 +53,7 @@ function onStart()
                             </div>
                             <div class="content">
                                 <h2 class="title">{{ post.title }}</h2>
-                                <p class="excerpt">{{ post.content| }}</p>
+                                <p class="excerpt">{{ post.content|slice(0,80)|raw }}</p>
                             </div>
                         </a>
                         {% endfor %}
