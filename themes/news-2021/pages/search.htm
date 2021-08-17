@@ -1,4 +1,4 @@
-title = "search"
+title = "البحث"
 url = "/search"
 layout = "default"
 is_hidden = 0
@@ -19,36 +19,67 @@ function onStart()
     $this['search'] = Article::query()
     ->whereLike('title', $searchTerm)
     ->whereLike('content', $searchTerm)
-    ->orderBy('created_at', 'desc')->get();
+    ->orderBy('created_at', 'desc')->paginate(10);
 }
 ?>
 ==
 <article id="search-results">
     <div class="wrapper">
-        <div class="category-title-area">
-            <div class="overlay"></div>
-            <div class="category-bg"><img src="{{ 'assets/images/search-results.jpg'|theme }}" alt="180-news-search-results"></div>
-            <div class="title"><span>   نتائج البحث عن:</span>
-                <h1><span>   " {{ searchTerm }} "</span></h1>
-                <p><span> عدد النتائج :</span><span> {{ search.count }}</span></p>
-            </div>
-        </div>
-        <div class="page-grid">
-            <div class="search-results">
-                <ul class="post-results--list">
-                    {% for post in search %}
-                    <li class="post-result-list--item">
-                        <div class="content"><a class="category" href="{{ 'posts-index'|page({ category: post.category.slug }) }}">{{ post.category.name }}</a>
-                            <a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
-                            <h2>{{ post.title }}</h2></a>
+        <div class="search-page-grid">
+            <div class="right-side">
+                <div class="search-form-container">
+                    <form action="{{ 'search' | page }}" method="get">
+                        <input id="search" name="q" type="search" autocomplete="off" placeholder="ابحث خلال المواضيع و الفيديوهات">
+                        <button type="submit">ابحث</button>
+                    </form>
+                </div>
+                <div class="search-results-area">
+                    <div class="title">
+                        <span>   نتائج البحث عن:</span>
+                        <div class="results-count">
+                            <h1><span>   " {{ searchTerm }} "</span></h1>
+                            <p>
+                                <span> عدد النتائج :</span>
+                                <span> {{ search.count }}</span>
+                            </p>
                         </div>
-                    </li>
-                    {% endfor %}
-
-                </ul>
+                    </div>
+                    <div class="search-results-grid">
+                        {% for post in search %}
+                        <a class="sr--item" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                            <div class="media">
+                                <div class="overlay"></div>
+                                <img data-src="{{ post.image|media }}" alt="{{ post.slug }}"/>
+                            </div>
+                            <div class="content">
+                                <h2 class="title">{{ post.title }}</h2>
+                                <p class="excerpt">{{ post.content| }}</p>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% if search.hasPages %}
+                <div class="pagination-area">
+                    <div class="paginate-container">
+                        {% if search.currentPage > 1 %}
+                        <a class="previous" href="{{ search.previousPageUrl }}">    السابق</a>
+                        {% endif %}
+                        <div class="page-indicator">
+                            <span>   صفحة</span>
+                            <span class="current_page">   {{ search.currentPage }}</span>
+                            <span>   من</span>
+                            <span class="last_page">   {{ search.lastPage }}</span>
+                        </div>
+                        {% if search.hasMorePages %}
+                        <a class="next" href="{{ search.nextPageUrl }}">    التالي</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
             </div>
-            <div class="sidebar-left">
-                {% partial 'site/recommend-posts' %}
+            <div class="left-side">
+                {% partial 'ad-units/unit-05' %}
             </div>
         </div>
     </div>
