@@ -70,6 +70,12 @@ tabs:
             span: full
             type: richeditor
             tab: Services
+        ads_contact_phone:
+            label: 'Advertising Contact Phone'
+            span: full
+            type: number
+            comment: 'example : 905413517177'
+            tab: Advertising
         advertising:
             label: 'For Advertising'
             size: large
