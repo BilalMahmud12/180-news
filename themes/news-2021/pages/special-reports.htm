@@ -10,6 +10,7 @@ use Midorsoft\Publish\Models\Setting;
 function onStart()
 {
     $this['posts'] = Article::where('is_active', 1)->where('is_vip_post', 1)->OrderBy('created_at', 'desc')->paginate(9);
+    $this['postsCount'] = Article::where('is_active', 1)->where('is_vip_post', 1)->count();
 }
 ?>
 ==
@@ -20,7 +21,7 @@ function onStart()
                 <h1>{{ this.page.title }}</h1>
             </div>
             <div class="posts-count">
-                <p><span> عدد التقارير :</span><span> {{ posts.count }}</span><span>تقريرا</span></p>
+                <p><span> عدد التقارير :</span><span> {{ postsCount }}</span><span>تقريرا</span></p>
             </div>
         </div>
 
