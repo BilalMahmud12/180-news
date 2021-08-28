@@ -16,13 +16,14 @@ function onStart()
 <article id="posts-index">
     <div class="wrapper">
         <div class="category-title-area">
-            <div class="overlay"></div>
-            <div class="category-bg"><img src="{{ 'assets/images/AU0A6484a.jpg'|theme }}" alt="{{ category.slug }}"></div>
             <div class="title">
                 <h1>{{ this.page.title }}</h1>
-                <p><span> عدد المقالات تحت هذا الباب :</span><span> {{ posts.count }}</span></p>
+            </div>
+            <div class="posts-count">
+                <p><span> عدد التقارير :</span><span> {{ count }}</span><span>تقريرا</span></p>
             </div>
         </div>
+
         <section class="posts-list">
             <div class="grid-container">
                 {% if posts|length %}
@@ -35,14 +36,10 @@ function onStart()
                         <img src="{{ post.image|media }}" alt="{{ post.slug }}">
 
                     </a>
-                    <div class="content"><a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">{{ post.title }}</a>
-                        <div class="meta-data"><a class="author" href="{{ 'author-profile'|page ({ author: post.author.slug }) }}">
-                            <div class="author-img"><img src="{{ post.author.photo|media }}" alt="{{ post.author.slug }}"></div>
-                            <div class="author-name">
-                                <p>{{ post.author.name }}</p>
-                            </div></a>
-                            <div class="create-date"><span>{{ post.created_at|strftime('%d-%m-%Y') }}</span><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c2ccda" width="20px" height="20px"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10H7v2h10v-2zm2-7h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v2h7v-2z"/></svg></span></div>
-                        </div>
+                    <div class="content">
+                        <a class="title" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
+                            {{ post.title }}
+                        </a>
                     </div>
                 </div>
                 {% endfor %}
@@ -54,7 +51,12 @@ function onStart()
                     {% if articles.currentPage > 1 %}
                     <a class="previous" href="{{ articles.previousPageUrl }}">    السابق</a>
                     {% endif %}
-                    <div class="page-indicator"><span>   صفحة</span><span>   {{ articles.currentPage }}</span><span>   من</span><span>   {{ articles.lastPage }}</span></div>
+                    <div class="page-indicator">
+                        <span>   صفحة</span>
+                        <span class="current_page">   {{ articles.currentPage }}</span>
+                        <span>   من</span>
+                        <span class="last_page">   {{ articles.lastPage }}</span>
+                    </div>
                     {% if articles.hasMorePages %}
                     <a class="next" href="{{ articles.nextPageUrl }}">    التالي</a>
                     {% endif %}
