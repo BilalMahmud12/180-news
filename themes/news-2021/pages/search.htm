@@ -19,7 +19,7 @@ function onStart()
     $this['search'] = Article::query()
     ->whereLike('title', $searchTerm)
     ->whereLike('content', $searchTerm)
-    ->orderBy('created_at', 'desc')->paginate(10);
+    ->orderBy('created_at', 'desc')->get();
 }
 ?>
 ==
@@ -58,24 +58,6 @@ function onStart()
                         {% endfor %}
                     </div>
                 </div>
-                {% if search.hasPages %}
-                <div class="pagination-area">
-                    <div class="paginate-container">
-                        {% if search.currentPage > 1 %}
-                        <a class="previous" href="{{ search.previousPageUrl }}">    السابق</a>
-                        {% endif %}
-                        <div class="page-indicator">
-                            <span>   صفحة</span>
-                            <span class="current_page">   {{ search.currentPage }}</span>
-                            <span>   من</span>
-                            <span class="last_page">   {{ search.lastPage }}</span>
-                        </div>
-                        {% if search.hasMorePages %}
-                        <a class="next" href="{{ search.nextPageUrl }}">    التالي</a>
-                        {% endif %}
-                    </div>
-                </div>
-                {% endif %}
             </div>
             <div class="left-side">
                 {% partial 'ad-units/unit-05' %}
