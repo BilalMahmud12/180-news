@@ -103,6 +103,7 @@ tabs:
             label: 'Live Stream Source'
             options:
                 youtube: YouTube
+                facebook: Facebook
             showSearch: true
             span: auto
             type: dropdown
