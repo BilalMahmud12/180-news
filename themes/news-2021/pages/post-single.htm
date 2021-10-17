@@ -247,6 +247,24 @@ function onStart()
                         <h2> الأكثر قراءة</h2>
                         </a>
                     </div>
+                    <div class="">
+                        <div id="taboola-below-homepage-thumbnails"></div>
+                    </div>
+                </section>
+            </div>
+            <div class="left-section">
+                {% partial 'ad-units/unit-03' %}
+                {% partial 'ad-units/unit-03' %}
+            </div>
+        </div>
+        <div class="more-content-grid">
+            <div class="right-section">
+                <section class="top-posts">
+                    <div class="title-area">
+                        <a class="section-title" href="#">
+                            <h2> الأكثر قراءة</h2>
+                        </a>
+                    </div>
                     <div class="grid-container">
                         {% for post in top_posts %}
                         <a class="top10--item" href="{{ 'post-single'|page ({ date: post.created_at|strftime('%d-%m-%Y')  ,slug: post.slug }) }}">
